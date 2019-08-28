@@ -1,0 +1,172 @@
+# 第十二天学习
+
+1. ubuntu与mac上安装sass
+2. JQuery使用
+
+
+
+## ubuntu与mac上安装sass
+
+**ubuntu上安装**
+
+1.安装ruby
+
+`apt install ruby`
+
+2.gem安装sass
+
+`gem install sass`
+
+可能遇到的坑。
+
+gem如果能翻墙那也没啥，不能翻墙的小伙伴可是使用淘宝镜像
+
+`gem sources --remove https://rubygems.org/`
+
+`gem sources --add https://gems.ruby-china.com/`
+
+如果再次安装出现
+
+![image-20190801103911402](/Users/elin/Library/Application Support/typora-user-images/image-20190801103911402.png)
+
+只需要安装ruby-dev包就解决了。
+
+`sudo apt-get install ruby-dev`
+
+**Mac 上安装**
+mac 安装sass 的解决方案。
+1.更改淘宝镜像源:https://gems.ruby-china.com 
+命令:gem sources --remove https://rubygems.org/  && gem sources --add https://gems.ruby-china.com/
+2.提升mac的ruby版本,因为mac自带ruby.使用上面的连接进行升级，
+3.升级完成后，直接运行gem install sass
+
+## JQuery使用
+
+### ajax的使用
+
+#### $.ajax()
+
+通过HTTP请求加载远程数据。
+
+回调函数
+
+如果要处理$.ajax()得到的数据，则需要使用回调函数。beforeSend、error、dataFilter、success、complete。
+
+* beforeSend 在发送请求之前调用，并且传入一个XMLHttpRequest作为参数。
+* error在请求出错时调用。传入XMLHttpRequest对象，描述错误类型的字符串以及一个异常对象(如果有滴话)
+* dataFilter在请求成功之后调用。传入返回的数据以及"dataType"参数的值。并且必须返回新的数据(可能是处理过的)传递给success回调函数。
+* success当请求之后调用。传入返回后的数据，以及包含成功代码的字符串。
+* complete当请求完成之后调用这个函数，无论成功或失败。传入XMLHttpRequest对象，以及一个包含成功或错误代码的字符串。
+
+数据类型
+
+通过dataType选项还可以指定其他不同数据处理方式。除了单纯的XML,还可以指定html、json、jsonp、script或者text。
+
+其中，text和xml类型返回的数据不会经过处理。数据仅仅简单的将XMLHttpRequest的responseText或responseHTML属性传递给success回调函数
+
+如果指定为json类型，则会把获取到的数据作为一个JavaScript对象来解析，并且把构建好的对象作为结果返回。为了实现这个目的，首先尝试使用JSON.parse()。如果浏览器不支持，则使用一个函数来构建。JSON数据是一种能很方便通过JavaScript解析的结构化数据。如果获取的数据文件存放在远程服务器上(域名不同，也就是跨域获取数据),  则需要使用jsonp类型。使用这种类型的话，会创建一个查询字符串参数callback=?, 这个参数会加在请求的URL后面。服务器端应当在JSON数据前加上回调函数名，以便完成一个有效的JSONP请求。如果指定回调函数的参数名来取代默认的callback,可以通过设置$.ajax()的jsonp参数。
+
+​	***注意， JSONP是JSON格式的扩展*** 他要求一些服务器端的代码来检测并处理查询字符串参数。
+
+
+
+**发送数据到服务器**
+默认情况下，Ajax请求使用GET方法。如果要使用POST方法, 可以设定type参数。这个选项也会影响data选项中的内容如何发送到服务器。
+
+
+
+data选项即可以包含一个查询字符串，比如 key1=value1&key2=value2, 也可以是一个映射，比如{key1:'value1', key2:'value2'}
+
+如果使用了后者的形式，则数据再发送器会被转换成查询字符串。
+
+如果我们希望发送一个XML对象给服务器时，这种处理可能并不合适。并且在这种情况下，我们也应当改变contentTypt选项的值，用其他合适的MIME类型来取代默认的application/x-www-form-urlencoded。
+
+**高级选项**
+
+Ajax请求是限时的，所以错误告警被捕获并处理后，可以用来提升用户体验。
+
+默认情况下，请求总会被发出去，但浏览器有可能从他的缓存中调取数据。
+
+要禁止使用缓存的结果，可以设置cache参数为false。
+
+Ajax的第一个字母是asynchronous的开头字母，这意味着所有的操作都是并行的，完成的顺序没有前后关系。
+
+$.ajax()的async参数总是设置成true, 这标志着在请求开始后，其它代码依然能够执行。
+
+$.ajax函数返回他创建的XMLHttpRequest对象。通常JQuery只在内部处理并创建这个对象，但用户也可以通过xhr选项来传递一个自己创建的xhr对象。
+
+
+
+setting选项
+
+async     	Boolean.    是否开启异步请求
+
+beforeSend(XHR).  function   发送请求前调用的函数
+
+cache		Boolean.  	是否缓存这个页面当dataTtpe为jsonp或script
+
+complete(XHR, TS)	function.    请求完成后回调函数 不管成功或异常都会调用
+
+crossDomain	map	默认同域请求
+
+data	Object,String	发送到服务器的数据。
+
+dataFilter 	function		给Ajax返回的原始数据的进行预处理的函数。提供data和type两个参数data是Ajax返回的原始数据，type是调用JQuery.ajax时提供的dataType参数。
+
+```
+function (data, type) {
+	return data;
+}
+```
+
+dataType		String	
+
+"xml": 返回XML文档, 可用jQuery处理
+
+"html": 返回纯文本HTML信息; 包含的script标签会在插入dom时执行。
+
+"script": 返回纯文本JavaScript代码。不会自动缓存结果。
+
+"json": 返回JSON数据。
+
+"jsonp": JSONP格式。
+
+"text": 返回纯文本字符串
+
+
+
+"error"	function. 请求失败时调用此函数.有三个参数传入
+
+XMLHttpRequest对象、错误信息、(可选)捕获的异常对象。
+
+如果发生了错误，错误信息(第二个参数)除了得到null之外，还可能是"timeout","error","notmodified"和"parsererror"
+
+```
+function (XMLHttpRequest, textStatus, errorThrown) {
+	this;
+}
+```
+
+headers 	map 		Default:{}
+
+jsonp 	String	在一个jsonp请求中重写回调函数的名字。
+
+jsonpCallback 	string    为jsonp请求指定一个回调函数名
+
+statusCode	map	默认{}	一组数值的HTTP代码和函数对象，当响应时调用了相应的代码。
+
+```
+$.ajax({
+	statusCode: {404: function() {
+		alert('page not found');
+	}}
+})
+```
+
+
+
+success(data, textStatus, jqXHR)
+
+type	string	默认GET. 请求方式POST 和 GET。 PUT DELETE 等也可以使用，但只有部分浏览器支持
+
+url		string	发送请求的地址。

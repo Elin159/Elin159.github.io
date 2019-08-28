@@ -1,0 +1,1180 @@
+# 第17天学习(React)
+
+# React基础
+
+本章将指导你了解React的基础知识。由于静态组件会有些枯燥，所以这章的内容会包含组件的状态于交互。此外，我们将学习使用不同方式声明组件以及如何保持组件的可组合型和可复用性。准备好创造我们自己的组件吧。
+
+
+
+## 组件内容状态
+
+组件内部状态也被称为局部状态，允许我们保存、修改和删除存储在组件内部的属性。使用ES6类组件可以在构造函数中初始化组件的状态。构造函数只会在组件初始化时调用一次。
+
+让我们引入类构造函数吧～；
+
+举个小🌰
+
+```react
+class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+  
+  ...
+  
+}
+```
+
+当我们使用ES6编写的组件有一个构造函数时，它需要强制调用super();方法，因为这个App组件是Component的子类。因此在我们的App组件要声明extends Component。
+
+我们也可以调用super(props); 它会在我们的构造函数中设置this.props 以供在构造函数中访问它们。
+
+否则当在构造函数中访问this.props,会得到undefined。
+
+举个小🌰
+
+```react
+const list = [
+  {
+    title:'React',
+    url:'https://facebook.github.io/react/',
+    author:'Jordan Walke',
+    num_comments:3,
+    points:4,
+    objectID:0,
+  },
+  ...
+];
+  
+	class App extends Component {
+  	constructor(props) {
+      super(props);
+      
+      this.state = {
+        list:list,
+      }
+    }
+		...
+  }  
+  
+```
+
+state通过使用this绑定在类上。
+
+因此，我们可以在整个组件中访问到state。例如它可以用在render() 方法中。此前我们已经在render()方法中映射一个在组件外定义静态列表。现在我们可以在组件中使用state里的list了。
+
+举一个中等🌰
+
+```react
+class App extends Component {
+  ...
+  
+  render() {
+    return (
+      <div className="App">
+        {this.state.list.map(item => {
+          <div key={item.objectID}>
+          	<span>
+            	<a href={item.url}>{item.title}</a>
+            </span>
+            <span>{item.author}</span>
+            <span>{item.num_comments}</span>
+            <span>{item.points}</span>
+          </div>
+        })}
+      </div>
+    );
+  }
+}
+```
+
+
+
+现在list是组件的一部分。它驻留在组件的state中。
+
+我们可以从list中添加、修改或者删除列表项。
+
+每次我们修改组件的内部状态，组件的render方法会再次运行。
+
+这样我们就可以简单地修改组件内部状态，确保组件重新渲染并且展示从内部状态获取到的正确数据。
+
+⚠️注意：不要直接**修改state**。我们必须使用**setState()**方法来修改它。
+
+## ES6对象初始化
+
+在ES6中，我们可以通过简写属性更加简洁地初始化对象。
+
+举个小🌰
+
+```react
+const name = 'Robin';
+
+const user = {
+  name:name,
+};
+```
+
+当我们的对象中的属性名与变量名相同时，我们可以执行以下的操作：
+
+```react
+const name = 'Robin';
+
+const user = {
+  name,
+};
+```
+
+在应用程序中，我们也可以这样做。列表变量名和状态属性名称共享同一名称。
+
+```react
+// ES5
+this.state = {
+  list: list,
+};
+//ES6
+this.state = {
+  list,
+};
+```
+
+另一个简洁的辅助办法是**简写方法名**。
+
+举个🌰
+
+```react
+// ES5
+var userService = {
+  getUserName: function(user) {
+    return user.firstname + ' ' + user.lastname;
+  },
+}
+//ES6
+const userService = {
+  getUserName(user) {
+    return user.firstname + ' ' + user.lastname;
+  },
+}
+```
+
+最后我们可以在ES6中使用计算属性名。
+
+```react
+//ES5
+var user = {
+  name: 'Robin',
+};
+//ES6
+const key = 'name';
+const user = {
+  [key] : 'Robin',
+}
+```
+
+## 单向数据流
+
+现在我们的组件中有一些内部的state。但是我们还没有操纵它们，因此state是静态的。一个练习state操作好方法是增加一些组件的交互。
+
+让我们为列表中的每一项增加一个按钮。意味着将从列表中删除该项。这个按钮在我们希望保留未读列表和删除不感兴趣的项时会非常有用。
+
+举个中等🌰
+
+```react
+class App extends Component {
+  ...
+  
+  render() {
+    return (
+    	<div className="App">
+        {this.state.list.map(item => {
+          <div key={item.objectID}>
+          	<span>
+            	<a href={item.url}>{item.title}</a>
+            </span>
+            <span>{item.author}</span>
+            <span>{item.num_comments}</span>
+            <span>{item.points}</span>
+            <span>
+            	<button 
+                onClick={() => this.onDismiss(item.objectID)}
+                type="button"
+              >
+              	Dismiss
+              </button>
+            </span>
+          </div>
+        });}
+      </div>
+    )
+  }
+}
+```
+
+
+
+这个类方法onDismiss()还没有被定义，我们稍后再来做这件事。
+
+在`onClick`事件处理器中，onDismiss()方法被包裹着。它是一个箭头函数。这样我们可以拿到item对象中的objectID属性来确定哪一项会被删除掉。另一种方法是在`onClick`处理器之外定义函数，并只将已定义的函数传到处理器。
+
+我们需要完成onDismiss()的功能，它通过id来标示哪一项需要被删除。此函数绑定到累，因此称为类方法。
+
+这就是为什么我们访问它使用this.onDismiss() 而不是onDismiss()。
+
+this对象是类的实例, 为了将onDismiss() 定义为类方法，我们需要在构造函数中绑定它.
+
+举个有点大的🌰
+
+```react
+class App extends Component {
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      list,
+    }
+    
+    this.onDimiss = this.onDismiss.bind(this);
+  }
+  
+  render() {
+    return(
+    	<div className="App">
+      	{this.state.list.map(item => {
+          <div key={item.objectID}>
+          	<span>
+            	<a href={item.url}>{item.title}</a>
+            </span>
+            <span>{item.author}</span>
+            <span>{item.num_con}</span>
+            <span>{item.num}</span>
+            
+            <span>
+            	<buttion 
+                onClick={() => this.onDismiss(item.objectID)}
+                type="button"
+              >
+              onDismiss
+              </buttion>
+            </span>
+          </div>
+        });}
+      </div>
+    );
+  }
+}
+```
+
+下一步，我们需要在类中定义它的功能和业务逻辑。
+
+```react
+class App extends Component {
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      list,
+    }
+    
+    this.onDismiss = this.onDismiss.bind(this);
+  }
+  
+  onDismiss(id) {
+    ....
+  }
+  
+  render() {
+    ...
+  }
+}
+```
+
+现在我们可以定义方法内部的功能。总的来说我们希望从列表中删除由id标识的项，并且保存更新后的列表到state中。随后这个更新后列表被使用到再次运行的render()方法中并渲染，最后这个被删除项就不再显示了。
+
+举个中等🌰
+
+```react
+onDismiss(id) {
+  const updatedList = this.state.list.filter(function isNotId(item) {
+    return item.objectID !== id;
+  });
+}
+```
+
+下一步中，我们可以抽取函数并将其传递给filter函数
+
+```react
+onDismiss(id) {
+  function isNotId(item) {
+    return item.objectID !== id;
+  }
+  
+  const updatedList = this.state.list.filter(isNotId);
+}
+```
+
+另外，可以通过使用ES6的箭头函数让代码更简洁。
+
+```react
+onDismiss(id) {
+  const isNotId = item => item.objectID !== id;
+  const updatedList = this.state.list.filter(isNotId);
+}
+```
+
+甚至可以内联到一行完成。
+
+``` react
+onDismiss(id) {
+  const updatedList = this.state.list.filter(item => item.objectID !== id);
+}
+```
+
+现在已经从列表中删除了点击项，但是state还没有更新。因此我们需要最后使用类方法**setState();** 来更新组件state中的列表了。
+
+```react
+onDismiss(id) {
+  const isNotId = item => item.objectID !== id;
+  const updatedList = this.state.list.filter(isNotId);
+  this.setState({list: updatedList});
+}
+```
+
+这就是React中的单向数据流。
+
+我们在界面通过onClick触发一个动作，再通过函数或类方法修改组件的state, 最后组件的render() 方法再次运行并更新界面。
+
+![image-20190813231517225](/Users/elin/Library/Application Support/typora-user-images/image-20190813231517225.png)
+
+## 绑定
+
+当使用ES6编写的React组件时，了解JavaScript类的绑定会非常重要。
+
+我们已经在构造函数中绑定了onDismiss() 方法
+
+```react
+class App extends Component {
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      list,
+    }
+    
+    this.onDismiss = this.onDismiss().bind(this);
+  }
+  ...
+}
+```
+
+绑定的步骤是非常重要的，因为类方法不会自动绑定this到实例上。
+
+我们举个错误的小🌰
+
+```react
+class ExplainBindingsComponent extends Component {
+  onClickMe() {
+    console.log(this);
+  }
+  
+  render() {
+    return (
+    	<button 
+        onClick={this.onClickMe}
+      	type="button"
+      >
+      Click Me
+      </button>
+    );
+  }
+}
+```
+
+组件虽然能正确渲染，但是当我们点击按钮时候，我们会在开发调试控制台中得到undefined。
+
+这是使用React主要的bug来源，因为当我们想在类方法中访问this.state时，由于this是undefined所有并不能被检索到。
+
+所以 为了确保this在类放啊放中是可访问的，我们需要将this绑定到类方法上。
+
+举个正确的🌰
+
+```react
+class ExplainBindingsComponent extends Component {
+  constructor() {
+    super();
+    
+    this.onClickMe = this.onClickMe.bind(this);
+  }
+  
+  onClickMe() {
+    console.log(this);
+  }
+  
+  render() {
+    return (
+    	<button
+        onClick={this.onClickMe}
+        type="button"
+      >
+      Click Me
+      </button>
+    );
+  }
+}
+```
+
+再次尝试点击按钮，这个this对象就指向了类的实例。
+
+我们现在就可以访问到this.state了
+
+类方法的绑定也可以写在其他地方，比如写在render()函数中。
+
+🌰举起来
+
+```react
+class ExplainBindingsComponent extends Component {
+  onClickMe() {
+    console.log(this);
+  }
+  
+  render() {
+    return(
+    	<button
+        onClick={this.onClickMe.bind(this)}
+        type="button"
+      >
+        Click Me
+      </button>
+    );
+  }
+}
+```
+
+但是我们**应该避免**这样做，因为它会在每次render()方法执行时绑定类方法。
+
+总结来说组件每次运行更新时都会导致**性能消耗**。
+
+当在构造函数中绑定时，**绑定只会在组件实例化时运行一次**，这样做是一个更好的方式。
+
+举个🌰
+
+```react
+class ExplainBindingsComponent extends Component {
+  constructor() {
+    super();
+    
+    this.onClickMe = () => {
+      console.log(this);
+    }
+  }
+  
+  render() {
+    return (
+    	<button
+        onClick={this.onClickMe}
+        type="button"
+      >
+      	Click Me
+      </button>
+    );
+  }
+}
+```
+
+我们同样也应该**避免这种写法**；因为随着时间的推移它会让我们的构造函数变得混乱。
+
+**构造函数的目的**只是实例化你的类以及所有的属性
+
+这就是为什么我们应该把业务逻辑应该定义在构造函数之外。
+
+正确姿势举🌰
+
+```react
+class ExplainBindingsComponent extends Component {
+  constructor() {
+    super();
+    
+    this.doSomething = this.doSomething.bind(this);
+    this.doSomethingElse = this.doSomethingElse.bind(this);
+  }
+  
+  doSomething() {
+    ....
+  }
+  
+  doSomethingElse() {
+    ....
+  }
+  
+  ...
+}
+
+```
+
+最后提一下，类方法可以通过ES6的箭头函数做到自动地绑定
+
+举个🌰
+
+```react
+class ExplainBindingsComponent extends Component {
+  onClickMe = () => {
+    console.log(this);
+  }
+  
+  render() {
+    return (
+    	<button
+        onClick={this.onClickMe}
+        type="button"
+      >
+      	Click Me
+      </button>
+    );
+  }
+}
+```
+
+如果在构造函数中的重复绑定对我们有所 困扰，我们可以使用这种方式替代。
+
+React的官方文档中坚持**在构造函数中绑定类方法**。
+
+## 事件处理
+
+让我们对匀速的事件处理有更深的了解，在我们的应用程序中，我们将使用下面的按钮来从列表中忽略一项内容。
+
+```react
+<button
+  onClick={() => this.onDismiss(item.objectID)}
+  type="button"
+>
+	Dismiss
+</button>
+```
+
+上面已经是一个复杂的例子了，因为我们必须**传递一个参数到类的方法**，因此我们需要将它封装到另一个(箭头)函数中，基本上，由于要传递给事件处理器使用，因此它必须是一个函数。
+
+```react
+...
+<button 
+  onClick={this.onDismiss(item.objectID)}
+  type="button"
+>
+	Dismiss
+</button>
+...
+```
+
+当使用onClick={doSomething()} 时，doSomething()函数会在浏览器打开程序时立即执行，所以点击按钮时不会有任何事发生。
+
+但当使用onClick={doSomething}时，因为doSomething是一个函数，所以它会在点击按钮时执行。
+
+然而，这个类方法如果需要去接收item.objectID属性来识别那个将要被忽略的项。所以这就是为什么它需要被封装到另一个函数中来传递这个属性。
+
+举个🌰
+
+```react
+...
+<button
+  onClick={() => this.onDismiss(item.objectID)}
+  type="button"
+>
+	Dismiss
+</button>
+...
+```
+
+还有一种解决方案是在外部定义一个包装函数，并且只将定义的函数传递给处理程序。因为需要访问特定的列表项，所以它必须位于map函数块的内部
+
+```react
+class App extends Component {
+  ...
+  
+  render() {
+    return(
+    	<div className="App">
+      	{this.state.list.map(item => {
+          const onHandleDismiss = () => this.onDismiss(item.objectId);
+          return (
+          	<div key={item.objectID}>
+            	<span>
+              	<a href={item.url}>{item.title}</a>
+              </span>
+              <span>{item.author}</span>
+              <span>{item.num_comments}</span>
+              <span>{item.points}</span>
+              
+              <span>
+              	<button 
+                  onClick={onHandleDismiss}
+                  type="button"
+                >
+                	Dismiss
+                </button>
+              </span>
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
+}
+```
+
+毕竟，传给元素事件处理器的内容必须是函数。
+
+举个🌰
+
+```react
+class App extends Component {
+  ...
+  
+  render() {
+    return (
+    	<div className="App">
+      	{this.state.list.map(item => {
+          <span>
+          	<button 
+              onClick={console.log(item.objectID)}
+              type="button"
+            >
+            	Dismiss
+            </button>
+          </span>
+        })}
+      </div>
+    );
+  }
+}
+```
+
+它会在浏览器加载该程序时执行，但点击按钮时不会被触发。明显和我们规划的不符。
+
+所以，正确姿势举🌰
+
+```react
+<button
+  onClick={function() {
+    console.log(item.objectID);
+  }}
+  type="button"
+>
+	Dismiss
+</button>
+```
+
+换成箭头函数，保持简洁
+
+换个姿势举🌰
+
+```react
+<button
+  onClick={() => console.log(item.objectID)}
+  type="button"
+>
+	Click Me
+</button>
+```
+
+另一个经常会被提到的性能相关话题是在事件处理程序中使用箭头函数的影响。
+
+假设我们有一个包含1000个项目的巨大数据表，每一行或者列在事件处理程序中都有这样一个箭头函数，这个时候就**需要考虑性能影响**，因此我们可以实现一个专用的按钮组件来在构造函数中绑定方法，但这是一个不成熟的优化。
+
+## 和表单交互
+
+让我们在程序中加入表单来体验React和表单事件的交互，我们将在程序中加入搜索功能，列表会根据输入框的内容对标题进行过滤。
+
+第一步，我们需要在JSX中定义一个带有输入框的表单。
+
+```react
+...
+render() {
+  return(
+  	<div className="App">
+    	<form>
+        <input type="text"/>
+      </form>
+      {this.state.list.map(item => {
+        ....
+      })}
+    </div>
+  );
+}
+```
+
+在下面的场景中，将会使用在输入框中的内容作为搜索字段来临时过滤列表。
+
+为了能根据输入框的值过滤列表，我们需要将输入框的值存储在我们的本地状态中，
+
+我们可以使用React的合成事件来访问事件返回值。
+
+让我们为输入框定一个onChange处理程序
+
+```react
+class App extends Component{
+  ...
+  render() {
+    return (
+    	<div className="App">
+      	<form>
+        	<input
+            type="text"
+            onChange={this.onSearchChange}
+          />
+        </form>
+        ...
+      </div>
+    );
+  }
+}
+```
+
+这个函数被绑定到组件上，因此再次称为一个类方法，我们需要定义方法并bind它
+
+```react
+class App extends Component {
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      list,
+    }
+    this.onSearchChange = this.onSearchChange.bind(this);
+    this.onDismiss = this.onDismiss.bind(this);
+  }
+  
+  onSearchChange() {
+    ...
+  }
+    ...
+}
+```
+
+event对象的target属性中带有输入框的值，因此我们可以使用this.setState()来更新本地的搜索词的状态了。
+
+```react
+class App extends Component {
+  ...
+  onSearchChange(event) {
+    this.setState({searchTerm: event.target.value});
+  }
+	...
+}
+```
+
+此外，我们应该记住在构造函数中为searchTerm定义初始状态，输入框在开始时应该是空的，因此初始值应该是空字符串。
+
+```react
+class App extends Component {
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      list,
+      searchTerm: '',
+    };
+    
+    this.onSearchChange = this.onSearchChange.bind(this);
+    this.onDismiss = this.onDismiss.bind(this);
+  }
+  
+  ...
+}
+```
+
+关于在React组件中更新状态的简要说明。
+
+React的this.setState() 是一个浅合并，在更新一个唯一的属性时，他会保留状态对象中的其他属性，因此即使我们已经在列表中排除了一个项，在更新searchTerm属性时也会保持不变。
+
+我们需要更具存储在本地状态中的输入字段进行过滤。
+
+我们可以在render()方法中，在map映射列表之前，插入一个过滤的方法。
+
+这个过滤方法将只会匹配标题属性中有searchTerm内容的列表项。
+
+我们可以使用filter+map的方式
+
+举个🌰
+
+```react
+class App extends Component {
+  ...
+  render() {
+    return(
+    	<div className="App">
+      	<form>
+        	<input
+            type="text"
+            onChange={this.onSearchChange}
+          />
+        </form>
+        {this.state.list.filter(..).map(item => {
+          ...
+        })}
+      </div>
+    );
+  }
+}
+```
+
+另一种方式(高阶函数):
+
+举起巨大的🌰
+
+```react
+function isSearched(searchTerm) {
+  return function(item) {
+    //.... return true or false
+  }
+}
+
+class App extends Component {
+  ...
+}
+```
+
+该函数接受searchTerm并返回另一个函数，因为所有的filter函数都接受一个函数作为它的输入，返回的函数可以访问列表项目对象，因为它是传给filter函数的函数。
+
+返回的函数将会根据函数中定义的条件对列表进行过滤。
+
+举个🌰
+
+```react
+function isSearched(searchTerm) {
+  return function(item) {
+    return item.title.toLowerCase().includes(searchTerm.toLowerCase())
+  }
+}
+
+class App extends Component {
+  ...
+}
+```
+
+只有满足匹配时才会返回true并将项目保留在列表中。当不匹配时，项目会从列表中移除。（注意大小写问题）
+
+由于我们使用的是一个不可变的列表，并使用filter函数返回一个新列表，所以本地状态中的原始列表根本就**没有被修改过**
+
+JavaScript内置的includes功能，它已经是一个ES6的特性了。
+
+在ES5中我们将使用indexOf()函数来获取列表中项的索引，当项目在列表中时，indexOf()将会返回它的索引。
+
+```react
+//ES5
+string.indexOf(pattern) !== -1
+//ES6
+string.includes(pattern);
+```
+
+上面代码优化后：
+
+```react
+//ES5
+function isSearched(searchTerm) {
+  return function(item) {
+    return item.title.toLowerCase().includes(searchTerm.toLowerCase());
+  }
+}
+
+//ES6
+const isSearched = searchTerm => item => 
+{return item.title.toLowerCase().includes(searchTerm.toLowerCase());}
+```
+
+我们从本地状态中传递searchTerm属性返回一个根据条件过滤列表的输入过滤函数。之后它会映射过滤后的列表用于显示每个列表项的元素。
+
+```react
+class App extends Component {
+  ...
+  render() {
+    return(
+    	<div className="App">
+        <form>
+        	<input 
+            type="text"
+            onChange={this.onSearchChange}
+          />
+        </form>
+        {this.state.list.filter(isSearched(this.state.searchTerm)).map(item => {
+          ...
+        })}
+      </div>
+    );
+  }
+}
+```
+
+## 受控组件
+
+一个HTML输入标签带有一个value属性，这个属性通常有一个作为输入框的显示。
+
+表单元素比如\<input>,\<textarea>和\<select>会以原生HTML的形式保存它们自己的状态。
+
+一旦有人从外部做了一些修改，它们就会修改内部的值，在React中这被称为**不受控组件**，因为它们自己处理状态。
+
+在React中，我们应该确保这些元素变为**受控组件**。
+
+举个🌰
+
+```react
+class App extends Component {
+  ...
+  render() {
+    const { searchTerm, list } = this.state;
+    return (
+    	<div className="App">
+      	<form>
+        	<intpu 
+            type="text" 
+            onChange={this.onSearchChange}
+            value={searchTerm}
+            />
+        </form>
+        ...
+      </div>
+    );
+  }
+}
+```
+
+就是这样。现在输入框的单项数据流循环是自包含的，组件内部状态是输入框的唯一数据来源。
+
+## 拆分组件
+
+现在，我们有一个大型的App组件。它在不停地扩展，最终可能会变得混乱。我们可以开始将它拆分成若干个更小的组件。
+
+让我们开始使用一个用于搜索的输入组件和一个用于展示的列表组件吧～～。
+
+🌰来了。
+
+```react
+class App extends Component {
+  ...
+  render() {
+    const { searchTerm, list } = this.state;
+    return (
+    	<div className="App">
+      	<Search />
+        <Table />
+      </div>
+    );
+  }
+}
+```
+
+我们可以给组件传递属性并在组件中使用它们。至于APP组件，它需要传递由本地状态(state)托管的属性和它自己的类方法。
+
+```react
+class App extends Component {
+  ...
+  
+  render() {
+    const {searchTerm, list} = this.state;
+    return (
+    	<div className="App">
+      	<Search
+          value={searchTerm}
+          onChange={this.onSearchChange}
+        />
+        <Table 
+          list={list}
+          pattern={searchTerm}
+          onDismiss={this.onDismiss}
+          />
+      </div>
+    );
+  }
+}
+```
+
+现在我们可以接着App组件定义这些组件。这些组件仍然是ES6类组件，它们会渲染和之前相同的元素。
+
+第一个是Search组件
+
+```react
+class Search extends Component {
+  render() {
+    const { value, onChange } = this.props;
+    
+    return (
+      <form>
+      	<input type="text" value={value} onChange={onChange}/>
+      </form>
+    );
+  }
+}
+```
+
+第二个是Table组件。
+
+```react
+class Table extends Component {
+  render() {
+    const {list, pattern, onDismiss} = this.props;
+    
+    return (
+      <div>
+      	{list.filter(isSerched(pattern)).map(item => {
+          <div key={item.objectId}>
+          	<span>
+            	<a href={item.url}>{item.title}</a>
+            </span>
+            <span>{item.author}</span>
+            <span>{item.num_comments}</span>
+            <span>{item.pointer}</span>
+            <span>
+            	<button
+                onClick={() => onDismiss(item.objectID)}
+                type="button"
+                >
+              	Dismiss
+              </button>
+            </span>
+          </div>
+        })}
+      </div>
+    );
+  }
+}
+```
+
+现在我们有了三个ES6类组件。props是properties的简写，当我们在App组件里面使用它时，它有我们传递给这个组件的所有值。这样，组件可以沿着组件树向下传递属性。
+
+从App组件中提取这些组件之后，我们就可以在别的地方去重用它们了。
+
+## 可组合组件
+
+在props 对象中还有一个小小的属性可供使用**:children** 属性。通过它我们可以将元素从上层传递到我们的组件中，这些元素对我们的组件来说是未知的，但是却为组件相互组合提供了可能性。
+
+```react
+class App extends Component {
+  ...
+  render() {
+    const {searcgTerm, list} = this.state;
+    return (
+    	<div className="App">
+      	<Search 
+          value={searchTerm}
+          onChange={this.onSearchChange}
+          >
+        Search
+        </Search>
+        <Table
+          list={list}
+          pattern={searchTerm}
+          onDismiss={this.onDismiss}
+          />
+      </div>
+    );
+  }
+}
+```
+
+现在Search组件可以从props对象中解构出children属性。
+
+然后它就可以指定这个children应该显示在哪里。
+
+```react
+class Search extends Component {
+  render() {
+    const { value, onChange, children } = this.props;
+    return (
+      <form>
+      	{children} <input 
+           type="text" 
+           value={value} 
+           onChange={onChange}
+        />
+      </form>
+    );
+  }
+}
+```
+
+现在，我们应该可以在输入框旁边看到这个"Search"文本了。
+
+**它不仅可以把文本作为子元素传递，还可以将一个元素或者元素树(它还可以再次封装成组件) 作为子元素传递。**
+
+## 可复用组件
+
+可复用和可组合组件让我们能够思考合理的组件分层，它们是React视图的基础。
+
+现在我们可以复用Search和Table组件了。甚至App组件都是可复用的了，因为我们可以在别的地方重新实例化它。
+
+```react
+class Button extends Component {
+  render() {
+    const {
+      onClick,
+      className,
+      children,
+    } = this.props;
+    
+    return (
+    	<button
+        onClick={onClick}
+        className={className}
+        type="button"
+        >
+      {children}
+      </button>
+    );
+  }
+}
+```
+
+Button组件拥有单一可信数据源。一个Button组件可以立即重构所有button.一个Button统治所有的button
+
+* 函数式无状态组件：这类组件就是函数，它们接收一个输入并返回一个输出。输入是props,输出就是一个普通的JSX组件实例。然而，函数式无状态组件是函数(函数式的), 并且它们没有本地状态(无状态的)。我们不能通过this.state或者this.setState()来访问或者更新状态，因为这里没有this对象。此外，它也没有生命周期方法。
+* ES6类组件：在你的四个组件中，我们已经使用过这类组件了。在类的定义中，它们继承自React组件。extend会注册所有的生命周期方法，只要在React component API中，都可以在你的组件中使用。通过使用this.state和this.setState().我们可以在ES6类组件中储存和操控state。
+
+
+
+**什么时候更适合使用函数式无状态组件呢？**
+
+当我们不需要本地状态或者组件生命周期方法时，我们就应该使用函数式无状态组件。最开始一般使用函数式无状态组件来实现我们的组件，一旦我们需要访问state或者生命周期方法时。我们就必须要将它重构成一个ES6类组件。
+
+举一个**ES6转函数式无状态组件**的巨大的🌰
+
+```react
+function Search(props) {
+  const { value, onChange, children } = props;
+  return (
+    <form>
+    	{children} <input 
+                   type="text"
+                   value={value}
+                   onChange={onChange}
+                   />
+    </form>
+  );
+}
+```
+
+```react
+const Search = ({ value, onChange, children }) => 
+<form>
+	{children} <input type="text" value={value} onChange={onChange}/>
+</form>
+```
+
+
+
+## 给组件声明样式
+
+我们可以复用src/App.css和src/index.css文件。因为我们是用create-react-app来创建的，所以这些文件应该已经在我们的项目中了。它们应该也被引入到我们的src/App.js和src/index.js文件中了。
+
+## 总结回顾
+
+* React
+  * 使用this.state和setState()来管理我们的内部组件状态
+  * 将函数或者类方法传递到我们的元素处理器
+  * 在React中使用表单或者事件来添加交互
+  * 在React中单向数据流是一个非常重要的概念
+  * 拥抱controlled components
+  * 通过children 和可复用组件来组合组件
+  * ES6类组件和函数式无状态组件的使用方法和实现
+  * 给你的组件声明样式的方式
+* ES6
+  * 绑定到一个类的函数叫作类方法
+  * 解构对象和数组
+  * 默认参数
+* General
+  * 高阶函数

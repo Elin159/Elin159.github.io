@@ -1,0 +1,670 @@
+# 第十一天学习（Sass）
+
+1. 使用变量
+2. 嵌套CSS规则
+3. 导入SASS文件
+4. 静默注释
+5. 混合器
+6. 使用选择器继承来精简CSS
+7. 小结
+
+## 简介
+
+Sass是一款强化CSS的辅助工具，它在CSS语法的基础上增加了变量(Variables)、嵌套(nested rules)、混合(mixins)、导入(inline imports)等高级功能，这些扩展令CSS更加强大与优雅。使用Sass以及Sass的样式库(如 Compass)有助于更好地组织管理样式文件，以及更高效地开发项目
+
+### 特色功能(Features)
+
+* 完全兼容CSS3
+* 在CSS基础上增加变量、嵌套(nesting)、混合(mixins)等功能
+* 通过函数进行颜色值与属性值的运算
+* 提供控制指令(control directives)等高级功能
+* 自定义输出格式
+
+### 语法格式
+
+Sass有两种语法格式。搜线是SCSS（Sassy CSS） - - 也是本文示例所使用的格式 - - 这种格式仅在CSS3语法的基础上进行拓展，所有CSS3语法在SCSS中都是通用的，同时加入Sass的特色功能。
+
+另一种也是最早的Sass语法格式，被称为缩进式(Indented Sass)通常简称"Sass", 也是一种简化格式。它使用"缩进"替代"花括号"表示属性属于某个选择器，用“换行”替代"分号"分隔属性，很多人认为这样做比SCSS更容易阅读，书写也更快速。
+
+任何一种格式可以直接导入(@import)到另一种格式中使用，或者通过`sass-convert`命令行工具转换成另一种格式：
+
+```css
+# Convert Sass to SCSS
+$ sass-convert style.sass style.scss
+
+# Convert SCSS to Sass
+$ sass-convert style.scss style.sass
+```
+
+## 使用变量
+
+`sass`让人们收益的一个重要特性就是它为`css`引入了变量。你可以把反复使用的`css`属性值定义成变量，然后通过变量名来引用他们，而无需重复书写这一属性值。或者，对于仅使用过一次的属性值，你可以赋予其一个易懂的变量名，让人一眼就知道这个属性值的用途。
+
+`sass`使用`$`符号来标识变量(老版本的`sass`使用`!`来标识变量。改成$是多半因为`!highlight-color`看起来太丑了。), 比如`\$highlight-color`和`\$sidebar-width`。为什么选择\$符号呢？因为它好认、更具美感，且在CSS中并无他用，不会导致与现存或未来的`css`语法冲突。
+
+### 变量声明
+
+```scss
+$highlight-color:#f90;
+```
+
+这一位着变量`$highlight-color`现在的值是`#F90`。
+
+与`CSS`属性不同，变量可以在`css`规则块定义之外存在。当变量定义在`css`规则块中，那么该变量只能在此规则块内使用。如果他们出现在任何形式的`{…}`块中(如 `@media` 或者 `@font-face`块), 情况也是如此:
+
+```scss
+$nav-color: #F90
+  nav {
+    $width: 100px;
+    width: $width;
+    color:$nav-color;
+    }
+  //编译后
+  nav {
+    width: 100px;
+    color:#F90;
+    }
+```
+
+### 变量引用
+
+凡是`css`属性的标准值(比如说1px或者bold)可存在的地方，变量就可以使用。
+
+```scss
+$highlight-color: #F90
+.selected {
+	border: 1px solid $highlight-color;
+}
+
+//编译后
+
+.selected {
+	border: 1px solid #F90;
+}
+```
+
+
+
+在声明变量时，变量值也可以引用其他变量。
+
+```scss
+$highlight-color: #F90
+$highlight-border: 1px solid $highlight-color;
+.selected {
+ border: $highlight-border;
+}
+
+//编译后
+.selected {
+	border:1px solid #F90;
+}
+```
+
+## 嵌套CSS规则
+
+原生CSS 弊端:重复写选择器
+
+```css
+#content article h1 { color: #333 }
+#content article p { margin-bottom: 1.4em }
+#content aside { background-color: #EEE }
+```
+
+`sass`中，可以在规则块中嵌套规则块。
+
+```scss
+#content {
+  article {
+    h1 {color: #333}
+    p {margin-bottom:1.4em}
+  }
+  aside { background-color:#EEE }
+}
+```
+
+编译后:
+
+```scss
+#content article h1 { color:#333 }
+#content article p { margin-bottom:1.4em }
+#content aside { background-color: #EEE }
+```
+
+一个给定的规则块，既可以像普通的css那样包含属性，又可以嵌套其他规则块。
+
+当为一个容器元素及子元素编写特定样式时，这种能力就非常有用了。
+
+```scss
+#content {
+  background-color:#f5f5f5;
+  aside { background-color:#eee }
+}
+```
+
+编译后
+
+```css
+#content { background-color: #f5f5f5 }
+#content aside {
+	background-color: #eee
+}
+```
+
+大多数情况下这种简单的嵌套都没问题，但是有些场景下不行，比如你想要在嵌套的选择器里边立刻应用一个类似于`:hover`的伪类。为了解决这种以及其他情况，`sass`提供了一个特殊结构`&`;
+
+### 父选择器的标识符&;
+
+下面这种情况`sass`就无法正常工作:
+
+```scss
+article a {
+	color: blue;
+	:hover {color: red}
+}
+```
+
+这意味着`color:red`这条规则将会被应用到选择器`article a :hover`。
+
+
+
+解决方法：
+
+```scss
+article a {
+	color:blue;
+  &:hover { color:red }
+}
+```
+
+编译后
+
+```scss
+article a { color:blue }
+article a:hover { color:blue }
+```
+
+另一种用法,你可以在父选择器之前添加选择器。
+
+```scss
+#content aside {
+	color:red;
+  body.ie & { color:green }
+}
+```
+
+编译后
+
+```scss
+#content aside { color:red }
+body.ie #content aside { color:green }
+```
+
+### 群组选择器的嵌套
+
+`css`写法
+
+```scss
+.container h1, .container h2, .container h3 { margin-bottom: .8em }
+```
+
+sass写法
+
+```scss
+.container {
+	h1, h2, h3 { margin-bottom: .8em }
+}
+```
+
+对于内嵌在群组的选择器内的嵌套规则，处理方式也一样:
+
+```scss
+nav, aside {
+	a {color: blue}
+}
+```
+
+编译后
+
+```scss
+nav a, aside a {color: blue}
+```
+
+### 子组合选择器和同层组合选择器: >、 + 和 ~
+
+css代码:
+
+```scss
+article > section { border: 1px solid #ccc }
+```
+
+```scss
+header + p { font-size:1.1em }
+```
+
+```scss
+article ~ article { border-top: 1px dashed #ccc }
+```
+
+sass 的规则嵌套中。
+
+```scss
+article {
+	~article { border-top: 1px dashed #ccc }
+  > section { border:1px solid #ccc }
+  + p { font-size:1.1em }
+  dl > {
+    dt {color:#333}
+    dd {color:#555}
+  }
+  nav + & { margin-top: 0 }
+}
+```
+
+编译后
+
+```scss
+article ~ article { border-top: 1px dashed #ccc }
+article > section { border:1px solid #ccc }
+article + p { font-size:1.1em }
+article dl > dt { color:#333 }
+article dl > dd { color:#555 }
+article nav + & { margin-top:0 }
+```
+
+在`sass`中，不仅仅`css`规则可以嵌套，对属性进行嵌套也可以减少很多重复性的工作。
+
+### 嵌套属性
+
+在`sass`中，除了CSS选择器，属性也可以进行嵌套。
+
+例如`border-style border-width border-color` 以及 `border-*`。在sass中，只需敲写一遍`border`：
+
+```scss
+nav {
+	border: {
+		style:solid;
+		width:1px;
+		color: #ccc;
+	}
+}
+```
+
+嵌套属性的规则是这样的： 把属性名从中划线-的地方断开，在根属性后边添加一个冒号:, 紧跟一个`{ }`块，把字属性部分写在这个`{ }` 块中。就像`css`选择器嵌套一样，`sass`会把你的子属性一一解开，把根属性和子属性部分通过中划线-链接起来，最后生成的效果与你手动一遍遍写的`css`样式一样:
+
+```scss
+nav {
+ 	border-style:solid;
+ 	border-width:1px;
+ 	border-color:#ccc;
+}
+```
+
+对于属性的缩写形式，你甚至可以像下边这样来嵌套，指明例外规则:
+
+```scss
+nav {
+	border: 1px solid #ccc {
+		left: 0px;
+		right:0px;
+	}
+}
+```
+
+属性和选择器嵌套是非常伟大的特性，因为它们不仅大大减少了你的编写量，而且通过视觉上的缩进使你编写的样式结构更加清晰，更易于阅读和开发。
+
+## 导入SASS文件
+
+`css`有一个@import规则，只有执行到`@import`的时候，才去加载对应文件，所以特慢。
+
+`sass`也有一个`@import`规则，但不同的是，`sass`的`@import`规则在生成`css`文件时就把对应文件加载进来了。
+
+使用`sass`的`@import`规则并不需要指明被导入文件的全名。可省略后缀
+
+![image-20190731193051070](/Users/elin/Library/Application Support/typora-user-images/image-20190731193051070.png)
+
+有些`sass`文件用于导入，你并不希望为每个这样的文件单独地生成一个`css`文件。对此，`sass`用一个特殊的约定来解决。
+
+### 使用SASS部分文件
+
+专门为`@import`命令编写的`sass`文件，并不需要生成对应的独立`css`文件，这样的`sass`文件称为局部文件，对此，`sass`有一个特殊的约定来命名这些文件。
+
+***约定为`sass`局部文件的文件名以下划线开头。*** 这样`sass`就不会在编译的时候单独编译这个文件输出`css`,而只把这个文件用作导入。
+
+举个🌰
+
+你想导入`themes/_night-sky.scss`这个局部文件里的变量，你只需在样式表中写`@import` `"themes/night-sky";`。
+
+局部文件可以被多个不同的文件引用。
+
+### 默认变量值
+
+一般情况下，反复声明一个变量，只有最后一处声明有效，因为它会覆盖前面的值。
+
+```scss
+$link-color: blue;
+$link-color: red;
+a {
+color:$link-color;
+}
+```
+
+`!default` 如果这个变量被声明赋值了，那就用它声明的值，否则就用这个默认值。
+
+```scss
+$fancybox-width:400px !default;
+.fancybox {
+	width:$fancybox-width;
+}
+```
+
+### 嵌套导入
+
+跟原生的`css`不同，`sass`允许`@import`命令写在`css`规则内。
+
+举个🌰
+
+有一个名为`_blue-theme.scss`的局部文件，内容如下:
+
+```scss
+aside {
+  background:blue;
+  color:white;
+}
+```
+
+然后把它导入到一个CSS规则内,如下所示:
+
+```scss
+.blue-theme {@import "blue-theme"}
+//生成的结果跟你直接在.blue-theme选择器内写_blue-theme.scss文件的内容完全一样 。
+.blue-theme {
+  aside {
+    background:blue;
+    color:#fff;
+  }
+}
+//编译后
+.blue-theme aside {
+  background:blue;
+	color:#fff;
+}
+```
+
+被导入的局部文件中定义的所有变量和混合器，也会在这个规则范围内生效。
+
+### 原生的CSS导入;
+
+由于`sass`兼容原生的`css`,所以它也支持原生的`CSS@import`。
+
+在下列三种情况下会生成原生的`CSS@import`,尽管这会造成浏览器解析`css`时的额外下载:
+
+* 被导入文件的名字以`.css`结尾;
+* 被导入文件的名字是一个URL地址(比如http://www.sass.hk/css/css.css), 由此可用谷歌字体API提供的相应服务;
+* 被导入文件的名字是`CSS`的url()值。
+
+这就是说，你不能用`sass`的`@import`直接导入一个原始的`css`文件，因为`sass`会认为你想用`css`原生的`@import`。可以把原始的`css`文件改名为`.scss`后缀，即可直接导入了。
+
+文件导入是保证`sass`的代码可维护性和可读性的重要一环。其次非常重要的就是注释了。
+
+## 静默注释
+
+`sass`另外提供了一种不同于`css`标准注释格式`/* ... */`的注释语法，即静默注释，其内容不会出现在生成的`css`文件中。它们以`//`开头，注释内容直到行末。
+
+```scss
+body {
+  color: #233; // 这种注释内容不会出现在生成的css文件中
+  padding: 0; /* 这种注释内容会出现在生成的css文件中 */
+}
+```
+
+## 混合器
+
+解决大段大段的重用样式的代码，独立的变量就没办法应付这种情况了。可以通过`sass`的混合器实现大段样式的重用。
+
+混合器使用`@mixin`标识符定义。
+
+下边的这段`sass`代码，目的是添加跨浏览器的圆角 边框。
+
+``` scss
+@mixin rounded-corners {
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  border-radius:5px;
+}
+```
+
+然后就可以在你的样式表中通过`@include`来使用这个混合器，放在你希望的任何地方。
+
+`@include`调用会把混合器中的所有样式提取出来放在`@include`被调用的地方。
+
+```scss
+notice {
+  background-color:green;
+  border: 2px solid #00aa00;
+  @include rounded-corners;
+}
+
+//编译后
+.notice {
+  background-color:green;
+  border: 2px solid #00aa00;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  border-radius: 5px;
+}
+```
+
+***大量的重用可能会导致生成的样式表过大，导致加载缓慢***
+
+### 何时使用混合器
+
+利用混合器，可以很容易地在样式表的不同地方共享样式。
+
+判断一组属性是否应该组合成一个混合器，一条经验法则就是你能否为这个混合器想出一个好的名字。(好的名字离成功不远)
+
+混合器在某些方面跟`css`类很像。最重要的区别就是类名是在`html`文件中应用的，而混合器是在样式表中应用的。
+
+### 混合器中的css规则
+
+混合器中不仅可以包含属性，也可以包含`css`规则，包含选择器和选择器中的属性，
+
+```scss
+@mixin no-bullets {
+  list-style:none;
+  li {
+    list-style-image:none;
+    list-style-type:none;
+    margin-left:0px;
+  }
+}
+```
+
+当一个包含`css`规则的混合器通过`@include`包含在一个父规则中时，在混合器中的规则最终会生成父规则中的嵌套规则。
+
+举个🌰
+
+```scss
+ul.plain {
+  color:#444;
+  @include no-bullets;
+}
+```
+
+`sass`的`@include`指令会将引入混合器的那行代码替换成混合器里边的内容。
+
+解析代码后
+
+```scss
+ul.plain {
+  color:#444;
+  list-style:none;
+}
+ul.plain li {
+  list-style-image:none;
+  list-style-type:none;
+  margin-left:0px;
+}
+```
+
+混合器中的规则甚至可以使用sass的父选择器表示符`&`	。使用起来跟不用混合器时一样
+
+### 给混合器传参
+
+混合器并不一定总生成相同的样式。可以通过在`@include`混合器时给混合器传参，来定制混合器生成的精准样式。
+
+举个🌰
+
+```scss
+@mixin link-colors($normal, $hover, $visited) {
+  color:$normal;
+  &:hover { color:$hover; }
+  &:visited { color:$visited; }
+}
+```
+
+当混合器被`@include`时，你可以把它当作一个`css`函数来传参。
+
+```scss
+a {
+  @include link-colors(blue, red, green);
+}
+//Sass最终生成的是:
+a { color:blue; }
+a:hover { color:red; }
+a:visited { color: green; }
+```
+
+为了解决 难区分每个参数是什么意思，参数之间的顺序，`sass`允许通过语法`$name: value`的形式指定每个参数的值。这种形式的传参，只需要保证没有漏掉参数即可:
+
+```scss
+a {
+  @include link-colors {
+    $normal:blue,
+    $visited:green,
+    $hover:red
+  };
+}
+```
+
+### 默认参数值
+
+为了在`@include`混合器时不必传入所有的参数，我们可以给参数指定一个默认值。参数默认值使用`$name: default-value`的声明形式, 默认值可以是任何有效的`css`属性值, 甚至是其他参数的引用。
+
+举个🌰
+
+```scss
+@mixin link-colors {
+  $normal,
+  $hover: $normal,
+  $visited: $normal
+} {
+  color: $normal;
+  &:hover { color: $hover }
+  &:visited { color:$visited; }
+}
+```
+
+`@include link-colors(red)` `$hover`和`$visited`也会被自动赋值为`red`
+
+混合器只是`sass`样式重要特性中的一个。
+
+## 使用选择器继承来精简CSS
+
+使用`sass`的时候，最后一个减少重复的主要特性就是选择器继承。
+
+选择器继承是说一个选择器可以继承为另一个选择器定义的所有样式。这个通过`@extend`语法实现
+
+举个🌰
+
+```scss
+//通过选择器继承继承样式
+.error {
+  border: 1px solid red;
+  background-color: #fdd;
+}
+.seriousError {
+  @extend .error;
+  border-width: 3px;
+}
+```
+
+在上边的代码中，`.seriousError`将会继承样式表中红任何位置处于`.error`定义的所有样式。
+
+### 何时使用继承
+
+从几个方面来阐释一下。想象一下你正在编写一个页面，给`html`元素添加类名，你发现你的某个类(比如说`.seriousError`)另一个类(比如说`.error`)的细化。你会怎么做？
+
+* 你可以为这两个类分别写相同的样式，但是如果有大量的重复怎么办? 使用`sass`时，我们提倡的就是不要做重复的工作
+* 你可以使用一个选择器组(比如说`.error .seriousError`)给这两个选择器写相同的样式。如果`.error`的所有样式都在同一个地方，这种做法很好，但是如果是分散在样式表的不同地方呢？再这样做就困难多了。
+* 你可以使用一个混合器为这两个类提供相同的样式，但当`.error`的样式修饰遍布样式表中各处时，这种做法面临着跟使用选择器组一样的问题。这两个类也不是恰好有相同的样式。你应该更清晰地表达这种关系
+* 综上所述你应该使用`@extend`。让`.seriousError`从`.error`继承样式，使两者之间的关系非常清晰。更重要的是无论你再样式表的哪里使用`.error .seriousError`都会继承其中的样式。
+
+### 继承的高级用法
+
+任何`css`规则都可以继承其他规则，几乎任何`css`规则也都可以被继承。
+
+最常用的就是继承一个`html`元素的样式。尽管默认的浏览器样式不会被继承，因为它们不属于样式表中的样式，但是你对`html`元素添加的所有样式都会被继承。
+
+举个🌰	
+
+```scss
+.disabled {
+	color: gray;
+	@extend a;
+}
+```
+
+假如一条样式规则继承了一个复杂的选择器，那么它只会继承这个复杂选择器命中的元素所应用的样式。
+
+### 继承的工作细节
+
+跟变量和混合器不同，继承不是仅仅用`css`样式替换@extend处的代码那么简单。
+
+`@extend`背后最基本的想法是，如果`.seriousError @extend .error`, 那么样式表中的任何一处`.error`都用`.error .seriousError`这一选择器组进行替换。这就意味着相关样式会如预期那样应用到`.error`和`.seriousError`。当`.error`出现在福州的选择器中，比如说`h1.error .error a`，那情况就变得复杂多了。`sass`已经考虑到这些点。
+
+关于`@extend`有两个要点你应该知道。
+
+* 跟混合器相比，继承生成的`css`代码相对更少，因为继承仅仅是重复选择器，而不会重复属性，所以使用继承往往比混合器生成的`css`体积更小。如果你非常关心你站点的速度，请牢记这一点。
+* 继承遵从`css`叠层的规则。当两个不同的`css`规则应用到同一个`html`元素上时，并且这两个不同的`css`规则对同一属性的修饰存在不同的值，`css`层叠规则会决定应用哪个样式。相当直观:通常权重更高的选择器胜出，如果权重相同定义在后边的规则胜出。
+
+混合器本身不会引起`css`层叠的问题，因为混合器把样式直接放到了`css`规则中，而继承存在样式层叠的问题。被继承的样式会保持原有定义位置和选择器权重不变。
+
+### 使用继承的最佳实践
+
+如果不小心操作，可能会让生成的`css`中包含大量的选择器复制。
+
+避免这种情况出现的最好方法就是不要再`css`规则中使用后代选择器(比如`.foo .bar`); 去继承`css`规则。如果你这么做，同时被继承的`css`规则有通过后代选择器修饰的样式，生成`css`中的选择器的数量很快就会失控：
+
+举个🌰
+
+```scss
+.foo .bar {@extend .baz;}
+.bip .baz { a: b; }
+```
+
+在上边的例子中，`sass`必须保证应用到.baz 的样式同时也要应用到`.foo .bar`(位于 class="foo"的元素内的class = "bar" 的元素)。 例子中有一条应用到`.bip .baz`(位于 class="bip" 的元素内的class="baz"的元素) 的`css`规则。当这条规则应用到`.foo .bar`时，可能存在三种情况；
+
+🌰
+
+```html
+<!-- Case 1 -->
+<div class="foo">
+  <div class="bip">
+    <div class="bar">...</div>
+  </div>
+</div>
+<!-- Case 2 -->
+<div class="bip">
+  <div class="foo">
+    <div class="bar">...</div>
+  </div>
+</div>
+<!-- Case 3 -->
+<div class="foo bip">
+  <div class="bar">...</div>
+</div>
+```
+
+为了应付这些情况，`sass`必须生成三种选择器组合(仅仅是.bip .foo .bar不能覆盖所有情况)。如果任何一条规则里边的后代选择器再长一点，`sass`需要考虑的情况就会更多。实际上`sass`并不总是会生成所有可能的选择器组合，即使是这样，选择器的个数依然可能会变得相当大，所以如果允许，尽可能避免这种用法。
+
+值得一提的是，只要你想，你完全可以放心地继承有后代选择器修饰规则的选择器，不管后代选择器多长，但有一个前提就是，不要用后代选择器去继承。
