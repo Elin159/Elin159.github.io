@@ -1,1 +1,73 @@
-theme: jekyll-theme-hacker
+# Site Settings
+title: 兄弟会-林华南
+tagline: Elin159
+email: 13640339846@163.com
+description: >
+    兄弟会-林华南的blog
+#baseurl: "/bulma-clean-theme/"
+baseurl: ""
+url: "https://www.csrhymes.com"
+permalink: pretty
+
+paginate: 5
+paginate_path: "/blog/page:num"
+
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-seo-tag
+  - kramdown
+  - rouge
+
+exclude: 
+  - Gemfile
+  - clean-theme.gemspec
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+livereload: true
+
+sass:
+  style: compressed
+  source_dir: _sass
+
+#google_analytics: UA-code-here
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      show_sidebar: true
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      author: "C.S. Rhymes"
+      layout: post
+      image: https://via.placeholder.com/1200x800
+      show_sidebar: true
+
+markdown: kramdown
+highlighter: rouge
+
+footer_menu: example_footer_menu
+
+collections:
+  products: 
+    output: true
+    layout: product
+    image: https://via.placeholder.com/800x600
+    show_sidebar: false
+
+services:
+environment:
+- TZ=Asia/Shanghai

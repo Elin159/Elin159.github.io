@@ -1,0 +1,11 @@
+style: is-light
+items:
+  - title: 敬业
+    subtitle: 立志成为IT届的黄埔军校校长
+    icon: fa-copy
+  - title: flags
+    subtitle: 敬业 诚信 担当 团结
+    icon: fa-mail-bulk
+  - title: 敏捷
+    subtitle: 快速简单的开始
+    icon: fab fa-github
