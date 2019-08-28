@@ -1,400 +1,383 @@
-# bulma-clean-theme
-
-[![Gem Version](https://badge.fury.io/rb/bulma-clean-theme.svg)](https://badge.fury.io/rb/bulma-clean-theme)
-![Gem](https://img.shields.io/gem/dt/bulma-clean-theme.svg)
-
-This is a clean and simple Jekyll Theme built with the [Bulma](https://bulma.io/) framework, providing a modern looking site to start with. 
-
-## Contents
-
-* [Installation](#installation)
-* [Usage](#usage)
-    * [Pages](#pages)
-    * [Posts](#posts)
-    * [Navigation](#navigation)
-    * [Colours and Styles](#colours-and-styles)
-    * [Sidebar Visibility](#sidebar-visibility)
-    * [Menubar](#menubar)
-    * [Tabs](#tabs)
-    * [Google Analytics](#google-analytics)
-    * [Footer](#footer)
-    * [Products](#products)
-    * [Scripts](#scripts)
-    * [Callouts](#callouts)
-* [Contributing](#contributing)
-* [Development](#development)
-* [Licence](#licence)
+## HardCandy-Jekyll
 
 
-## Installation
 
-Add this line to your Jekyll site's `Gemfile`:
+### Preview
 
-```ruby
-gem "bulma-clean-theme"
-```
+[在线预览 view demo →](http://xseven.me/)
 
-And add this line to your Jekyll site's `_config.yml`:
+![1](/screenshot/1.png)
+
+![2](/screenshot/2.png)
+
+![3](/screenshot/3.png)
+
+想要查看手机端显示效果，扫描下方二维码浏览器打开即可
+
+![4](/screenshot/4.png)
+
+
+
+### 主题特性
+
+- 主题基于 `jekyll 3.8.1` 开发
+- 响应式布局
+- 文章标签索引
+- 文章时间线索引
+- 博主个人信息展示
+- 支持9种代码高亮主题色
+- 支持 `dispus` 、 `来必力` 、 `Gitment` 三种评论系统
+- 支持 `百度统计` 、`谷歌分析` 两种网站追踪系统
+- 支持13款不同社交平台图标及链接地址指向
+- 支持11个不同平台的文章分享路口
+
+
+
+### 开始使用
+
+#### 线上部署
+
+​	首先在 `github` 上开启一个仓库起名为 `你的github用户名.github.io` 。并 `clone` 你的仓库到本地。 然后下载 `HardCandy-Jekyll` 的 [源码](https://github.com/xukimseven/HardCandy-Jekyll) 到本地之后，将 `_config.yml` 文件更改为自己的配置（下面会介绍）。之后，将所有文件拷贝至自己的本地仓库根目录下，再上传至自己的 `github` 线上仓库，即可通过域名 `https://你的github用户名.github.io` 访问看到自己的博客页面。
+
+#### 本地部署
+
+​	首先在本地安装 `Jekyll` [详情请戳](https://www.jekyll.com.cn/docs/quickstart/)
+
+​	安装完成之后，使用命令 `jekyll -v` 查看 **jekyll版本号** ，若低于 `jekyll 3.x.x` 则需要升级至 `jekyll 3.x.x` 。 
+
+​	使用 `gem install jekyll-paginate` 或 `sudo gem install jekyll-paginate` 安装Jekyll的分页插件。
+
+​	将源码 `clone` 到本地后，在终端进入 `HardCandy-Jekyll` 根目录，运行 `jekyll server` 或 `bundle exec jekyll serve` ，即可开启jekyll的服务。通过浏览器访问 [http://localhost:4000](http://localhost:4000) ，即可看到本地部署的 `HardCandy-Jekyll` 博客了。
+
+> warning！值得注意的地方：
+>
+> ​	由于本主题是基于 `jekyll 3.8.1` 开发 ，jekyll的版本差异也许会导致相关显示效果的差异。详情请参考官方文档：[news](https://jekyllrb.com/news/)
+
+
+
+### 配置文档
+
+- 开始
+  - [关于博客](#关于博客)
+  - [写文章](#写文章)
+- 组件
+  - [博主个人信息](#博主个人信息)
+  - [社交媒体](#社交媒体)
+  - [首页显示信息](#首页显示信息)
+  - [导航栏](#导航栏)
+  - [分页](#分页)
+  - [代码高亮主题](#代码高亮主题)
+  - [友情链接](#友情链接)
+  - [页脚](#页脚)
+- 第三方服务
+  - [评论系统的切换](#评论系统的切换)
+  - [文章分享的路口](#文章分享的路口)
+  - [网站流量追综的配置](#网站流量追综的配置)
+
+
+
+> ​	通用修改 `_config.yml` 文件，你便可以轻松搭建属于你自己的个人博客。
+>
+> ​	一部分配置，默认已经是配置好的，你只需要修改下面列出的内容即可完成搭建。
+
+
+
+#### 关于博客
 
 ```yaml
-theme: bulma-clean-theme
+---
+# Site settings 配置站点
+title: 'your awesome title'
+description: 'your web description'
+keywords: 'your web keywords, another keywords'
+url: 'https://abc.github.io' # your host
+---
 ```
 
-And then execute:
+`title` ：用于页面的 title 标签的显示内容
 
-    $ bundle
+`description` ：网站的简介
 
-Or install it yourself as:
+`keywords` ：网站的关键词
 
-    $ gem install bulma-clean-theme
-
-## Usage
-
-### Pages 
-
-Create your pages as individual markdown files and use the `layout: page` for normal pages. Set the pages title and subtitle in the frontmatter and it will appear in the hero.
-
-**New in 0.2** 
-Heros can now display a background image if you provide a `hero_image: /path/to/image.jpg` setting in your page frontmatter, or in the [defaults](https://jekyllrb.com/docs/configuration/front-matter-defaults/) in your sites `_config.yml`
-
-You can also set the height of the hero by providing a bulma hero height class in your frontmatter, such as `hero_height: is-fullwidth`. If you do not provide this, it will revert to is-medium 
-
-**New in 0.5.4**
-If you would like to add a call to action button in the hero then add `hero_link` and `hero_link_text` to the page's frontmatter.
-
-### Posts
-
-If you want posts, create a `_posts` directory to store your posts as per normal Jekyll usage, with the `layout: post`. Next create a `blog` directory with an index.html file that has `layout: blog`
-
-**New in 0.2** It will now display an image in the blog page if you set `image: /path/to/image.jpg` in your post's or page's frontmatter, or in the [defaults](https://jekyllrb.com/docs/configuration/front-matter-defaults/) in your sites `_config.yml`
-
-You can also set the height of the hero by providing a bulma hero height class in your frontmatter, such as `hero_height: is-fullwidth`. If you do not provide this, it will revert to is-medium
+`url` ：网站域名
 
 
-### Navigation
 
-For the top navigation, create a navigation.yml file in `_data` directory with the following format with the pages you want to include in the top navigation. You can now also add items to a dropdown menu.
+#### 写文章
+
+​	博客通过解析 `markdown` 文件来部署文章页面的，所以用户写文章只需要写一篇markdown，并放置在站点根目录下的 `_post` 文件夹即可。具体的markdown语法自行上网搜索学习，或使用markdown编辑器进行写作。推荐一款 markdown编辑器：[typora](https://www.typora.io) 。支持 windows 、mac OSX 、Linux 。
+
+关于文章 YAML头信息：
 
 ```yaml
-- name: Page 1
-  link: /page-1/
-- name: Blog
-  link: /blog/
-  dropdown: 
-    - name: Page 2
-      link: /page-2/
+layout: post
+title:  "post title"
+subtitle: 'post subtitle'
+date:   2018-05-29 08:44:13
+tags: html js css
+description: ''
+color: 'rgb(154,133,255)'
+cover: ''
 ```
 
-For the current page to have an active class, ensure the `link:` format matches your [permalink](https://jekyllrb.com/docs/permalinks/#extensionless-permalinks) format. The above example will work with `permalink: pretty` setting in your `_config.yml`
+关于color：
 
-### Colours and Styles
+​	此处的color用于post页面的顶部位置的背景色。如上面展示图所示为 `rgb(154,133,255)` 色。
 
-To overwrite the primary theme colour, set a sass variable in `assets/css/app.scss` before importing `main`
+​	对于color的书写，如果颜色代码为 `rgb` 或 `rgba` 又或是 `英文单词` 的话，可以不用引号包裹，但如果颜色代码为 `#123456` 这种16进制码的话，就必须使用引号包裹。所以，在使用中，推荐一致都使用引号，以免错误使用。
 
+​	当然，如果你在书写文章时，忘记写color的值的话，主题默认会为你填写 `rgb(154,133,255)` 色。就是上图显示的颜色。虽然不影响页面的显示，但如果想要更多彩的页面效果的话，建议在每一篇的头信息里写上 color 值。
+
+关于cover：
+
+​	此处需填写某一张图片的 `url` ，`url` 值可以是线上的某张图片，也可以是博客目录下的图片。关键是要书写正确。这张图片用于在首页下博客列表里显示，如下图。
+
+![5](/screenshot/5.png)
+
+
+
+#### 博主个人信息
+
+```yaml
+# 博主
+author: true
+name: 'your awesome name'
+NickName: 'your awesome nickname'
+webtitle: 'your awesome webtitle'
+bio: 'your awesome bio'
+about: true
+aboutyou: 'your introduction'
+portraits: '/assets/profile.jpeg' # your portraits image file path
 ```
+
+​	该部分显示在 `关于博主` 页面，与 `社交媒体` 一同在下图显示。
+
+![6](/screenshot/6.png)
+
+关于author：
+
+​	使用 `true` 或者 `false` 来打开或关闭博主信息卡片，默认 true ，最佳体验也是 true 。
+
+关于about：
+
+​	使用 `true` 或者 `false` 来打开或关闭博主关于信息，即是否显示 aboutyou 部分的信息。默认 true ，该部分需要在 aboutyou 中输入相关信息，支持在此填写html代码。
+
+
+
+#### 社交媒体
+
+```yaml
+# SNS
+SNS: true
+SNS-icon: #['Facebook', 'weibo', 'qq', 'github', 'Dribbble', 'Twitter', 'instagram', 'weixin', 'Codepen']
+  mail: 'mailto:abc@gmail.com'
+  weixin: '' # 你的微信二维码存放的地址
+  qq: '' # 你的qq二维码存放的地址 or http://wpa.qq.com/msgrd?v=3&uin='你的QQ号'&site=qq&menu=yes
+  github: ''
+  Codepen: ''
+  weibo: ''
+  instagram: ''
+  Twitter: ''
+  Dribbble: ''
+  Facebook: ''
+  Google: ''
+  zhihu: ''
+  juejin: ''
+  twitch: ''
+```
+
+​	~~主题一共配置了 13种 社交媒体的图标，只要在需要开启的社交账号的名字后填写你的个人主页链接即可，不需要开启的就在那一行的头部用 `#` 注释这一行即可。同样的，如果需要更换每个图标的排列位置，只需要改变他们的每一行排列的顺序即可。~~
+
+​	在 `SNS` 后填写  `true` 或者 `false` 来打开或者关闭这一部分。
+
+2018/09/28 更新：
+
+![7](/screenshot/sns-icon.png)
+
+- 更新社交图标为 线上地址 ，便于管理与修改。
+- 添加 **Codepen** 图标
+- 修改原来的圆形图标为不规则图标
+
+
+
+#### 首页显示信息
+
+```yaml
 ---
----
-$primary: #333333;
-// Import Main CSS file from theme
-@import "main";
-```
-
-You can overwrite any of the [Bulma initial variables](http://versions.bulma.io/0.7.0/documentation/overview/variables/) in this way as long as they are declared before the `@import "main"'`
-
-### Sidebar Visibility
-
-**New in 0.2**
-
-If you want to show the sidebar with latest posts then set `show_sidebar: true` in the pages frontmatter, or in the [defaults](https://jekyllrb.com/docs/configuration/front-matter-defaults/) in your sites `_config.yml`
-
-### Menubar
-
-**New in 0.3**
-
-The menubar gets its content from a data file in your site's `_data` directory. Simply set the name of your data file in the page's menubar setting in the frontmatter. 
-
-```yml
-show_sidebar: false
-menubar: example_menu
-```
-
-You will probably want to disable the show_sidebar otherwise there will be little room for the page content. 
-
-#### Creating a menubar data file
-
-Create a data file in the _data directory and use the following format (if using yml)
-
-```yml
-- label: Example Menu
-  items:
-    - name: Home
-      link: /
-    - name: Pages
-      link: #
-      items:
-        - name: Page With Sidebar 
-          link: /page-1/
-        - name: Page Without Sidebar
-          link: /page-2/
-        - name: Page With Menubar
-          link: /page-3/
-    - name: Blog
-      link: /blog/
-```
-
-For the current page to have an active class, ensure the `link:` format matches your [permalink](https://jekyllrb.com/docs/permalinks/#extensionless-permalinks) format. The above example will work with `permalink: pretty` setting in your `_config.yml`
-
-#### Multiple menus
-
-You may make multiple menus in the same file, separated by the label
-
-```yml
-- label: Menu Label
-  items:
-    - name: Example item
-      link: /example-item/
-- label: Second Menu Label
-  items:
-    - name: Parent Item
-      link: /parent-item/
-      items:
-        - name: Sublink 
-          link: /sublink/
-        - name: Sublink 2
-          link: /sublink2/
-- label: Third Menu Label
-  items:
-    - name: Another example item
-      link: /another-example-item/
-```
-
-### Tabs
-
-**New in 0.4**
-
-The tabs gets its content from a data file in your site's `_data` directory. Simply set the name of your data file in the page's menubar setting in the frontmatter. 
-
-```yml
-title: Page with tabs
-subtitle: Demo page with tabs
-layout: page
-show_sidebar: false
-menubar: example_menu
-tabs: example_tabs
-```
-
-Tabs can be used in conjunction with menubar and/or sidebar if you wish. 
-
-#### Creating a tabs data file
-
-Create a data file in the _data directory and use the following format (if using yml)
-
-```yml
-alignment: is-left
-style: is-boxed
-size: is-large
-items:
-  - name: Tabs
-    link: /page-4/
-    icon: fa-smile-wink
-  - name: Sidebar
-    link: /page-1/
-    icon: fa-square
-  - name: No Sidebar
-    link: /page-2/
-    icon: fa-ellipsis-v
-  - name: Menubar
-    link: /page-3/
-    icon: fa-bars
-```
-
-#### Settings
-
-You can control the alignment, style and size of the tabs by using the relevant [Bulma tabs classes](https://bulma.io/documentation/components/tabs/). 
-
-#### Active Tab Highlighting
-
-It will automatically mark the active tab based on the current page.
-
-#### Icons
-
-You can add icons to your tab by passing in the [Font Awesome icon class](https://fontawesome.com/icons?d=gallery).
-
-If you don't wish to show icons then simply omit the option from your yaml file.
-
-
-### Google Analytics 
-
-**New in 0.2**
-
-To enable Google Analytics add `google_analytics: UA-xxxxxxxx` to your `_config.yml` replacing the UA-xxxxxxxx with your Google Analytics property
-
-### Footer
-
-**New in 0.4.1**
-
-To add some footer links, create a yaml file in the `_data` directory using the following format
-
-```yml
-- name: Blog
-  link: /blog/
-- name: About
-  link: /about/
-- name: Privacy Policy
-  link: /privacy-policy/
-```
-
-Then add the name of your yaml file (without the .yml extension) into the footer_menu setting in the `_config.yml`
-
-```yml
-footer_menu: example_footer_menu
-```
-
-#### Hiding the footer
-
-**New in 0.5.2**
-
-If you would like to hide the footer on a particular page then set `hide_footer: true` in the page's frontmatter.
-
-### Products
-
-**New in 0.5**
-
-Now you can add simple product pages to your site using collections. 
-
-#### Product pages
-
-Start by creating a `_products` directory to hold your product pages and create a new page for each product, such as `product1.md`. In the front matter for this page you can set the standard settings, such as your title, subtitle, description (for meta-description), hero_image, as well as the additional product settings such as price, product_code, image, features and rating. 
-
-```yml
----
-title: Product 1 Name
-subtitle: Product 1 tagline here
-description: This is a product description
-hero_image: /img/hero-img.jpg
-product_code: ABC124
-layout: product
-image: https://via.placeholder.com/640x480
-price: £1.99 + VAT
-features:
-    - label: Great addition to any home
-      icon: fa-location-arrow
-    - label: Comes in a range of styles
-      icon: fa-grin-stars
-    - label: Available in multiple sizes
-      icon: fa-fighter-jet
-rating: 3
+layout: default
+title: your awesome title
+page-title: awesome page-title.
+home-title: awesome home-title.
+description: description
 ---
 ```
 
-The text you write for the page content will be displayed as the product description. 
+​	该部分位于 `index.html` 页面，修改 `title` 、`page-title` 、`home-title`  、`description`为个人想要的信息，默认配置的显示效果如下图。
 
-Next, add the following to your `_config.yml` to use collections to process the product pages and output them as individual pages. 
+![7](/screenshot/7.png)
 
-```yml
-collections:
-  products: 
-    output: true
-    layout: product
-    image: https://via.placeholder.com/800x600
-    show_sidebar: false
+
+
+#### 导航栏
+
+```yaml
+# nav 中文字符空格：&emsp;
+nav: # 最佳体验 六个标签 且最好每个标签不超过4中文字
+  首页: '/'
+  标签: '/tags.html'
+  时间线: '/timeline.html'
+  关于博主: '/about.html'
+  友情链接: '/friendLink.html'
 ```
 
-You can also set default product page values here if you like, such as the layout or image. 
+​	默认全部开启他们，当然如果想要自己添加，按照格式填在下方即可，当然页面显示顺序与每一行的位置有关。
 
-#### Product Reviews
 
-To add reviews to your product page, create a `reviews` directory in the `_data` directory and add a yml file with the name of the product_code from the product page, for example `_data/reviews/ABC124.yml`. Create the reviews using the following format:
 
-```yml
-- name: Mr E Xample
-  rating: 4
-  title: Great product, highly recommended
-  date: 01/01/2019
-  avatar: https://bulma.io/images/placeholders/128x128.png
-  description: >
-    The product worked really well. I would recommend this to most people to use. Delivery was quick and reasonable. 
-    Would recommend this to my friends. 
-- name: Mrs R E View
-  rating: 5
-  title: Nice, really liked this
-  date: 02/02/2019
-  description: >
-    The product worked exactly as described. 
+#### 分页
+
+```yaml
+# 分页
+paginate: 2
+paginatepath: ['page:num']
 ```
 
-If you don't want to display an avatar image then a default user icon will be displayed. If you don't want to display a rating then omit it from the yml.
+​	随个人爱好在，在上面填写你需要的在首页一页最多显示多少篇博客的数字。
 
-#### Product Category Page
+​	本地部署的需要使用 `gem install jekyll-paginate` 或 `sudo gem install jekyll-paginate` 安装Jekyll的分页插件。
 
-To create a page listing your products you will need to create a product category page. Create a page, for example `products.md`, with the `layout: product-category` in the frontmatter. You can set the sort order of the products using `sort: title` to sort by the title, or by any setting in your product pages, such as price, rating or any custom frontmatter tags you wish to set. 
 
-```yml
----
-title: Products
-subtitle: Check out our range of products
-layout: product-category
-show_sidebar: false
-sort: title
----
+
+#### 代码高亮主题
+
+```yaml
+# 代码高亮 使用rouge
+highlighter: rouge
+# 代码高亮主题使用pygments主题: autumn\ default\ emacs\ friendly\ manni\ murphy\ pastie\ perldoc\ tango 任选一个你喜欢的主题名称填在下面的单引号中
+pygmentsTheme: 'default'
 ```
 
-### Scripts
+​	代码高亮使用 jekyll3.0 之后的默认高亮引擎 `rouge` 。关于主题，只需要在 `pygmentsTheme` 后填写喜欢的主题名称即可。共有9款主题可选，主题名见上文。
 
-**New in 0.5.2**
+​	代码高亮的写法：
 
-There are two new files within the includes directory called `head-scripts.html` and `footer-scripts.html`. These are empty files by default but allow you to add any additional JavaScript to your site, such as the script for AddThis share buttons, in the `<head>` or after the `<footer>` of the page.
+~~~markdown
+``` css
+*{
+ margin:0;
+ padding:0;
+}
+```
+~~~
 
-### Callouts
+2018/09/28 更新：
 
-**New in 0.5.4**
+![7](/screenshot/博客代码高亮例子.png)
 
-You can now add callouts to a page to make a landing page style layout. 
+上图为 **代码高亮试例图** ，仅以 html 作为参考例子，其他代码参考 上图，或自行切换测试选择自己喜欢的代码高亮主题
 
-#### Create a callout data file
 
-Create a data file following the below format. The style is for classes to set the background colour and sizes you would like to use of the Bulma hero container for the callouts. 
 
-The items have 5 fields, but only the title and subtitle are required. 
+#### 友情链接
 
-```yml
-style: is-light
-items:
-  - title: Example callout 1
-    subtitle: Example subtitle 1
-    icon: fa-space-shuttle
-    description: >
-      The example description text goes here and can be multiple lines.
-
-      For example, such as this. 
-    call_to_action_name: Call to action 1
-    call_to_action_link: /page-1/
+```yaml
+# 友情链接
+friends:
+  jekyll: 'https://www.jekyll.com.cn/'
 ```
 
-#### Set the callouts in the frontmatter
+​	按格式填写即可，排序与配置文件里的排序有关。
 
-To display the callouts on your page, add a callouts property in the frontmatter and set it to the name of your data file without the extension.
 
-```yml
----
-layout: page
-title: Example Landing Page
-subtitle: This is an example landing page
-callouts: example_callouts
----
+
+#### 页脚
+
+```yaml
+# since
+footer:
+  since: 2018
 ```
 
-## Contributing
+​	用于页脚显示时间。
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/chrisrhymes/bulma-clean-theme. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-## Development
 
-To set up your environment to develop this theme, run `bundle install`.
+#### 评论系统的切换
 
-Your theme is setup just like a normal Jekyll site! To test your theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
+```yaml
+# 评论 最佳体验 在disqus、livere和Gitment之间三选一
+# disqus 评论
+disqus: false
+disqus_url: '' # https://abc.disqus.com/embed.js
+# 来必力评论
+livere: true
+livere_uid: 'MTAyMC8zNDI2OS8xMDgwNg==' # MTAyMC8zNDI2OS8xMDgwNg==
+# Gitment评论 OAuth Application
+Gitment: false
+Gitment_owner: ''  # github用户名
+Gitment_repo: ''  # github博客存放的仓库名
+client_id: ''  # 注册 OAuth Application 后获得的 client_id
+client_secret: ''  # 注册 OAuth Application 后获得的 client_secret
+```
 
-## License
+​	按申请第三方评论是获取的相关信息在配置文件中进行填写即可。
 
-The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+​	共有三款评论可供选择，使用 `true` 或者 `false` 开启或关闭某个评论系统。可开启多个甚至全开。当然，最佳体验，开一个即可。
 
+​	三款评论的样式如下图：
+
+dispus：
+
+![8](/screenshot/8.png)
+
+来必力：
+
+![9](/screenshot/9.png)
+
+Gitment评论：
+
+![10](/screenshot/10.png)
+
+​	三款评论各有各的优势与坏处。出于显示样式与中国大陆网络环境考虑，主题默认开启 `来必力` 评论为最佳体验。当然需要填写好相关的 `livere_uid` 代码。
+
+
+
+#### 文章分享的路口
+
+```yaml
+# Share : weibo, qq, wechat, tencent, douban, qzone, linkedin, diandian, facebook, twitter, google
+social-share: true
+social-share-items: ['qq', 'wechat', 'weibo', 'twitter', 'facebook']
+```
+
+​	为了让文章更方便地分享，使用了第三方分享插件[Share.js](http://overtrue.github.io/share.js/)，支持一键分享到微博、QQ空间、QQ好友、微信、腾讯微博、豆瓣、Facebook、Twitter、Linkedin、Google+、点点等社交网站。
+
+​	只需要填写相关的名称在 `social-share-items` 后即可，显示顺序与书写顺序有关。
+
+
+
+#### 网站流量追综的配置
+
+```yaml
+# 百度统计 在baidu-url里填写自己相关的url代码
+baidu: true
+baidu-url: ''
+# 谷歌分析 在google-ID里填写自己在谷歌分析获得的追踪ID
+google: false
+google-ID: ''
+```
+
+​	在 `baidu-url` 和 `google-ID` 分别填上注册获取的相关信息。使用 `true` 或者 `false` 开启或关闭他们。出于中国大陆网络环境，默认开启 百度统计 ，当然可以多开。
+
+
+
+### License 许可证
+
+HardCandy-Jekyll is licensed under [MIT](https://github.com/xukimseven/HardCandy-Jekyll/blob/master/LICENSE).
+
+
+
+### 求Star 求关注
+
+看到这里，如果你喜欢我的小项目，欢迎下载使用他，也请你为我点个小星星 😜 ，多谢。
