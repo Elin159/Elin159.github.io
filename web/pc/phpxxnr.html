@@ -1236,8 +1236,11 @@
     menu_side_list.map(function (i, v) {
         if (!$(v).hasClass('on')) {
             $(v).next().slideUp(1);
-        } else {
             $(v).find('.button_name').text('展开');
+            $(v).find('.button_name').prev().attr('src', './img/zhankai@2x.png');
+        } else {
+            console.log($(v).find('.button_name'));
+            $(v).find('.button_name').text('收缩');
             $(v).find('.button_name').prev().attr('src', './img/shousuo@2x.png');
         }
     });
@@ -1250,15 +1253,15 @@
         if (checkSelfIsUp) {
             $('.sub[data-id=' + id + ']').slideUp("fast", function () {
                 parents.removeClass('on');
-                button.text('收缩');
+
+                button.text('展开');
                 button.prev().attr('src', './img/zhankai@2x.png');
             });
         } else {
             $('.sub[data-id=' + id + ']').slideDown("fast", function () {
                 parents.addClass('on');
 
-                button.text('展开');
-
+                button.text('收缩');
                 button.prev().attr('src', './img/shousuo@2x.png');
             });
 
