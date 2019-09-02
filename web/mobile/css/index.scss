@@ -167,6 +167,26 @@
                         }
                     }
 
+                    &.pxxf {
+
+                        margin-top: 0.62rem;
+
+                        .img {
+
+                            img {
+                                width: 5.68rem;
+                                height: 5.2rem;
+                            }
+                        }
+
+                        .footer {
+                            margin-top: 0.3rem;
+                            width: 6.7rem;
+                            display: block;
+                            @include baseFontSize ();
+                        }
+                    }
+
                     //就业情况
                     &.jyqj {
                         margin-bottom: 0.6rem;

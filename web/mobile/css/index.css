@@ -94,6 +94,19 @@
           font-size: 0.28rem;
           color: #4D555D;
           line-height: 0.48rem; }
+      #container #main .main_container .contain > .content.pxxf {
+        margin-top: 0.62rem; }
+        #container #main .main_container .contain > .content.pxxf .img img {
+          width: 5.68rem;
+          height: 5.2rem; }
+        #container #main .main_container .contain > .content.pxxf .footer {
+          margin-top: 0.3rem;
+          width: 6.7rem;
+          display: block;
+          font-family: PingFangSC-Regular;
+          font-size: 0.28rem;
+          color: #4D555D;
+          line-height: 0.48rem; }
       #container #main .main_container .contain > .content.jyqj {
         margin-bottom: 0.6rem; }
         #container #main .main_container .contain > .content.jyqj .app {
