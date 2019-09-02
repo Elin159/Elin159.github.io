@@ -1,0 +1,564 @@
+<!-- 博文的布局-Layout -->
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 引入head标签 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-sclable=0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="description" content="华南仔的学习笔记" />
+<meta name="keywords" content="your web keywords, another keywords" />
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/media.css">
+<link rel="stylesheet" href="/assets/css/animate.min.css">
+<link rel="stylesheet" href="/assets/css/pygments/pygments_default.css">
+<link rel="stylesheet" href="/assets/css/github-markdown.css">
+<!-- SNS-icon -->
+<script src="//at.alicdn.com/t/font_856428_y9z6nq7zf5.js"></script>
+<!-- share.css -->
+<link rel="stylesheet" href="/assets/css/share.min.css">
+<!-- font -->
+<link rel="stylesheet" href="/assets/css/font.css">
+<!-- <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico|Ubuntu|Roboto+Mono|Source+Sans+Pro" rel="stylesheet"> -->
+
+<!-- Favicon -->
+<!-- <link href="/assets/profile.jpeg" rel="shortcut icon" />
+<link href="/assets/profile.jpeg" rel="apple-touch-icon-precomposed" /> -->
+<link href="/assets/author.jpeg" rel="shortcut icon" />
+<link href="/assets/author.jpeg" rel="apple-touch-icon-precomposed" />
+<!-- Android Lolipop Theme Color -->
+<!-- <meta name="theme-color" content="#1464FB"> -->
+<title>NodeJs</title>
+<!-- 百度统计 -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- 谷歌分析 -->
+
+
+<!-- Android Lolipop Theme Color -->
+<meta name="theme-color" content=" rgb(55,90,190) ">
+</head>
+<body>
+
+<!-- 顶部锚点 -->
+<a id="htmlup" name="htmlup"></a>
+<!-- 引入博文顶部选项 -->
+
+<header id="post-header" style="background-color:rgb(55,90,190);">
+  <div class="top-center">
+      <div class="logo">
+          <a href="/" title="my awesome webtitle" style="color: white;">兄弟会 林华南</a>
+      </div>
+      <nav class="top-nav">
+          <ul>
+              
+                <li><a href="/" style="color: white;">首页</a></li>
+              
+                <li><a href="/tags.html" style="color: white;">标签</a></li>
+              
+                <li><a href="/timeline.html" style="color: white;">时间线</a></li>
+              
+                <li><a href="/about.html" style="color: white;">关于博主</a></li>
+              
+                <li><a href="/friendLink.html" style="color: white;">友情链接</a></li>
+              
+          </ul>
+      </nav>
+      <div id="top-boot">
+        <a href="javascript:;" id="boot1" style="display:block;" onclick="document.getElementById('boot-area').style.display='block';document.getElementById('boot1').style.display='none';document.getElementById('boot2').style.display='block';"><img src="/assets/boot_white.png" alt=""></a>
+        <a href="javascript:;" id="boot2" style="display: none;" onclick="document.getElementById('boot-area').style.display='none';document.getElementById('boot1').style.display='block';document.getElementById('boot2').style.display='none';"><img src="/assets/boot_white.png" alt=""></a>
+      </div>
+  </div>
+
+</header>
+
+
+<!-- 引入移动下拉选项 -->
+<div id="boot-area">
+    <ul>
+        
+          <a href="/"><li>首页</li></a>
+        
+          <a href="/tags.html"><li>标签</li></a>
+        
+          <a href="/timeline.html"><li>时间线</li></a>
+        
+          <a href="/about.html"><li>关于博主</li></a>
+        
+          <a href="/friendLink.html"><li>友情链接</li></a>
+        
+    </ul>
+</div>
+
+<!-- 引入博文顶部样式 -->
+<!-- 版本一 垃圾 -->
+<!-- <div class="wow fadeIn top" data-wow-duration="3.5s" >
+    <span class="wow fadeInUp" data-wow-delay="0.2s">NodeJs</span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;true</span>
+</div> -->
+
+<!-- 版本二 可切换页面 -->
+
+<div class="post-top" style="background-color:rgb(55,90,190);">
+  <!-- 页面宽度大于800px -->
+  <div class="left-area">
+    
+      <a href="/2019/08/18/%E5%85%84%E5%BC%9F%E4%BC%9A-%E7%AC%AC%E5%8D%81%E5%85%AD%E5%A4%A9%E5%AD%A6%E4%B9%A0(React).html" class="btn bounceInLeft animated" onmouseover="showLeft();this.style.color='rgb(55,90,190)';" onmouseout="goneLeft();this.style.color='rgba(0,0,0,.2)';"><</a>
+      <div id="left-tab" style="display:none;"><span class="left-san"></span><span class="left-main" style="color:rgb(55,90,190);"><sapn class="main">React基础</sapn></span></div>
+    
+  </div>
+  <div class="post-titlearea">
+    <span class="wow fadeInUp" data-wow-delay="0.2s">NodeJs</span>
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;true</span> -->
+  </div>
+  <div class="right-area">
+    
+      <a href="/2019/07/22/%E7%AC%AC%E5%9B%9B%E5%A4%A9%E5%AD%A6%E4%B9%A0(javaScriptDom).html" class="btn bounceInRight self-animated" onmouseover="showRight();this.style.color='rgb(55,90,190)';" onmouseout="goneRight();this.style.color='rgba(0,0,0,.2)';">></a>
+      <div id="right-tab" style="display:none;"><span class="right-san"></span><span class="right-main" style="color:rgb(55,90,190);"><sapn class="main">javaScript 学习</sapn></span></div>
+    
+  </div>
+
+  <!-- 页面宽度小于800px -->
+  <div class="post-changearea">
+    
+      <a href="/2019/08/18/%E5%85%84%E5%BC%9F%E4%BC%9A-%E7%AC%AC%E5%8D%81%E5%85%AD%E5%A4%A9%E5%AD%A6%E4%B9%A0(React).html" class="leftchange" style="border-right: 1px solid rgb(55,90,190);border-bottom: 2px solid rgb(55,90,190);"><span>上一篇<br><br>React基础</span></a>
+    
+    
+      <a href="/2019/07/22/%E7%AC%AC%E5%9B%9B%E5%A4%A9%E5%AD%A6%E4%B9%A0(javaScriptDom).html" class="rightchange" style="border-left: 1px solid rgb(55,90,190);border-bottom: 2px solid rgb(55,90,190);"><span>下一篇<br><br>javaScript 学习</span></a>
+    
+  </div>
+</div>
+
+
+<div class="markdown-body fadeInUp animated">
+
+  
+    
+      <div class="postpage-subtitle" style="border-left: 8px solid rgb(55,90,190); border-right: 8px solid rgb(55,90,190)">
+        NodeJs 基础练习!
+      </div>
+    
+  
+
+  <!-- 文章内容 -->
+  <h1 id="第五天学习">第五天学习</h1>
+
+<h2 id="nodejs">Node.js</h2>
+
+<ul>
+  <li>
+    <p>安装Node.js 和 npm</p>
+  </li>
+  <li>
+    <p>第一个Node程序</p>
+  </li>
+  <li>
+    <p>搭建Node开发环境</p>
+  </li>
+  <li>
+    <p>模块</p>
+  </li>
+  <li>
+    <p>基本模块</p>
+
+    <ul>
+      <li>fs</li>
+      <li>stream</li>
+      <li>http</li>
+      <li>crypto</li>
+    </ul>
+  </li>
+</ul>
+
+<p>简述</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>javaScript是单线程执行，根本不能进行同步IO操作，所以JavaScript的这一“缺陷”导致了它只能使用异步IO。
+
+在2009年，Ryan正式推出了基于JavaScript语言和V8引擎的开源Web服务器项目，命名为Node.js。
+
+Node 上运行的JavaScript相比其他后端开发语言有何优势?
+
+最大的优势是借助JavaScript天生的时间驱动机制加V8高性能引擎，使编写高性能Web服务轻而易举。
+
+其次，JavaScript语言本身是完善的函数式语言，在前端开发时，开发人员往往写得比较随意，让人感觉JavaScript就是个"玩具语言"。但是，在Node环境下，通过模块化的JavaScript代码，加上函数式编程，并且无需考虑浏览器兼容性问题，直接使用最新的ECMAScirpt 6 标准，可以完全满足工程上的需求。
+
+io.js
+ios将首先添加新的特性，如果大家测试用得爽，就把新特性加入Node.js；io.js 是"尝鲜版", 而Node.js 是线上稳定版，相当于Fedora Linux 和 RHEL的关系
+</code></pre></div></div>
+
+<h6 id="安装nodejs">安装Node.js</h6>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install -y node
+</code></pre></div></div>
+
+<p>如果安装正常应该看到这样的输出</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node -v
+  v12.6.0
+</code></pre></div></div>
+
+<p>继续在命令提示符输入node, 将进入Node.js的交互环境，输入任何JavaScript语句，回车都将得到输出结果</p>
+
+<p>退出Node.js环境，只需要连续按两次Ctrl+c</p>
+
+<h6 id="npm">npm</h6>
+
+<p>npm其实是Node.js的包管理工具(package manager)</p>
+
+<p>作用:</p>
+
+<ol>
+  <li>使用别人写的某个包，放在npm官网上，如果需要使用，直接npm安装就可以直接使用了。</li>
+  <li>项目中，多个模块之间的依赖关系可以通过npm进行下载和管理。</li>
+</ol>
+
+<h6 id="hello-world的编写">hello world的编写</h6>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'use strict';
+console.log('hello, world');
+</code></pre></div></div>
+
+<p><strong>第一行总是写上 ‘use strict’; 是因为我们总是以严格模式运行JavaScript 代码，避免各种潜在危险。</strong></p>
+
+<p>运行:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node hello.js
+  hello, world
+</code></pre></div></div>
+
+<p><strong>文件名只能是英文字母、数字和下划线的组合</strong></p>
+
+<p>Node交互模式与浏览器的console操作一致</p>
+
+<h5 id="模块">模块</h5>
+
+<p>在Node环境中，一个.js文件就称之为一个模块(module)</p>
+
+<p>使用模块的最大好处就是大大提高了代码的可维护性。其次，编写代码不必从零开始。当一个模块编写完毕，就可以背其他地方引用。我们在编写程序的时候，也仅此引用其它模块，包括Node内置的模块和来自第三方的模块。</p>
+
+<p>使用模块还可以避免函数名和变量名冲突。相同名字的函数和变量完全可以分别存在不同的模块中，因此，我们自己在编写函数时，不必考虑名字会与其它模块冲突。</p>
+
+<p><strong>一个模块想要对外暴露变量(函数也是变量), 可以用module.exports = variable; 一个模块要引用其它模块爆了的变量，用 var ref = require(‘module_name’); 就拿到了引用模块的变量</strong></p>
+
+<h5 id="commonjs的模块实现原理">CommonJS的模块实现原理</h5>
+
+<p><strong>不建议使用</strong> <del>export.a = 函数</del></p>
+
+<p>强烈建议使用module.exports = xxx的方式来输出模版变量。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="s1">'foo'</span><span class="p">}</span>
+<span class="nx">model</span><span class="p">.</span><span class="nx">exports</span><span class="p">.</span><span class="nx">foo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="s1">'foo'</span><span class="p">}</span>
+<span class="nx">model</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> 
+<span class="p">{</span>
+  <span class="na">key</span> <span class="p">:</span> <span class="nx">value</span><span class="o">/</span><span class="err">函数名</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h5 id="基本模块">基本模块</h5>
+
+<h6 id="fs">fs</h6>
+
+<p>异步读文件</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fs'</span><span class="p">);</span>
+<span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="s1">'文件名(相对、绝对)'</span><span class="p">,</span> <span class="s1">'utf-8'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'报错了'</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">//文件内容</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>同步读文件</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fs'</span><span class="p">);</span>
+<span class="k">try</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="s1">'文件名(相对、绝对)'</span><span class="p">,</span> <span class="s1">'utf-8'</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">//报错信息</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>如果读取的是二进制文件且不填入编码时，获取到的内容是buffer对象，转字符串为</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">data</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>字符串转buffer对象</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Buffer</span><span class="p">.</span><span class="k">from</span><span class="p">(</span><span class="nx">text</span><span class="p">,</span> <span class="s1">'utf-8'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>异步写文件</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">fs</span><span class="p">.</span><span class="nx">writeFile</span><span class="p">(</span><span class="s1">'abc.txt'</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+		<span class="c1">//报错了</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'成功了'</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>同步写文件</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="p">{</span>
+	<span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="s1">'abc.txt'</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'成功了'</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"报错了"</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>获取文件详细信息</p>
+
+<h6 id="异步获取文件信息">异步获取文件信息</h6>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">fs</span><span class="p">.</span><span class="nx">stat</span><span class="p">(</span><span class="s1">'文件名'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">stat</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'报错了'</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stat</span><span class="p">.</span><span class="nx">isFile</span><span class="p">());</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stat</span><span class="p">.</span><span class="nx">isDirectory</span><span class="p">());</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">fs</span><span class="p">.</span><span class="nx">isFile</span><span class="p">())</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stat</span><span class="p">.</span><span class="nx">size</span><span class="p">);</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stat</span><span class="p">.</span><span class="nx">birthTime</span><span class="p">);</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stat</span><span class="p">.</span><span class="nx">mtime</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<h6 id="同步获取文件信息">同步获取文件信息</h6>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">stat</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">stat</span><span class="p">(</span><span class="s1">'文件名'</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stat</span><span class="p">.</span><span class="nx">isFile</span><span class="p">());</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stat</span><span class="p">.</span><span class="nx">isDirectory</span><span class="p">());</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">stat</span><span class="p">.</span><span class="nx">isFile</span><span class="p">())</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stat</span><span class="p">.</span><span class="nx">size</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stat</span><span class="p">.</span><span class="nx">birthtime</span><span class="p">());</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stat</span><span class="p">.</span><span class="nx">mtime</span><span class="p">());</span>
+  <span class="p">}</span>
+<span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'出错了'</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>注意</strong></p>
+
+<p><strong>在fs模块中，提供同步方法是为了方便使用。那我们到底是应该用异步方法还是同步方法呢？</strong></p>
+
+<p><strong><em>由于Node环境执行的JavaScript代码是服务端代码，所以，绝大部分需要在服务器运行期反复执行业务逻辑的代码，必须使用异步代码，否则，同步代码在执行时期，服务器将停止响应，因为JavaScript只有一个执行线程。</em></strong></p>
+
+<h6 id="stream">stream</h6>
+
+<p>stream 是Node.js提供的又一个仅在服务区端可用的模块，目的是支持”流”这种数据结构。</p>
+
+<h6 id="文件流读取--输入流--读文件">文件流读取 / 输入流 / 读文件</h6>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fs'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">rs</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">createReadStream</span><span class="p">(</span><span class="s1">'文件名'</span><span class="p">,</span> <span class="s1">'编码/conding'</span><span class="p">);</span>
+<span class="nx">rs</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'open'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">fd</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"打开文件"</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">rs</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'ready'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'准备读取文件'</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">rs</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'data'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">chunk</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'正在读取文件'</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">chunk</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">rs</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'end'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'文件已读取完毕'</span><span class="p">);</span>
+<span class="p">})</span>
+
+<span class="nx">rs</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'close'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'已关闭文件'</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">rs</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'err'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'报错了'</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h6 id="文件写入">文件写入</h6>
+
+<p>字符串写入</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var fs = require('fs');
+var ws1 = fs.createWriteStream('文件名', '编码/enconding');
+ws1.write('asdfadffsd');
+ws1.write('end.');
+ws1.end();
+</code></pre></div></div>
+
+<p>二进制流写入</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var fs = require('fs');
+var ws2 = fs.createWriteStrimg('文件名', '编码/encoding');
+ws2.write(Buffer.from('adssafds', 'utf-8'));
+ws2.write(Buffer.from('end.', 'utf-8'));
+ws2.end();
+</code></pre></div></div>
+
+<p>pipe流操作(复制文件操作)</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fs'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">rs</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">createReadStream</span><span class="p">(</span><span class="s2">"文件名"</span><span class="p">,</span> <span class="s2">"编码"</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">ws</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">createWriteStream</span><span class="p">(</span><span class="s2">"文件名"</span><span class="p">,</span> <span class="s2">"编码"</span><span class="p">);</span>
+<span class="nx">rs</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">ws</span><span class="p">);</span>
+<span class="c1">//不关闭写入文件流</span>
+<span class="nx">rs</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">ws</span><span class="p">,</span> <span class="p">{</span><span class="na">end</span> <span class="p">:</span><span class="kc">false</span><span class="p">});</span>
+</code></pre></div></div>
+
+  <!-- 引入share模块 -->
+  
+  <div class="social-share-wrapper">
+    <div class="social-share"></div>
+  </div>
+
+
+<!-- share.js -->
+<script src="/assets/js/social-share.min.js"></script>
+<script>
+  socialShare('.social-share', {
+    sites: [
+      
+        'qq'
+        ,
+        
+      
+        'wechat'
+        ,
+        
+      
+        'weibo'
+        ,
+        
+      
+        'twitter'
+        ,
+        
+      
+        'facebook'
+        
+      
+    ],
+    wechatQrcodeTitle: "分享到微信朋友圈",
+    wechatQrcodeHelper: '期待在朋友圈见到这篇文章'
+  });
+</script>
+
+</div>
+
+<!-- 底部锚点 -->
+<a id="htmldown" name="htmldown"></a>
+<!-- 引入评论模块 -->
+
+
+
+    <section class="post-footer-item comment">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDI2OS8xMDgwNg=="></div>
+    </section>
+
+    <!-- 来必力City版安装代码 -->
+    <script type="text/javascript">
+       (function(d, s) {
+           var j, e = d.getElementsByTagName(s)[0];
+
+           if (typeof LivereTower === 'function') { return; }
+
+           j = d.createElement(s);
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    <!-- City版安装代码已完成 -->
+
+
+
+
+
+<!-- 引入goto模块 -->
+<div class="bounceInRight animated go">
+  <a title="顶部切换页面" class="gototop" href="#htmlup" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Top
+    </div>
+  </a>
+  <a title="底部有livere评论哦" class="gotobottom" href="#htmldown" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Foot
+    </div>
+  </a>
+</div>
+
+<!-- 引入页面底部模块 -->
+<footer id="bottom">
+  <br>
+  <span>Elin159 ©
+  
+  
+    2018
+    -
+  
+  2019
+  <br>
+  Powered by <a href="https://www.jekyll.com.cn/">Jekyll</a> | <a href="https://github.com/Elin159/HardCandy-Jekyll">Elin159</a></span>
+</footer>
+
+
+<!-- 引用wow.js的动画效果 -->
+<script src="/assets/js/wow.js"></script>
+<script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        // offset: 600,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+</script>
+<!-- 页面刷新回到顶部 -->
+<script>
+    window.onbeforeunload = function(){
+        //刷新后页面自动回到顶部
+        document.documentElement.scrollTop = 0;  //ie下
+        document.body.scrollTop = 0;  //非ie
+    }
+</script>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>
