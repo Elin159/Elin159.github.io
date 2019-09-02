@@ -77,6 +77,86 @@
         font-size: 0.28rem;
         color: #4D555D;
         line-height: 0.52rem; }
+      #container #main .main_container .contain > .content.xxnr {
+        margin-top: 0.17rem; }
+        #container #main .main_container .contain > .content.xxnr ul.menu_side {
+          list-style-type: none; }
+          #container #main .main_container .contain > .content.xxnr ul.menu_side > li {
+            margin-top: 0.2rem;
+            margin-bottom: 0.2rem; }
+          #container #main .main_container .contain > .content.xxnr ul.menu_side > li.sli .menu_title {
+            background: #009999;
+            width: 6.7rem;
+            display: flex;
+            display: -webkit-flex;
+            justify-content: space-between;
+            border-radius: 0.4rem 0 0.4rem 0; }
+            #container #main .main_container .contain > .content.xxnr ul.menu_side > li.sli .menu_title > .name {
+              width: 1.6rem;
+              height: 0.8rem;
+              text-align: center;
+              background: #E3783D;
+              font-family: PingFangSC-Regular;
+              font-size: 0.28rem;
+              color: #FFFFFF;
+              line-height: 0.8rem;
+              border-radius: 0.4rem 0 0.4rem 0; }
+            #container #main .main_container .contain > .content.xxnr ul.menu_side > li.sli .menu_title .detail {
+              width: 5.1rem;
+              height: 0.8rem;
+              cursor: pointer;
+              display: flex;
+              display: -webkit-flex;
+              justify-content: space-between;
+              padding: 0 0.16rem 0 0.23rem; }
+              #container #main .main_container .contain > .content.xxnr ul.menu_side > li.sli .menu_title .detail .content {
+                font-family: PingFangSC-Regular;
+                font-size: 0.28rem;
+                color: #FFFFFF;
+                line-height: 0.8rem;
+                height: 0.8rem; }
+              #container #main .main_container .contain > .content.xxnr ul.menu_side > li.sli .menu_title .detail .button {
+                font-family: PingFangSC-Regular;
+                font-size: 0.28rem;
+                color: #FFFFFF;
+                line-height: 0.8rem;
+                height: 0.8rem; }
+                #container #main .main_container .contain > .content.xxnr ul.menu_side > li.sli .menu_title .detail .button img {
+                  width: 0.28rem;
+                  height: 0.15rem; }
+          #container #main .main_container .contain > .content.xxnr ul.menu_side > li.sli .menu_content {
+            width: 6.7rem; }
+            #container #main .main_container .contain > .content.xxnr ul.menu_side > li.sli .menu_content span {
+              display: block; }
+            #container #main .main_container .contain > .content.xxnr ul.menu_side > li.sli .menu_content .left {
+              width: 2.04rem;
+              font-family: PingFangSC-Regular;
+              font-size: 0.28rem;
+              color: #30363E;
+              line-height: 0.4rem;
+              display: flex;
+              display: -webkit-flex;
+              justify-content: center; }
+              #container #main .main_container .contain > .content.xxnr ul.menu_side > li.sli .menu_content .left .left_content {
+                width: 1.12rem; }
+            #container #main .main_container .contain > .content.xxnr ul.menu_side > li.sli .menu_content .right {
+              width: 4.66rem;
+              font-family: PingFangSC-Regular;
+              font-size: 0.28rem;
+              color: #4D555D;
+              line-height: 0.48rem; }
+            #container #main .main_container .contain > .content.xxnr ul.menu_side > li.sli .menu_content .content_top {
+              margin-top: 0.2rem;
+              display: flex;
+              display: -webkit-flex;
+              justify-content: space-between;
+              padding-bottom: 0.21rem;
+              border-bottom: 0.01rem dashed #009999; }
+            #container #main .main_container .contain > .content.xxnr ul.menu_side > li.sli .menu_content .content_bottom {
+              margin-top: 0.2rem;
+              display: flex;
+              display: -webkit-flex;
+              justify-content: space-between; }
       #container #main .main_container .contain > .content.hx {
         margin-top: 0.54rem; }
         #container #main .main_container .contain > .content.hx .title {
