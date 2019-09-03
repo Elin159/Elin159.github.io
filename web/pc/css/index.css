@@ -907,7 +907,9 @@ a:hover {
     #go_top .kuai a span {
       display: block; }
     #go_top .kuai a img {
-      margin-top: 16px; }
+      margin-top: 16px;
+      width: 32px;
+      height: 32px; }
   #go_top .kuai.mfsx {
     text-align: center; }
     #go_top .kuai.mfsx a {
@@ -924,12 +926,7 @@ a:hover {
       color: #fff;
       border: none; }
       #go_top .kuai.sqyh a:hover img {
-        content: url("../img/youhui1@2x.png");
-        width: 34px;
-        height: 28px; }
-    #go_top .kuai.sqyh img {
-      width: 34px;
-      height: 28px; }
+        content: url("../img/youhui1@2x.png"); }
   #go_top .kuai.mqzp {
     text-align: center; }
     #go_top .kuai.mqzp a:hover {
@@ -938,9 +935,6 @@ a:hover {
       border: none; }
       #go_top .kuai.mqzp a:hover img {
         content: url("../img/zhaopin1@2x.png"); }
-    #go_top .kuai.mqzp img {
-      width: 32px;
-      height: 34px; }
   #go_top .kuai.xfjg {
     text-align: center; }
     #go_top .kuai.xfjg a:hover {
@@ -949,9 +943,6 @@ a:hover {
       border: none; }
       #go_top .kuai.xfjg a:hover img {
         content: url("../img/xuefei1@2x.png"); }
-    #go_top .kuai.xfjg img {
-      width: 34px;
-      height: 34px; }
   #go_top .kuai.kbjh {
     text-align: center; }
     #go_top .kuai.kbjh a:hover {
@@ -960,9 +951,6 @@ a:hover {
       border: none; }
       #go_top .kuai.kbjh a:hover img {
         content: url("../img/kaiban1@2x.png"); }
-    #go_top .kuai.kbjh img {
-      width: 32px;
-      height: 34px; }
   #go_top .kuai.wybm {
     text-align: center; }
     #go_top .kuai.wybm a:hover {
@@ -970,9 +958,6 @@ a:hover {
       color: #fff; }
       #go_top .kuai.wybm a:hover img {
         content: url("../img/baoming1@2x.png"); }
-    #go_top .kuai.wybm img {
-      width: 32px;
-      height: 34px; }
   #go_top .top {
     margin-top: 11px;
     background: #0E8694; }
