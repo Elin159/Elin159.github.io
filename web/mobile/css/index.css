@@ -413,6 +413,11 @@
             height: 0.84rem; }
           #container #main .main_container .contain > .content.jyxz .report table tr {
             text-align: center; }
+          #container #main .main_container .contain > .content.jyxz .report table tbody td:nth-child(1) {
+            text-align: right; }
+          #container #main .main_container .contain > .content.jyxz .report table tbody td:nth-child(2) {
+            text-align: center;
+            padding-left: 0.1rem; }
           #container #main .main_container .contain > .content.jyxz .report table tbody tr {
             font-family: PingFangSC-Regular;
             font-size: 0.28rem;
@@ -563,12 +568,21 @@
             font-size: 0.28rem;
             color: #000000;
             line-height: 0.8rem; }
+            #container #main .main_container .contain > .content.jyqk > .content .table table thead td:nth-child(1) {
+              padding-left: 0.25rem; }
+            #container #main .main_container .contain > .content.jyqk > .content .table table thead td:nth-child(3) {
+              padding-right: 0.25rem; }
           #container #main .main_container .contain > .content.jyqk > .content .table table tr {
             height: 0.76rem;
             text-align: center; }
           #container #main .main_container .contain > .content.jyqk > .content .table table td:nth-child(2) {
             padding-left: 0.4rem;
             text-align: left; }
+          #container #main .main_container .contain > .content.jyqk > .content .table table td:nth-child(3) {
+            text-align: center;
+            padding-right: 0.25rem; }
+          #container #main .main_container .contain > .content.jyqk > .content .table table td:nth-child(1) {
+            padding-left: 0.2rem; }
           #container #main .main_container .contain > .content.jyqk > .content .table table tbody tr {
             font-family: PingFangSC-Regular;
             font-size: 0.28rem;
@@ -658,7 +672,7 @@
           margin-bottom: 1.5rem; }
         #container #main .main_container .contain > .content.tzgx .logo_line img {
           width: 1.52rem;
-          height: 1.52rem; }
+          height: 1.72rem; }
       #container #main .main_container .contain > .bottom {
         margin-top: 0.52rem; }
         #container #main .main_container .contain > .bottom .button {
