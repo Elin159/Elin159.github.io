@@ -285,6 +285,8 @@ a:hover {
               #main .contain > .content .c_body .c_body_content .c_body_top.jy .c_body_top_content table tr {
                 height: 42px;
                 text-align: center; }
+              #main .contain > .content .c_body .c_body_content .c_body_top.jy .c_body_top_content table tbody td:nth-child(1) {
+                padding-left: 10px; }
               #main .contain > .content .c_body .c_body_content .c_body_top.jy .c_body_top_content table tbody tr {
                 font-family: PingFangSC-Regular;
                 font-size: 14px;

@@ -441,6 +441,9 @@ a:hover {
                                     }
 
                                     tbody {
+                                        td:nth-child(1) {
+                                            padding-left: 10px;
+                                        }
                                         tr {
                                             font-family: PingFangSC-Regular;
                                             font-size: 14px;
