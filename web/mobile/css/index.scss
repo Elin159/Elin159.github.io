@@ -22,7 +22,7 @@
             display: block;
             width: 2.4rem;
             height: 0.72rem;
-            border: solid 0.01rem #009999;
+            border: solid 1px #009999;
             border-radius: 0.36rem;
             text-align: center;
             @include baseFontSize ($line-height: 0.72rem,
@@ -234,7 +234,7 @@
                                         @include flex();
                                         justify-content: space-between;
                                         padding-bottom: 0.21rem;
-                                        border-bottom: 0.01rem dashed #009999;
+                                        border-bottom: 1px dashed #009999;
 
                                     }
 
@@ -407,7 +407,7 @@
                                                             box-sizing: border-box;
                                                             padding-right: 0.92rem;
                                                             padding-bottom: 0.155rem;
-                                                            border-bottom: solid 0.01rem #979797;
+                                                            border-bottom: solid 1px #979797;
                                                         }
                                                     }
                                                 }
@@ -420,7 +420,7 @@
                                                             @include baseFontSize($font-size: 0.24rem,
                                                                 $line-height:0.45rem);
 
-                                                            border-bottom: solid 0.01rem #979797;
+                                                            border-bottom: solid 1px #979797;
 
                                                             cite {
                                                                 font-style: normal;
@@ -606,8 +606,8 @@
                                     tr:nth-child(2n+0) {
                                         box-sizing: border-box;
                                         background: #EFEFEF;
-                                        border-top: #FFFFFF solid 0.01rem;
-                                        border-bottom: #FFFFFF solid 0.01rem;
+                                        border-top: #FFFFFF solid 1px;
+                                        border-bottom: #FFFFFF solid 1px;
                                     }
                                 }
 
@@ -660,7 +660,7 @@
                                 width: 6.7rem;
                                 height: 4.5rem;
                                 background: #F3F5F7;
-                                border: 0.01rem solid #ECECEC;
+                                border: 1px solid #ECECEC;
                                 border-radius: 0.04rem;
                                 padding: 0.28rem 0.44rem 0.3rem 0.35rem;
 
@@ -779,7 +779,7 @@
                             }
 
                             .tags {
-                                margin-top: 0.01rem;
+                                margin-top: 1px;
 
                                 span {
                                     display: block;
@@ -845,8 +845,8 @@
                                         tr:nth-child(2n+1) {
                                             box-sizing: border-box;
                                             background: #EFEFEF;
-                                            border-top: #FFFFFF solid 0.01rem;
-                                            border-bottom: #FFFFFF solid 0.01rem;
+                                            border-top: #FFFFFF solid 1px;
+                                            border-bottom: #FFFFFF solid 1px;
                                         }
                                     }
                                 }
