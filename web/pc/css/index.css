@@ -170,8 +170,8 @@ a:hover {
                       display: flex;
                       display: -webkit-flex;
                       align-items: center; }
-                    #main .contain > .content .c_body .c_body_content .c_body_top.xxnr .menu_side > ul > li.sli ul.sub .sub_content span {
-                      display: block; }
+                      #main .contain > .content .c_body .c_body_content .c_body_top.xxnr .menu_side > ul > li.sli ul.sub .sub_content .right .right_content span {
+                        padding-right: 10px; }
                   #main .contain > .content .c_body .c_body_content .c_body_top.xxnr .menu_side > ul > li.sli ul.sub li {
                     border-bottom: 2px solid #FFFFFF; }
                   #main .contain > .content .c_body .c_body_content .c_body_top.xxnr .menu_side > ul > li.sli ul.sub > li:nth-child(2n+1) {

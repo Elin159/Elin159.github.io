@@ -245,10 +245,11 @@ a:hover {
                                                     display: flex;
                                                     display: -webkit-flex;
                                                     align-items: center;
-                                                }
-
-                                                span {
-                                                    display: block;
+                                                    .right_content {
+                                                        span {
+                                                            padding-right: 10px;
+                                                        }
+                                                    }
                                                 }
 
                                             }
