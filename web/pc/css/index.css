@@ -886,10 +886,7 @@ a:hover {
   top: 160px;
   width: 80px;
   height: 480px;
-  background: #F3F5F7;
-  border-top: 1px solid #D7D7D7;
-  border-left: 1px solid #D7D7D7;
-  border-bottom: 1px solid #D7D7D7; }
+  background: #F3F5F7; }
   #go_top .kuai a {
     display: block;
     width: 80px;
@@ -898,7 +895,8 @@ a:hover {
     font-size: 14px;
     color: #333333;
     box-sizing: border-box;
-    border-bottom: 1px solid #D7D7D7; }
+    border-bottom: 1px solid #D7D7D7;
+    border-left: 1px solid #D7D7D7; }
     #go_top .kuai a span {
       display: block; }
     #go_top .kuai a img {
@@ -906,6 +904,7 @@ a:hover {
   #go_top .kuai.mfsx {
     text-align: center; }
     #go_top .kuai.mfsx a {
+      border-left: none;
       background: #0E8694;
       color: #fff; }
     #go_top .kuai.mfsx img {
@@ -957,13 +956,11 @@ a:hover {
       height: 34px; }
   #go_top .kuai.wybm {
     text-align: center; }
-    #go_top .kuai.wybm a {
-      border: none; }
-      #go_top .kuai.wybm a:hover {
-        background: #0E8694;
-        color: #fff; }
-        #go_top .kuai.wybm a:hover img {
-          content: url("../img/baoming1@2x.png"); }
+    #go_top .kuai.wybm a:hover {
+      background: #0E8694;
+      color: #fff; }
+      #go_top .kuai.wybm a:hover img {
+        content: url("../img/baoming1@2x.png"); }
     #go_top .kuai.wybm img {
       width: 32px;
       height: 34px; }

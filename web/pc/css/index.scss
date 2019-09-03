@@ -245,6 +245,7 @@ a:hover {
                                                     display: flex;
                                                     display: -webkit-flex;
                                                     align-items: center;
+
                                                     .right_content {
                                                         span {
                                                             padding-right: 10px;
@@ -1350,9 +1351,9 @@ a:hover {
     width: 80px;
     height: 480px;
     background: #F3F5F7;
-    border-top: 1px solid #D7D7D7;
-    border-left: 1px solid #D7D7D7;
-    border-bottom: 1px solid #D7D7D7;
+    // border-top: 1px solid #D7D7D7;
+    // border-left: 1px solid #D7D7D7;
+    // border-bottom: 1px solid #D7D7D7;
 
     .kuai {
         a {
@@ -1364,6 +1365,7 @@ a:hover {
             color: #333333;
             box-sizing: border-box;
             border-bottom: 1px solid #D7D7D7;
+            border-left: 1px solid #D7D7D7;
 
             span {
                 display: block;
@@ -1378,6 +1380,8 @@ a:hover {
             text-align: center;
 
             a {
+
+                border-left: none;
                 background: #0E8694;
                 color: #fff;
             }
@@ -1483,7 +1487,6 @@ a:hover {
             text-align: center;
 
             a {
-                border: none;
 
                 &:hover {
                     img {
