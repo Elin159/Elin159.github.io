@@ -444,6 +444,7 @@ a:hover {
                                         td:nth-child(1) {
                                             padding-left: 10px;
                                         }
+
                                         tr {
                                             font-family: PingFangSC-Regular;
                                             font-size: 14px;
@@ -939,8 +940,8 @@ a:hover {
                                 display: flex;
                                 display: -webkit-flex;
                                 justify-content: space-between;
-
                                 a {
+                                    font-family: PingFangSC-Regular;
                                     display: block;
                                     width: 160px;
                                     height: 48px;
@@ -1050,6 +1051,7 @@ a:hover {
                                     line-height: 28px;
 
                                     margin-bottom: 33px;
+                                    font-family: PingFangSC-Regular;
 
                                     &.php_content {
 
@@ -1067,6 +1069,7 @@ a:hover {
                                     background-color: #0E8694;
                                     color: #FFF;
                                     border-radius: 5px;
+                                    font-family: PingFangSC-Regular;
                                 }
 
                                 ul {
@@ -1172,8 +1175,8 @@ a:hover {
                                     height: 112px;
                                     font-size: 14px;
                                     line-height: 28px;
-
                                     margin-bottom: 33px;
+                                    font-family: PingFangSC-Regular;
 
                                     &.php_content {
 
@@ -1191,6 +1194,7 @@ a:hover {
                                     background-color: #0E8694;
                                     color: #FFF;
                                     border-radius: 5px;
+                                    font-family: PingFangSC-Regular;
                                 }
 
                                 ul {
@@ -1403,6 +1407,8 @@ a:hover {
                 &:hover {
                     img {
                         content: url('../img/youhui1@2x.png');
+                        width: 34px;
+                        height: 28px;
                     }
 
                     background: #0E8694;
