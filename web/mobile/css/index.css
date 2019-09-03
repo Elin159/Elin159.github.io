@@ -120,10 +120,14 @@
                 font-size: 0.28rem;
                 color: #FFFFFF;
                 line-height: 0.8rem;
-                height: 0.8rem; }
+                height: 0.8rem;
+                display: flex;
+                display: -webkit-flex;
+                align-items: center; }
                 #container #main .main_container .contain > .content.xxnr ul.menu_side > li.sli .menu_title .detail .button img {
                   width: 0.28rem;
-                  height: 0.15rem; }
+                  height: 0.15rem;
+                  margin-right: 0.1rem; }
           #container #main .main_container .contain > .content.xxnr ul.menu_side > li.sli .menu_content {
             width: 6.7rem; }
             #container #main .main_container .contain > .content.xxnr ul.menu_side > li.sli .menu_content span {

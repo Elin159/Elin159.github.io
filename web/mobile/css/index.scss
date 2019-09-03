@@ -194,10 +194,12 @@
                                                 $color: #FFFFFF);
 
                                             height: 0.8rem;
-
+                                            @include flex();
+                                            align-items: center;
                                             img {
                                                 width: 0.28rem;
                                                 height: 0.15rem;
+                                                margin-right: 0.1rem;
                                             }
                                         }
                                     }
