@@ -48,7 +48,8 @@ a:hover {
         justify-content: space-between; }
         #header .contain .content .menu ul li a {
           font-size: 13px;
-          line-height: 22px; }
+          line-height: 22px;
+          font-family: PingFangSC-Regular; }
 
 #main {
   margin-bottom: 60px; }

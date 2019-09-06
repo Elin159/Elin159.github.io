@@ -275,21 +275,23 @@
                       padding-right: 0.92rem;
                       padding-bottom: 0.155rem;
                       border-bottom: solid 1px #979797; }
-                  #container #main .main_container .contain > .content.jyqj .app > .content .content_list .kuai .box .box_content .right .body .body_title {
-                    padding-left: 0.4rem;
-                    text-align: center;
-                    font-family: PingFangSC-Regular;
-                    font-size: 0.24rem;
-                    color: #4D555D;
-                    line-height: 0.45rem;
-                    border-bottom: solid 1px #979797; }
-                    #container #main .main_container .contain > .content.jyqj .app > .content .content_list .kuai .box .box_content .right .body .body_title cite {
-                      font-style: normal;
-                      font-size: 0.32rem; }
-                  #container #main .main_container .contain > .content.jyqj .app > .content .content_list .kuai .box .box_content .right .body .body_content {
-                    margin-top: 0.1rem;
-                    box-sizing: border-box;
-                    padding-left: 0.92rem; }
+                  #container #main .main_container .contain > .content.jyqj .app > .content .content_list .kuai .box .box_content .right {
+                    overflow: hidden; }
+                    #container #main .main_container .contain > .content.jyqj .app > .content .content_list .kuai .box .box_content .right .body .body_title {
+                      padding-left: 0.4rem;
+                      text-align: center;
+                      font-family: PingFangSC-Regular;
+                      font-size: 0.24rem;
+                      color: #4D555D;
+                      line-height: 0.45rem;
+                      border-bottom: solid 1px #979797; }
+                      #container #main .main_container .contain > .content.jyqj .app > .content .content_list .kuai .box .box_content .right .body .body_title cite {
+                        font-style: normal;
+                        font-size: 0.32rem; }
+                    #container #main .main_container .contain > .content.jyqj .app > .content .content_list .kuai .box .box_content .right .body .body_content {
+                      margin-top: 0.1rem;
+                      box-sizing: border-box;
+                      padding-left: 0.92rem; }
           #container #main .main_container .contain > .content.jyqj .app > .content .card_contain {
             margin-top: 0.3rem; }
           #container #main .main_container .contain > .content.jyqj .app > .content .card {
