@@ -870,21 +870,22 @@
 
                     &.szll {
                         margin-top: 0.74rem;
-
+                        height: 4.6rem;
                         >.content {
+                            height: 4.8rem;
                             .lunbo {
                                 width: 6.7rem;
 
                                 .kuai {
                                     @include flex();
                                     justify-content: space-between;
-
+                                    width: 6.7rem;
                                     .image {
                                         box-sizing: border-box;
                                         background: #F4F4F4;
                                         width: 3.2rem;
                                         height: 3.64rem;
-
+                                        margin-right: 0.3rem;
                                         img {
                                             width: 3.2rem;
                                             height: 2.8rem;

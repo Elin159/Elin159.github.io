@@ -599,40 +599,45 @@
             border-top: #FFFFFF solid 1px;
             border-bottom: #FFFFFF solid 1px; }
       #container #main .main_container .contain > .content.szll {
-        margin-top: 0.74rem; }
-        #container #main .main_container .contain > .content.szll > .content .lunbo {
-          width: 6.7rem; }
-          #container #main .main_container .contain > .content.szll > .content .lunbo .kuai {
-            display: flex;
-            display: -webkit-flex;
-            justify-content: space-between; }
-            #container #main .main_container .contain > .content.szll > .content .lunbo .kuai .image {
-              box-sizing: border-box;
-              background: #F4F4F4;
-              width: 3.2rem;
-              height: 3.64rem; }
-              #container #main .main_container .contain > .content.szll > .content .lunbo .kuai .image img {
+        margin-top: 0.74rem;
+        height: 4.6rem; }
+        #container #main .main_container .contain > .content.szll > .content {
+          height: 4.8rem; }
+          #container #main .main_container .contain > .content.szll > .content .lunbo {
+            width: 6.7rem; }
+            #container #main .main_container .contain > .content.szll > .content .lunbo .kuai {
+              display: flex;
+              display: -webkit-flex;
+              justify-content: space-between;
+              width: 6.7rem; }
+              #container #main .main_container .contain > .content.szll > .content .lunbo .kuai .image {
+                box-sizing: border-box;
+                background: #F4F4F4;
                 width: 3.2rem;
-                height: 2.8rem; }
-              #container #main .main_container .contain > .content.szll > .content .lunbo .kuai .image .font {
-                display: block;
-                width: 1.2rem;
-                height: 0.84rem;
-                padding-left: 0.2rem;
-                font-family: PingFangSC-Regular;
-                font-size: 0.3rem;
-                color: #4D555D;
-                line-height: 0.84rem; }
-        #container #main .main_container .contain > .content.szll > .content .lunbo_line {
-          margin-top: 0.4rem; }
-          #container #main .main_container .contain > .content.szll > .content .lunbo_line span {
-            display: block;
-            width: 0.36rem;
-            height: 0.05rem;
-            background: #D6EDED;
-            margin-right: 0.11rem; }
-            #container #main .main_container .contain > .content.szll > .content .lunbo_line span.active {
-              background: #00B1B1; }
+                height: 3.64rem;
+                margin-right: 0.3rem; }
+                #container #main .main_container .contain > .content.szll > .content .lunbo .kuai .image img {
+                  width: 3.2rem;
+                  height: 2.8rem; }
+                #container #main .main_container .contain > .content.szll > .content .lunbo .kuai .image .font {
+                  display: block;
+                  width: 1.2rem;
+                  height: 0.84rem;
+                  padding-left: 0.2rem;
+                  font-family: PingFangSC-Regular;
+                  font-size: 0.3rem;
+                  color: #4D555D;
+                  line-height: 0.84rem; }
+          #container #main .main_container .contain > .content.szll > .content .lunbo_line {
+            margin-top: 0.4rem; }
+            #container #main .main_container .contain > .content.szll > .content .lunbo_line span {
+              display: block;
+              width: 0.36rem;
+              height: 0.05rem;
+              background: #D6EDED;
+              margin-right: 0.11rem; }
+              #container #main .main_container .contain > .content.szll > .content .lunbo_line span.active {
+                background: #00B1B1; }
       #container #main .main_container .contain > .content.jyxy .card {
         margin-top: 0.53rem; }
         #container #main .main_container .contain > .content.jyxy .card .img img {

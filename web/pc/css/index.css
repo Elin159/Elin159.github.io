@@ -1,14 +1,14 @@
 @font-face {
   font-family: 'PingFangSC-Regular';
-  src: url("./font/PingFang Regular.otf?v1=1") format("opentype"), url("./font/PingFang-Regular.woff") format("woff"), url("./font/PingFang-Regular.ttf") format("truetype"); }
+  src: url("./font/PingFang-Regular.woff") format("woff"), url("./font/PingFang Regular.otf?v1=1") format("opentype"), url("./font/PingFang-Regular.ttf") format("truetype"); }
 
 @font-face {
   font-family: 'PingFangSC-Semibold';
-  src: url("./font/PingFang-SC-Semibold.otf?v1=1") format("opentype"), url("./font/PingFang-SC-Semibold.woff") format("woff"), url("./font/PingFang-SC-Semibold.ttf") format("truetype"); }
+  src: url("./font/PingFang-SC-Semibold.woff") format("woff"), url("./font/PingFang-SC-Semibold.otf?v1=1") format("opentype"), url("./font/PingFang-SC-Semibold.ttf") format("truetype"); }
 
 @font-face {
   font-family: "PingFangSC-Medium";
-  src: url("./font/PingFangMedium.otf?v1=2") format("opentype"), url("./font/PingFangMedium.woff") format("woff"), url("./font/PingFangMedium.ttf") format("truetype"); }
+  src: url("./font/PingFangMedium.woff") format("woff"), url("./font/PingFangMedium.otf?v1=2") format("opentype"), url("./font/PingFangMedium.ttf") format("truetype"); }
 
 * {
   padding: 0;
@@ -37,10 +37,12 @@ a:hover {
   background-color: #333333;
   display: flex;
   display: -webkit-flex;
+  display: -ms-flexbox;
   justify-content: center; }
   #header .contain .content {
     display: flex;
     display: -webkit-flex;
+    display: -ms-flexbox;
     width: 1200px;
     align-items: center; }
     #header .contain .content .logo {
@@ -49,18 +51,21 @@ a:hover {
     #header .contain .content .menu {
       display: flex;
       display: -webkit-flex;
+      display: -ms-flexbox;
       width: 100%;
       justify-content: flex-end; }
       #header .contain .content .menu ul {
         list-style: none;
         width: 699px;
-        height: 22px;
+        height: 48px;
         display: flex;
         display: -webkit-flex;
+        display: -ms-flexbox;
         justify-content: space-between; }
         #header .contain .content .menu ul li a {
-          font-size: 13px;
-          line-height: 22px;
+          height: 48px;
+          font-size: 16px;
+          line-height: 48px;
           font-family: PingFangSC-Medium; }
 
 #main {
@@ -132,7 +137,8 @@ a:hover {
                     line-height: 58px;
                     text-align: center; }
                   #main .contain > .content .c_body .c_body_content .c_body_top.xxnr .menu_side > ul > li.sli .title .detail {
-                    width: 1134px;
+                    box-sizing: border-box;
+                    width: 1024px;
                     height: 58px;
                     cursor: pointer;
                     display: flex;
@@ -160,32 +166,41 @@ a:hover {
                   #main .contain > .content .c_body .c_body_content .c_body_top.xxnr .menu_side > ul > li.sli ul.sub .sub_content {
                     display: flex;
                     display: -webkit-flex;
-                    justify-content: space-between;
-                    padding-right: 16px;
-                    padding-left: 30px; }
+                    justify-content: space-between; }
                     #main .contain > .content .c_body .c_body_content .c_body_top.xxnr .menu_side > ul > li.sli ul.sub .sub_content .left {
+                      box-sizing: border-box;
                       padding: 11px 0;
-                      width: 248px;
+                      width: 278px;
                       font-family: PingFangSC-Regular;
                       font-size: 14px;
                       color: #4D555D;
                       line-height: 28px;
                       display: flex;
                       display: -webkit-flex;
-                      align-items: center; }
+                      align-items: center;
+                      padding-left: 30px; }
+                      #main .contain > .content .c_body .c_body_content .c_body_top.xxnr .menu_side > ul > li.sli ul.sub .sub_content .left span {
+                        display: block;
+                        width: 100%; }
                     #main .contain > .content .c_body .c_body_content .c_body_top.xxnr .menu_side > ul > li.sli ul.sub .sub_content .right {
+                      box-sizing: border-box;
                       padding: 11px 0;
                       box-sizing: border-box;
-                      width: 840px;
+                      width: 856px;
                       font-family: PingFangSC-Regular;
                       font-size: 14px;
                       color: #4D555D;
                       line-height: 28px;
                       display: flex;
                       display: -webkit-flex;
-                      align-items: center; }
-                      #main .contain > .content .c_body .c_body_content .c_body_top.xxnr .menu_side > ul > li.sli ul.sub .sub_content .right .right_content span {
-                        padding-right: 10px; }
+                      align-items: center;
+                      padding-right: 16px; }
+                      #main .contain > .content .c_body .c_body_content .c_body_top.xxnr .menu_side > ul > li.sli ul.sub .sub_content .right .right_content {
+                        word-break: break-all;
+                        display: block;
+                        width: 100%; }
+                        #main .contain > .content .c_body .c_body_content .c_body_top.xxnr .menu_side > ul > li.sli ul.sub .sub_content .right .right_content span {
+                          padding-right: 10px; }
                   #main .contain > .content .c_body .c_body_content .c_body_top.xxnr .menu_side > ul > li.sli ul.sub li {
                     border-bottom: 2px solid #FFFFFF; }
                   #main .contain > .content .c_body .c_body_content .c_body_top.xxnr .menu_side > ul > li.sli ul.sub > li:nth-child(2n+1) {
@@ -687,7 +702,11 @@ a:hover {
                 color: #4D555D;
                 line-height: 28px; }
                 #main .contain > .content .c_body .c_body_content .c_body_bottom.last .contain .card .card-content span {
-                  white-space: nowrap; }
+                  display: block;
+                  width: 262px;
+                  word-wrap: break-word;
+                  word-break: break-all;
+                  white-space: pre\0; }
           #main .contain > .content .c_body .c_body_content .c_body_main {
             margin-bottom: 61px;
             display: flex;
