@@ -387,7 +387,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="bottom cloud">
+                    <div class="bottom cloud last">
                         <div class="button">
                             <a class="active" href="javascript:void(0);">免费试学</a>
                             <a href="javascript:void(0);">免费领资料</a>
@@ -1220,7 +1220,6 @@
             $(v).find('.button_name').text('展开');
             $(v).find('.button_name').prev().attr('src', './img/zhankai@2x.png');
         } else {
-            console.log($(v).find('.button_name'));
             $(v).find('.button_name').text('收缩');
             $(v).find('.button_name').prev().attr('src', './img/shousuo@2x.png');
         }
@@ -1248,4 +1247,10 @@
 
         }
     });
+
+    $(function() {
+        $('#main a').click(function() {
+            $('div[53kf_icon_versions="1.0"]').trigger('click');
+        });
+    })
 </script>

@@ -1,3 +1,15 @@
+@font-face {
+  font-family: 'PingFangSC-Regular';
+  src: url("./font/PingFang Regular.otf?v1=1") format("opentype"), url("./font/PingFang-Regular.woff") format("woff"), url("./font/PingFang-Regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'PingFangSC-Semibold';
+  src: url("./font/PingFang-SC-Semibold.otf?v1=1") format("opentype"), url("./font/PingFang-SC-Semibold.woff") format("woff"), url("./font/PingFang-SC-Semibold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "PingFangSC-Medium";
+  src: url("./font/PingFangMedium.otf?v1=2") format("opentype"), url("./font/PingFangMedium.woff") format("woff"), url("./font/PingFangMedium.ttf") format("truetype"); }
+
 * {
   padding: 0;
   margin: 0; }
@@ -49,7 +61,7 @@ a:hover {
         #header .contain .content .menu ul li a {
           font-size: 13px;
           line-height: 22px;
-          font-family: PingFangSC-Regular; }
+          font-family: PingFangSC-Medium; }
 
 #main {
   margin-bottom: 60px; }
@@ -58,7 +70,7 @@ a:hover {
     display: flex;
     display: -webkit-flex;
     justify-content: center;
-    background: url("../img/banner.png") no-repeat top center;
+    background: url("../img/banner1-2@2x.jpg") no-repeat top center;
     background-size: 2233px 697px;
     height: 697px; }
   #main .contain {
@@ -627,7 +639,7 @@ a:hover {
                 width: 160px;
                 height: 48px;
                 text-align: center;
-                line-height: 48px;
+                line-height: 46px;
                 border: #009999 solid 1px;
                 box-sizing: border-box;
                 border-radius: 24px;
@@ -674,6 +686,8 @@ a:hover {
                 font-size: 14px;
                 color: #4D555D;
                 line-height: 28px; }
+                #main .contain > .content .c_body .c_body_content .c_body_bottom.last .contain .card .card-content span {
+                  white-space: nowrap; }
           #main .contain > .content .c_body .c_body_content .c_body_main {
             margin-bottom: 61px;
             display: flex;
@@ -818,7 +832,7 @@ a:hover {
                 line-height: 26px;
                 margin-top: 40px; }
               #main .contain > .content .c_body .c_body_content .c_body_main .c_body_right .left_bottom span.dot {
-                font-family: 'ArialMT';
+                font-family: ArialMT;
                 font-size: 90px;
                 color: #CCCCCC;
                 display: block;
@@ -971,7 +985,8 @@ a:hover {
     text-align: center; }
     #go_top .kuai.wybm a:hover {
       background: #0E8694;
-      color: #fff; }
+      color: #fff;
+      border: none; }
   #go_top .top {
     margin-top: 11px;
     background: #0E8694; }
