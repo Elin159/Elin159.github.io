@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <script src="./js/auto.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -1199,7 +1200,6 @@
         </div> -->
     </div>
 </body>
-<script src="./js/auto.js"></script>
 
 </html>
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
@@ -1248,8 +1248,9 @@
         }
     });
 
-    $(function() {
-        $('#main a').click(function() {
+    $(function () {
+        $('#main a, #header a').click(function () {
+            console.log(111);
             $('div[53kf_icon_versions="1.0"]').trigger('click');
         });
     })
