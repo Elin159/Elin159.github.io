@@ -2,7 +2,23 @@
 <html lang="en">
 
 <head>
-    <script src="./js/auto.js"></script>
+
+    <script>
+        ;
+        (function (win, doc) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'
+            var init = function () {
+                var windowWidth = docEl.clientWidth;
+                if (!windowWidth) return;
+                // windowWidth = windowWidth < 320 ? 320 : windowWidth;
+                docEl.style.fontSize = windowWidth / 7.5 + 'px'
+            }
+            if (!doc.addEventListener) return
+            win.addEventListener(resizeEvt, init, false)
+            doc.addEventListener('DOMContentLoaded', init, false)
+        })(window, document)
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
