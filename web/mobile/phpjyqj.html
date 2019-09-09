@@ -26,7 +26,7 @@
     <title>XDL</title>
 </head>
 
-<body>
+<body style="display: none;">
     <div class="container" id="container">
         <div id="header" class="header">
             <div class="nav">
@@ -865,8 +865,8 @@
 </script>
 <script>
     $(function () {
+        $('body').css('display', 'block')
         $('#main a, #header a').click(function () {
-            console.log(111);
             $('div[53kf_icon_versions="1.0"]').trigger('click');
         });
     })
