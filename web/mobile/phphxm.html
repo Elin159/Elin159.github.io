@@ -21,8 +21,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./css/index.min.css">
     <title>XDL</title>
+    <link rel="stylesheet" href="./css/index.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.3/css/swiper.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.3/js/swiper.min.js"></script>
 </head>
 
 <body style="display: none;">
@@ -674,10 +676,25 @@
                     </div>
                     <div class="content szll">
                         <div class="content cloud">
-                            <div class="contain">
+                            <div class="contain swiper-container">
 
-                                <div class="lunbo">
-                                    <div class="kuai">
+                                <div class="lunbo swiper-wrapper">
+                                    <div class="kuai swiper-slide">
+                                        <div class="image">
+                                            <div class="cloud">
+                                                <img src="./img/teacherpic1@2x.png" alt="">
+                                            </div>
+                                            <span class="font">高晓风</span>
+                                        </div>
+                                        <div class="image">
+                                            <div class="cloud">
+                                                <img src="./img/teacherpic2@2x.png" alt="">
+                                            </div>
+
+                                            <span class="font">李泽龙</span>
+                                        </div>
+                                    </div>
+                                    <div class="kuai swiper-slide">
                                         <div class="image">
                                             <div class="cloud">
                                                 <img src="./img/teacherpic1@2x.png" alt="">
@@ -693,7 +710,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="lunbo_line cloud">
+                                <div class="lunbo_line cloud swiper-pagination">
                                     <span></span>
                                     <span class="active"></span>
                                 </div>
@@ -897,4 +914,20 @@
             $('div[53kf_icon_versions="1.0"]').trigger('click');
         });
     })
+</script>
+
+<script>
+    window.onload = function () {
+        var mySwiper = new Swiper('.swiper-container', {
+            // direction: 'vertical', // 垂直切换选项
+            loop: true, // 循环模式选项
+            autoplay: true,
+            // 如果需要分页器
+            pagination: {
+                el: '.swiper-pagination',
+                bulletActiveClass: 'active',
+                bulletClass: 'c', //需设置.my-bullet样式
+            },
+        })
+    }
 </script>
