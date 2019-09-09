@@ -92,15 +92,26 @@
 
     #banner {
 
+        // a {
+        //     @include flex();
+        //     justify-content: center;
+        //     overflow: hidden;
+
+        //     img {
+        //         width: 19.77rem;
+        //         height: 8rem;
+        //     }
+        // }
+
         a {
             @include flex();
             justify-content: center;
             overflow: hidden;
+            width:100%;
+            height: 8rem;
+            background:url('../img/banner@2x.png') no-repeat center top;
+            background-size: 19.77rem 8rem;
 
-            img {
-                width: 19.77rem;
-                height: 8rem;
-            }
         }
     }
 
@@ -416,7 +427,8 @@
                                                     overflow: hidden;
                                                     .body {
                                                         .body_title {
-                                                            padding-left: 0.4rem;
+                                                            box-sizing: border-box;
+                                                            padding-left: 0.7rem;
                                                             text-align: center;
                                                             @include baseFontSize($font-size: 0.24rem,
                                                                 $line-height:0.45rem);

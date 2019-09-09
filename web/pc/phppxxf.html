@@ -34,7 +34,6 @@
         <div class="main" id="main">
             <div class="banner">
                 <a href="javascript:void(0);">
-                    <img class="banner-img" src="./img/banner.png" alt="">
                 </a>
             </div>
             <div class="contain">
@@ -248,7 +247,7 @@
                                             根据行业就业发布的数据：
                                         </span>
                                         <span class="content">
-                                                PHP平均工资<cite>比全行业平均工资高34%</cite>,在深圳更是高出一半有余,可见PHP开发工程师这个职业的平均工资远高于其他职业,也就是说PHP开发工程师这个职业是一小部分所处金字塔上半部分的职业比较有钱途。
+                                            PHP平均工资<cite>比全行业平均工资高34%</cite>,在深圳更是高出一半有余,可见PHP开发工程师这个职业的平均工资远高于其他职业,也就是说PHP开发工程师这个职业是一小部分所处金字塔上半部分的职业比较有钱途。
                                         </span>
                                     </div>
                                 </div>
@@ -834,9 +833,9 @@
 
 </body>
 <script>
-    let tops = document.getElementsByClassName('scroll_top')[0];
+    var tops = document.getElementsByClassName('scroll_top')[0];
     tops.style.display = 'none';
-    window.onscroll = () => {
+    window.onscroll = function () {
         var top = document.body.scrollTop || document.documentElement.scrollTop;
         if (top >= 500) {
             tops.style.display = 'block';
@@ -847,8 +846,8 @@
 
     function toTop() {
 
-        let top = document.body.scrollTop || document.documentElement.scrollTop;
-        let time = setInterval(function () {
+        var top = document.body.scrollTop || document.documentElement.scrollTop;
+        var time = setInterval(function () {
             if (top <= 0) {
                 clearInterval(time);
                 return;
@@ -857,6 +856,47 @@
             scrollTo(0, top);
         }, 5);
     }
+
+
+    $('#go_top .sqyh').mouseenter(function () {
+        $(this).find('img').attr('src', './img/youhui1@2x.png');
+    })
+
+    $('#go_top .sqyh').mouseleave(function () {
+        $(this).find('img').attr('src', './img/youhui@2x.png');
+    })
+
+    $('#go_top .mqzp').mouseenter(function () {
+        $(this).find('img').attr('src', './img/zhaopin1@2x.png');
+    })
+
+    $('#go_top .mqzp').mouseleave(function () {
+        $(this).find('img').attr('src', './img/zhaopin@2x.png');
+    })
+
+    $('#go_top .xfjg').mouseenter(function () {
+        $(this).find('img').attr('src', './img/xuefei1@2x.png');
+    })
+
+    $('#go_top .xfjg').mouseleave(function () {
+        $(this).find('img').attr('src', './img/xuefei@2x.png');
+    })
+
+    $('#go_top .kbjh').mouseenter(function () {
+        $(this).find('img').attr('src', './img/kaiban1@2x.png');
+    })
+
+    $('#go_top .kbjh').mouseleave(function () {
+        $(this).find('img').attr('src', './img/kaiban@2x.png');
+    })
+
+    $('#go_top .wybm').mouseenter(function () {
+        $(this).find('img').attr('src', './img/baoming1@2x.png');
+    })
+
+    $('#go_top .wybm').mouseleave(function () {
+        $(this).find('img').attr('src', './img/baoming@2x.png');
+    })
 </script>
 
 </html>

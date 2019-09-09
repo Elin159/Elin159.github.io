@@ -43,10 +43,11 @@
   display: flex;
   display: -webkit-flex;
   justify-content: center;
-  overflow: hidden; }
-  #container #banner a img {
-    width: 19.77rem;
-    height: 8rem; }
+  overflow: hidden;
+  width: 100%;
+  height: 8rem;
+  background: url("../img/banner@2x.png") no-repeat center top;
+  background-size: 19.77rem 8rem; }
 
 #container #main {
   display: flex;
@@ -278,7 +279,8 @@
                   #container #main .main_container .contain > .content.jyqj .app > .content .content_list .kuai .box .box_content .right {
                     overflow: hidden; }
                     #container #main .main_container .contain > .content.jyqj .app > .content .content_list .kuai .box .box_content .right .body .body_title {
-                      padding-left: 0.4rem;
+                      box-sizing: border-box;
+                      padding-left: 0.7rem;
                       text-align: center;
                       font-family: PingFangSC-Regular;
                       font-size: 0.24rem;

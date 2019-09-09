@@ -88,11 +88,9 @@ a:hover {
         display: flex;
         display: -webkit-flex;
         justify-content: center;
-
-        .banner-img {
-            width: 2233px;
-            // height: 650px;
-        }
+        background: url('../img/banner.png') no-repeat top center;
+        background-size: 2233px 697px;
+        height: 697px;
     }
 
     .contain {
@@ -377,6 +375,9 @@ a:hover {
                                         font-size: 16px;
                                         color: #333333;
                                         margin-left: 61px;
+                                        span {
+                                            display: block;
+                                        }
                                     }
                                 }
 
@@ -570,6 +571,8 @@ a:hover {
 
                                     .left_dot,
                                     .right_dot {
+                                        width: 30px;
+                                        display: block;
                                         font-family: ArialMT;
                                         font-size: 90px;
                                         color: #E3783D;
@@ -577,11 +580,18 @@ a:hover {
 
                                     .left_dot {
                                         margin-right: 14px;
+                                        background: url('../img/yinhaoright1@2x.png') no-repeat top left;
+                                        background-size: 25px 23px;
+                                        margin-top: 25px;
                                     }
 
                                     .right_dot {
-                                        margin-top: 100px;
+                                        margin-top: 110px;
+                                        height: 60px;
+                                        background: url('../img/yinhaoleft1@2x.png') no-repeat top left;
+                                        background-size: 25px 23px;
                                     }
+
 
                                     .content {
                                         width: 896px;
@@ -1124,13 +1134,18 @@ a:hover {
                                     align-self: auto;
 
                                     &.right_dot {
+                                        height: 60px;
                                         align-self: flex-end;
-                                        margin-top: 58px;
+                                        margin-top: 68px;
+                                        background: url('../img/yinhaoright@2x.png') no-repeat top left;
+                                        background-size: 25px 23px;
                                     }
 
                                     &.left_dot {
 
-                                        margin-top: 15px;
+                                        background: url('../img/yinhaoleft@2x.png') no-repeat top left;
+                                        background-size: 25px 23px;
+                                        margin-top: 25px;
                                     }
                                 }
 
@@ -1235,8 +1250,19 @@ a:hover {
                                     align-self: auto;
 
                                     &.right_dot {
-                                        align-self: flex-end;
-                                        margin-top: 58px;
+                                        // align-self: flex-end;
+                                        // margin-top: 58px;
+                                        height: 60px;
+                                        margin-top: 88px;
+                                        background: url('../img/yinhaoright@2x.png') no-repeat top left;
+                                        background-size: 25px 23px;
+                                    }
+
+                                    &.left_dot {
+
+                                        background: url('../img/yinhaoleft@2x.png') no-repeat top left;
+                                        background-size: 25px 23px;
+                                        margin-top: 25px;
                                     }
                                 }
 
@@ -1358,9 +1384,6 @@ a:hover {
     width: 80px;
     height: 480px;
     background: #F3F5F7;
-    // border-top: 1px solid #D7D7D7;
-    // border-left: 1px solid #D7D7D7;
-    // border-bottom: 1px solid #D7D7D7;
 
     .kuai {
         a {
@@ -1379,6 +1402,7 @@ a:hover {
             }
 
             img {
+                border: none;
                 margin-top: 16px;
                 width: 32px;
                 height: 32px;
@@ -1407,11 +1431,6 @@ a:hover {
             a {
 
                 &:hover {
-                    img {
-                        content: url('../img/youhui1@2x.png');
-                        // width: 34px;
-                        // height: 28px;
-                    }
 
                     background: #0E8694;
                     color: #fff;
@@ -1419,10 +1438,6 @@ a:hover {
                 }
             }
 
-            // img {
-            //     width: 34px;
-            //     height: 28px;
-            // }
         }
 
         &.mqzp {
@@ -1431,20 +1446,12 @@ a:hover {
             a {
 
                 &:hover {
-                    img {
-                        content: url('../img/zhaopin1@2x.png');
-                    }
 
                     background: #0E8694;
                     color: #fff;
                     border: none;
                 }
             }
-
-            // img {
-            //     width: 32px;
-            //     height: 34px;
-            // }
         }
 
 
@@ -1454,20 +1461,12 @@ a:hover {
             a {
 
                 &:hover {
-                    img {
-                        content: url('../img/xuefei1@2x.png');
-                    }
 
                     background: #0E8694;
                     color: #fff;
                     border: none;
                 }
             }
-
-            // img {
-            //     width: 34px;
-            //     height: 34px;
-            // }
         }
 
 
@@ -1477,20 +1476,12 @@ a:hover {
             a {
 
                 &:hover {
-                    img {
-                        content: url('../img/kaiban1@2x.png');
-                    }
 
                     background: #0E8694;
                     color: #fff;
                     border: none;
                 }
             }
-
-            // img {
-            //     width: 32px;
-            //     height: 34px;
-            // }
         }
 
 
@@ -1498,21 +1489,12 @@ a:hover {
             text-align: center;
 
             a {
-
                 &:hover {
-                    img {
-                        content: url('../img/baoming1@2x.png');
-                    }
 
                     background: #0E8694;
                     color: #fff;
                 }
             }
-
-            // img {
-            //     width: 32px;
-            //     height: 34px;
-            // }
         }
     }
 
