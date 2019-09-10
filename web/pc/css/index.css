@@ -461,7 +461,8 @@ a:hover {
             justify-content: space-between; }
             #main .contain > .content .c_body .c_body_content .c_body_top.jyqk .body_content .content table {
               border-collapse: collapse;
-              width: 576px; }
+              width: 576px;
+              table-layout: fixed; }
               #main .contain > .content .c_body .c_body_content .c_body_top.jyqk .body_content .content table thead {
                 background: #DDF1F1;
                 font-family: PingFangSC-Regular;
@@ -471,16 +472,25 @@ a:hover {
                   height: 48px;
                   text-align: center; }
               #main .contain > .content .c_body .c_body_content .c_body_top.jyqk .body_content .content table td:nth-child(4) {
+                width: 190px;
                 text-align: left;
-                padding-left: 22px; }
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden; }
+              #main .contain > .content .c_body .c_body_content .c_body_top.jyqk .body_content .content table td:nth-child(5) {
+                width: 70px;
+                padding-right: 10px; }
+              #main .contain > .content .c_body .c_body_content .c_body_top.jyqk .body_content .content table td:nth-child(2) {
+                width: 70px; }
+              #main .contain > .content .c_body .c_body_content .c_body_top.jyqk .body_content .content table td:nth-child(3) {
+                width: 70px; }
               #main .contain > .content .c_body .c_body_content .c_body_top.jyqk .body_content .content table td:nth-child(1) {
+                width: 30px;
                 text-align: left;
                 padding-left: 22px; }
               #main .contain > .content .c_body .c_body_content .c_body_top.jyqk .body_content .content table tbody td:nth-child(1) {
                 text-align: left;
                 padding-left: 30px; }
-              #main .contain > .content .c_body .c_body_content .c_body_top.jyqk .body_content .content table tbody td {
-                padding: 0 22px; }
               #main .contain > .content .c_body .c_body_content .c_body_top.jyqk .body_content .content table tbody tr {
                 font-family: PingFangSC-Regular;
                 font-size: 16px;
@@ -927,12 +937,12 @@ a:hover {
     background: #000000;
     text-align: center;
     position: relative; }
-    #footer .bqsy span {
+    #footer .bqsy p {
       opacity: 0.5;
       font-family: PingFangSC-Regular;
       font-size: 14px;
       color: #FFFFFF;
-      line-height: 48px; }
+      line-height: 24px; }
     #footer .bqsy .kuai {
       position: absolute;
       display: block;
@@ -967,7 +977,8 @@ a:hover {
       width: 32px;
       height: 48px;
       margin: 0 auto; }
-    #go_top .kuai a .default, #go_top .kuai a .white {
+    #go_top .kuai a .default,
+    #go_top .kuai a .white {
       position: absolute;
       left: 0;
       bottom: 5px;
