@@ -4,21 +4,21 @@ $font_4d:#4D555D;
 @font-face {
     font-family: 'PingFangSC-Regular';
     src: url('./font/PingFang-Regular.woff') format('woff'),
-        url('./font/PingFang Regular.otf?v1=1') format('opentype'),
+        // url('./font/PingFang Regular.otf?v1=1') format('opentype'),
         url('./font/PingFang-Regular.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'PingFangSC-Semibold';
     src: url('./font/PingFang-SC-Semibold.woff') format('woff'),
-        url('./font/PingFang-SC-Semibold.otf?v1=1') format('opentype'),
+        // url('./font/PingFang-SC-Semibold.otf?v1=1') format('opentype'),
         url('./font/PingFang-SC-Semibold.ttf') format('truetype');
 }
 
 @font-face {
     font-family: "PingFangSC-Medium";
     src: url('./font/PingFangMedium.woff') format('woff'),
-        url('./font/PingFangMedium.otf?v1=2') format('opentype'),
+        // url('./font/PingFangMedium.otf?v1=2') format('opentype'),
         url('./font/PingFangMedium.ttf') format('truetype');
 }
 
