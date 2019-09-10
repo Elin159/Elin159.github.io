@@ -962,9 +962,16 @@ a:hover {
     border-left: 1px solid #D7D7D7; }
     #go_top .kuai a span {
       display: block; }
-    #go_top .kuai a img {
+    #go_top .kuai a .img_contain {
+      position: relative;
+      width: 32px;
+      height: 48px;
+      margin: 0 auto; }
+    #go_top .kuai a .default, #go_top .kuai a .white {
+      position: absolute;
+      left: 0;
+      bottom: 5px;
       border: none;
-      margin-top: 16px;
       width: 32px;
       height: 32px; }
   #go_top .kuai.mfsx {
@@ -1006,6 +1013,12 @@ a:hover {
       background: #0E8694;
       color: #fff;
       border: none; }
+  #go_top .kuai .white {
+    display: none; }
+  #go_top .kuai.sqyh a:hover .white, #go_top .kuai.mqzp a:hover .white, #go_top .kuai.xfjg a:hover .white, #go_top .kuai.kbjh a:hover .white, #go_top .kuai.wybm a:hover .white {
+    display: block; }
+  #go_top .kuai.sqyh a:hover .default, #go_top .kuai.mqzp a:hover .default, #go_top .kuai.xfjg a:hover .default, #go_top .kuai.kbjh a:hover .default, #go_top .kuai.wybm a:hover .default {
+    display: none; }
   #go_top .top {
     margin-top: 11px;
     background: #0E8694; }

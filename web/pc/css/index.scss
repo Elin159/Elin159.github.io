@@ -257,6 +257,7 @@ a:hover {
                                                     display: -webkit-flex;
                                                     align-items: center;
                                                     padding-left: 30px;
+
                                                     span {
                                                         display: block;
                                                         width: 100%;
@@ -276,10 +277,12 @@ a:hover {
                                                     display: -webkit-flex;
                                                     align-items: center;
                                                     padding-right: 16px;
+
                                                     .right_content {
                                                         word-break: break-all;
                                                         display: block;
                                                         width: 100%;
+
                                                         span {
                                                             padding-right: 10px;
                                                         }
@@ -1446,9 +1449,18 @@ a:hover {
                 display: block;
             }
 
-            img {
+            .img_contain {
+                position: relative;
+                width: 32px;
+                height: 48px;
+                margin: 0 auto;
+            }
+
+            .default,.white {
+                position: absolute;
+                left: 0;
+                bottom: 5px;
                 border: none;
-                margin-top: 16px;
                 width: 32px;
                 height: 32px;
             }
@@ -1499,7 +1511,6 @@ a:hover {
             }
         }
 
-
         &.xfjg {
             text-align: center;
 
@@ -1513,7 +1524,6 @@ a:hover {
                 }
             }
         }
-
 
         &.kbjh {
             text-align: center;
@@ -1529,7 +1539,6 @@ a:hover {
             }
         }
 
-
         &.wybm {
             text-align: center;
 
@@ -1539,6 +1548,27 @@ a:hover {
                     background: #0E8694;
                     color: #fff;
                     border: none;
+                }
+            }
+        }
+
+        .white {
+            display: none;
+        }
+
+        &.sqyh,
+        &.mqzp,
+        &.xfjg,
+        &.kbjh,
+        &.wybm {
+
+            a:hover {
+                .white {
+                    display: block;
+                }
+
+                .default {
+                    display: none;
                 }
             }
         }
