@@ -349,9 +349,9 @@
         background: #FFFFFF;
         border-radius: 0.15rem; }
         #container #main .main_container .contain > .content.jyxz .data .img img {
-          width: 6.37rem;
+          width: 6.11rem;
           height: 4.91rem;
-          margin: 0.5rem 0.03rem 0 0.3rem; }
+          margin: 0.5rem 0rem 0 0rem; }
         #container #main .main_container .contain > .content.jyxz .data span {
           display: block;
           width: 5.9rem;
@@ -563,7 +563,8 @@
             line-height: 0.76rem; }
         #container #main .main_container .contain > .content.jyqk > .content .table table {
           border-collapse: collapse;
-          width: 6.637rem; }
+          width: 6.637rem;
+          table-layout: fixed; }
           #container #main .main_container .contain > .content.jyqk > .content .table table thead {
             background: #DDF1F1;
             height: 0.8rem;
@@ -578,14 +579,20 @@
           #container #main .main_container .contain > .content.jyqk > .content .table table tr {
             height: 0.76rem;
             text-align: center; }
+          #container #main .main_container .contain > .content.jyqk > .content .table table td:nth-child(1) {
+            width: 1.2rem;
+            padding-left: 0.2rem; }
           #container #main .main_container .contain > .content.jyqk > .content .table table td:nth-child(2) {
+            width: 2.9rem;
             padding-left: 0.4rem;
-            text-align: left; }
+            text-align: left;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden; }
           #container #main .main_container .contain > .content.jyqk > .content .table table td:nth-child(3) {
+            width: 1.5rem;
             text-align: center;
             padding-right: 0.25rem; }
-          #container #main .main_container .contain > .content.jyqk > .content .table table td:nth-child(1) {
-            padding-left: 0.2rem; }
           #container #main .main_container .contain > .content.jyqk > .content .table table tbody tr {
             font-family: PingFangSC-Regular;
             font-size: 0.28rem;

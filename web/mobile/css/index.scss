@@ -507,9 +507,9 @@
                             .img {
 
                                 img {
-                                    width: 6.37rem;
+                                    width: 6.11rem;
                                     height: 4.91rem;
-                                    margin: 0.5rem 0.03rem 0 0.3rem;
+                                    margin: 0.5rem 0rem 0 0rem;
                                 }
                             }
 
@@ -810,7 +810,7 @@
                                 table {
                                     border-collapse: collapse;
                                     width: 6.637rem;
-
+                                    table-layout: fixed;
                                     thead {
                                         background: #DDF1F1;
                                         height: 0.8rem;
@@ -830,18 +830,24 @@
                                         text-align: center;
                                     }
 
+                                    td:nth-child(1) {
+                                        width: 1.2rem;
+                                        padding-left: 0.2rem;
+                                    }
                                     td:nth-child(2) {
+                                        width: 2.9rem;
                                         padding-left: 0.4rem;
                                         text-align: left;
+
+                                        white-space: nowrap;
+                                        text-overflow: ellipsis;
+                                        overflow: hidden;
                                     }
 
                                     td:nth-child(3) {
+                                        width: 1.5rem;
                                         text-align: center;
                                         padding-right: 0.25rem;
-                                    }
-                                    td:nth-child(1) {
-
-                                        padding-left: 0.2rem;
                                     }
 
                                     tbody {
