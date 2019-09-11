@@ -893,17 +893,18 @@
 </script>
 
 <script>
-    window.onload = function () {
-        var mySwiper = new Swiper('.swiper-container', {
-            // direction: 'vertical', // 垂直切换选项
-            loop: true, // 循环模式选项
-            autoplay: true,
-            // 如果需要分页器
-            pagination: {
-                el: '.swiper-pagination',
-                bulletActiveClass: 'active',
-                bulletClass: 'c', //需设置.my-bullet样式
-            },
-        })
-    }
-</script>
+        window.onload = function () {
+            var mySwiper = new Swiper('.swiper-container', {
+                // direction: 'vertical', // 垂直切换选项
+                allowTouchMove: false,
+                loop: false, // 循环模式选项
+                autoplay: false,
+                // 如果需要分页器
+                pagination: {
+                    el: '.swiper-pagination',
+                    bulletActiveClass: 'active',
+                    bulletClass: 'c', //需设置.my-bullet样式
+                },
+            })
+        }
+    </script>

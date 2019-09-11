@@ -1018,6 +1018,7 @@
                             <div class="contain swiper-container">
 
                                 <div class="lunbo swiper-wrapper">
+                                    <!-- swiper-slide -->
                                     <div class="kuai swiper-slide">
                                         <div class="image">
                                             <div class="cloud">
@@ -1294,13 +1295,14 @@
     window.onload = function () {
         var mySwiper = new Swiper('.swiper-container', {
             // direction: 'vertical', // 垂直切换选项
-            loop: true, // 循环模式选项
-            autoplay: true,
+            allowTouchMove: false,
+            loop: false, // 循环模式选项
+            autoplay: false,
             // 如果需要分页器
             pagination: {
                 el: '.swiper-pagination',
                 bulletActiveClass: 'active',
-                bulletClass : 'c',//需设置.my-bullet样式
+                bulletClass: 'c', //需设置.my-bullet样式
             },
         })
     }
