@@ -1,3 +1,14 @@
+---
+layout: post
+title: 'Bootstrap'
+date: 2019-07-29
+author: Elin159
+color: rgb(105,33,32)
+cover: 'https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260'
+tags: 兄弟会 bootstrap 前端
+Subtitle: 'bootstrap 栅格系统 语法特色'
+---
+
 # 第九天学习
 
 1. Bootstrap 
@@ -55,15 +66,15 @@ Bootstrap 需要为页面内容和栅格系统包裹一个 `.container` 容器�
 
 ```html
 <div class="container">
-  ```
+```
 </div>
 ```
 
 `.container-fluid` 类用于100%宽度，占据全部视口(viewport)的容器。
 
-```html
+​```html
 <div class="container-fluid">
- ```
+```
 </div>
 ```
 
@@ -96,3 +107,5 @@ Sass 是对 CSS 的扩展，让CSS语言更强大、优雅。它允许你使用�
 * 良好的格式，可对输出格式进行定制
 * 支持Firebug
 
+
+```

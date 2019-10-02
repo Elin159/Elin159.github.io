@@ -1,3 +1,16 @@
+---
+layout: post
+title: 'Bootstrap 其他功能使用'
+date: 2019-07-30
+author: Elin159
+color: rgb(111,99,111)
+cover: 'https://images.pexels.com/photos/2194062/pexels-photo-2194062.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260'
+tags: 兄弟会 bootstrap
+Subtitle: '栅格 排版 其他功能使用'
+---
+
+
+
 # 第十天学习
 
 1. 栅格系统使用
