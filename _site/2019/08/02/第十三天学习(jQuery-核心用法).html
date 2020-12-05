@@ -1,0 +1,1003 @@
+<!-- 博文的布局-Layout -->
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 引入head标签 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-sclable=0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="description" content="华南仔的学习笔记" />
+<meta name="keywords" content="your web keywords, another keywords" />
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/media.css">
+<link rel="stylesheet" href="/assets/css/animate.min.css">
+<link rel="stylesheet" href="/assets/css/pygments/pygments_default.css">
+<link rel="stylesheet" href="/assets/css/github-markdown.css">
+<!-- SNS-icon -->
+<script src="//at.alicdn.com/t/font_856428_y9z6nq7zf5.js"></script>
+<!-- share.css -->
+<link rel="stylesheet" href="/assets/css/share.min.css">
+<!-- font -->
+<link rel="stylesheet" href="/assets/css/font.css">
+<!-- <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico|Ubuntu|Roboto+Mono|Source+Sans+Pro" rel="stylesheet"> -->
+
+<!-- Favicon -->
+<!-- <link href="/assets/profile.jpeg" rel="shortcut icon" />
+<link href="/assets/profile.jpeg" rel="apple-touch-icon-precomposed" /> -->
+<link href="/assets/author.jpeg" rel="shortcut icon" />
+<link href="/assets/author.jpeg" rel="apple-touch-icon-precomposed" />
+<!-- Android Lolipop Theme Color -->
+<!-- <meta name="theme-color" content="#1464FB"> -->
+<title>jQuery核心用法</title>
+<!-- 百度统计 -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- 谷歌分析 -->
+
+
+<!-- Android Lolipop Theme Color -->
+<meta name="theme-color" content=" rgb(185,22,31) ">
+</head>
+<body>
+
+<!-- 顶部锚点 -->
+<a id="htmlup" name="htmlup"></a>
+<!-- 引入博文顶部选项 -->
+
+<header id="post-header" style="background-color:rgb(185,22,31);">
+  <div class="top-center">
+      <div class="logo">
+          <a href="/" title="my awesome webtitle" style="color: white;">林校长</a>
+      </div>
+      <nav class="top-nav">
+          <ul>
+              
+                <li><a href="/" style="color: white;">首页</a></li>
+              
+                <li><a href="/tags.html" style="color: white;">标签</a></li>
+              
+                <li><a href="/timeline.html" style="color: white;">时间线</a></li>
+              
+                <li><a href="/about.html" style="color: white;">关于博主</a></li>
+              
+                <li><a href="/friendLink.html" style="color: white;">友情链接</a></li>
+              
+          </ul>
+      </nav>
+      <div id="top-boot">
+        <a href="javascript:;" id="boot1" style="display:block;" onclick="document.getElementById('boot-area').style.display='block';document.getElementById('boot1').style.display='none';document.getElementById('boot2').style.display='block';"><img src="/assets/boot_white.png" alt=""></a>
+        <a href="javascript:;" id="boot2" style="display: none;" onclick="document.getElementById('boot-area').style.display='none';document.getElementById('boot1').style.display='block';document.getElementById('boot2').style.display='none';"><img src="/assets/boot_white.png" alt=""></a>
+      </div>
+  </div>
+
+</header>
+
+
+<!-- 引入移动下拉选项 -->
+<div id="boot-area">
+    <ul>
+        
+          <a href="/"><li>首页</li></a>
+        
+          <a href="/tags.html"><li>标签</li></a>
+        
+          <a href="/timeline.html"><li>时间线</li></a>
+        
+          <a href="/about.html"><li>关于博主</li></a>
+        
+          <a href="/friendLink.html"><li>友情链接</li></a>
+        
+    </ul>
+</div>
+
+<!-- 引入博文顶部样式 -->
+<!-- 版本一 垃圾 -->
+<!-- <div class="wow fadeIn top" data-wow-duration="3.5s" >
+    <span class="wow fadeInUp" data-wow-delay="0.2s">jQuery核心用法</span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;Elin159</span>
+</div> -->
+
+<!-- 版本二 可切换页面 -->
+
+<div class="post-top" style="background-color:rgb(185,22,31);">
+  <!-- 页面宽度大于800px -->
+  <div class="left-area">
+    
+      <a href="/2019/08/05/%E7%AC%AC%E5%8D%81%E5%9B%9B%E5%A4%A9%E5%AD%A6%E4%B9%A0(%E5%BF%AB%E9%80%9F%E6%8F%90%E9%AB%98%E8%AE%BE%E8%AE%A1%E6%B0%B4%E5%B9%B3).html" class="btn bounceInLeft animated" onmouseover="showLeft();this.style.color='rgb(185,22,31)';" onmouseout="goneLeft();this.style.color='rgba(0,0,0,.2)';"><</a>
+      <div id="left-tab" style="display:none;"><span class="left-san"></span><span class="left-main" style="color:rgb(185,22,31);"><sapn class="main">如何快速提高自己的设计水平</sapn></span></div>
+    
+  </div>
+  <div class="post-titlearea">
+    <span class="wow fadeInUp" data-wow-delay="0.2s">jQuery核心用法</span>
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;Elin159</span> -->
+  </div>
+  <div class="right-area">
+    
+      <a href="/2019/08/01/%E7%AC%AC%E5%8D%81%E4%BA%8C%E5%A4%A9%E5%AD%A6%E4%B9%A0(JQuery%E5%85%A5%E9%97%A8).html" class="btn bounceInRight self-animated" onmouseover="showRight();this.style.color='rgb(185,22,31)';" onmouseout="goneRight();this.style.color='rgba(0,0,0,.2)';">></a>
+      <div id="right-tab" style="display:none;"><span class="right-san"></span><span class="right-main" style="color:rgb(185,22,31);"><sapn class="main">jQuery入门</sapn></span></div>
+    
+  </div>
+
+  <!-- 页面宽度小于800px -->
+  <div class="post-changearea">
+    
+      <a href="/2019/08/05/%E7%AC%AC%E5%8D%81%E5%9B%9B%E5%A4%A9%E5%AD%A6%E4%B9%A0(%E5%BF%AB%E9%80%9F%E6%8F%90%E9%AB%98%E8%AE%BE%E8%AE%A1%E6%B0%B4%E5%B9%B3).html" class="leftchange" style="border-right: 1px solid rgb(185,22,31);border-bottom: 2px solid rgb(185,22,31);"><span>上一篇<br><br>如何快速提高自己的设计水平</span></a>
+    
+    
+      <a href="/2019/08/01/%E7%AC%AC%E5%8D%81%E4%BA%8C%E5%A4%A9%E5%AD%A6%E4%B9%A0(JQuery%E5%85%A5%E9%97%A8).html" class="rightchange" style="border-left: 1px solid rgb(185,22,31);border-bottom: 2px solid rgb(185,22,31);"><span>下一篇<br><br>jQuery入门</span></a>
+    
+  </div>
+</div>
+
+
+<div class="markdown-body fadeInUp animated">
+
+  
+
+  <!-- 文章内容 -->
+  <h1 id="第十三天学习">第十三天学习</h1>
+
+<ol>
+  <li>JQuery效果</li>
+  <li>JQuery工具</li>
+  <li>JQuery事件对象</li>
+  <li>JQuery延迟对象</li>
+  <li>JQuery回调函数</li>
+  <li>JQuery其它</li>
+</ol>
+
+<h2 id="jquery事件">JQuery事件</h2>
+
+<h3 id="blurdatafn">blur([[data],fn])</h3>
+
+<p>当元素失去焦点时触发blur事件。</p>
+
+<p>data: 可传入data供函数fn处理</p>
+
+<p>fn: 在每一个匹配元素的blur事件中绑定的处理函数。</p>
+
+<h3 id="changedata-fn">change([[data], fn])</h3>
+
+<p>当元素的值发生改变时，会发生change事件</p>
+
+<p>fn : 在每一个匹配元素的change事件中绑定的处理函数。</p>
+
+<p>data: 可传入data供函数fn处理</p>
+
+<h3 id="clickdata-fn">click([[data], fn])</h3>
+
+<p>触发每一个匹配元素的click事件。</p>
+
+<p>fn : 在每一个匹配元素的click事件中绑定的处理函数</p>
+
+<h3 id="dblclickdata-fn">dblclick([[data], fn])</h3>
+
+<p>当双击元素时，会发生dblclick事件。</p>
+
+<p>fn : 在每一个匹配元素的dblclick事件中绑定的处理函数</p>
+
+<h3 id="errordata-fn">error([[data], fn])</h3>
+
+<p>当元素遇到错误(没有正确载入)时，发生error事件</p>
+
+<p>如果异常是由window对象抛出, 事件处理函数将会被传入三个参数:</p>
+
+<ol>
+  <li>描述事件的信息 (“varName is not defined”, “missing operator in expression”, 等等.),</li>
+  <li>包含错误的文档的完整URL</li>
+  <li>异常发生的行数 如果事件处理函数返回true, 则表示事件已经被处理，浏览器将认为没有异常。</li>
+</ol>
+
+<h3 id="focusdata-fn">focus([[data], fn])</h3>
+
+<p>当元素获得焦点时，触发focus事件。</p>
+
+<p>可以通过鼠标点击或键盘上的TAB导航触发。</p>
+
+<p>fn : 在每一个匹配元素的dblclick事件中绑定的处理函数</p>
+
+<h3 id="focusindata-fn">focusin([data], fn)</h3>
+
+<p>当元素获得焦点时，触发focusin事件。</p>
+
+<p>focusin事件跟focus事件区别在于，他可以在父元素上检测子元素获取焦点的情况</p>
+
+<p>fn : 在每一个匹配元素的focusin事件中绑定的处理函数</p>
+
+<h3 id="focus-outdata-fn">focus out([data], fn)</h3>
+
+<p>当元素失去焦点时触发focusout事件</p>
+
+<p>focusout事件跟blur事件区别在于，他可以在父元素上检测子元素失去焦点的情况</p>
+
+<p>fn:在每一个匹配元素的focusout事件中绑定的处理函数</p>
+
+<h3 id="keydowndata-fn">keydown([[data], fn])</h3>
+
+<p>当键盘或按钮被按下时，发生keydown事件</p>
+
+<p>注意：如果在文档元素上进行设置，则无论元素是否获得焦点，该事件都会被触发</p>
+
+<p><strong>fn</strong>:在每一个匹配元素的keydown事件中绑定的处理函数。</p>
+
+<h3 id="keypressdata-fn">keypress([[data], fn])</h3>
+
+<p>当键盘或按钮被按下时，发生keypress事件</p>
+
+<p>与 keydown 事件不同，每插入一个字符，就会发生 keypress 事件。</p>
+
+<p><strong>fn</strong>:在每一个匹配元素的keypress事件中绑定的处理函数。</p>
+
+<h3 id="keyupdata-fn">keyup([[data], fn])</h3>
+
+<p>当按钮被松开时，发生keyup事件。它发生在当前获得焦点的元素上</p>
+
+<p>fn: 在每一个匹配元素的keyup事件上绑定的处理函数。</p>
+
+<h3 id="mousedowndata-fn">mousedown([[data], fn])</h3>
+
+<p>当鼠标指针易懂到元素上方，并按下鼠标按键时，会发生mousedown事件</p>
+
+<p>mousedown 与 click 事件不同，mousedown 事件仅需要按键被按下，而不需要松开即可发生。</p>
+
+<p>fn : 在每一个匹配元素的mousedown事件中绑定的处理函数</p>
+
+<h3 id="mouseenterdata-fn">mouseenter([[data], fn])</h3>
+
+<p>当鼠标指针穿过元素时，会发生mouseenter事件</p>
+
+<p>该事件大多数时候会与mouseleave 事件一起使用。</p>
+
+<p>fn : 在每一个匹配元素的mouseenter事件中绑定的处理函数。</p>
+
+<h3 id="mouseleavedata-fn">mouseleave([[data], fn])</h3>
+
+<p>当鼠标指针离开元素时，会发生mouseleave事件。</p>
+
+<p>该事件大多数时候会与mouseenter 事件一起使用。</p>
+
+<p>fn : 在每一个匹配元素的mouseleave事件中绑定的处理函数</p>
+
+<h3 id="mousemovedata-fn">mousemove([[data], fn])</h3>
+
+<p>当鼠标指针在指定的元素中移动时，就会发生mousemove事件。</p>
+
+<p>mousemove事件处理函数会被传递一个变量——事件对象，其.pageX 和 .pageY 属性代表鼠标的坐标</p>
+
+<p>fn : 在每一个匹配元素的mousemove事件中绑定的处理函数</p>
+
+<h3 id="mouseoutdata-fn">mouseout([[data], fn])</h3>
+
+<p>当鼠标指针从元素上移开时，发生mouseout事件</p>
+
+<p>该事件大多数时候会与mouseover事件一起使用。</p>
+
+<p>fn : 在每一个匹配元素的mouseout事件中绑定的处理函数。</p>
+
+<h3 id="mouseoverdata-fn">mouseover([[data], fn])</h3>
+
+<p>当鼠标指针位于元素上方时候，会发生mouseover事件</p>
+
+<p>该事件大多数时候会与mouseout事件一起使用</p>
+
+<p>fn : 在每一个匹配元素的mouseover事件中绑定的处理函数</p>
+
+<h3 id="mouseupdata-fn">mouseup([[data], fn])</h3>
+
+<p>当在元素上放松鼠标按钮时，会发生mouseup事件</p>
+
+<p>与 click 事件不同，mouseup 事件仅需要放松按钮。</p>
+
+<p>fn : 在每一个匹配元素的mouseup事件中绑定的处理函数。</p>
+
+<h3 id="resizedata-fn">resize([[data], fn])</h3>
+
+<p>当调整浏览器窗口的大小时，发生resize事件</p>
+
+<p>fn : 在每一个匹配元素的resize事件中绑定的处理函数</p>
+
+<h3 id="scrolldata-fn">scroll([[data], fn])</h3>
+
+<p>当用户滚动指定的元素时，会发生scroll事件。</p>
+
+<p>scroll事件适用于所有可滚动的元素和window对象(浏览器窗口)</p>
+
+<p>fn : 在每一个匹配元素的scroll事件中绑定的处理函数。</p>
+
+<h3 id="submitdata-fn">submit([[data], fn])</h3>
+
+<p>当提交表单时，会发生submit事件。</p>
+
+<p>该事件只适用于表单元素。</p>
+
+<p>fn : 在每一个匹配元素的submit事件中绑定的处理函数。</p>
+
+<h3 id="triggertype-data">trigger(type, [data])</h3>
+
+<p>在每一个匹配的元素上触发某类事件。</p>
+
+<p>可以有三种方式指定事件类型:</p>
+
+<ul>
+  <li>你可以传递字符串型的事件名称(type参数)</li>
+  <li>你可以使用jQuery.Event对象。可以将数据放进这个对象，并且这个对象可以被触发的事件处理函数获取到。</li>
+  <li>最后，你可以传递一个带有数据的字面量对象。</li>
+</ul>
+
+<p><strong>type:</strong>一个事件对象或者要触发的事件类型</p>
+
+<p><strong>data:</strong>传递给事件处理函数的附加参数</p>
+
+<h3 id="triggerhandlertype-data">triggerHandler(type, [data])</h3>
+
+<p>这个特别的方法将会触发指定的事件类型上所有绑定的处理函数。</p>
+
+<p>这个方法的行为表现与trigger类似，但是有以下三个主要区别:</p>
+
+<ul>
+  <li>第一，他不会触发浏览器默认事件</li>
+  <li>第二，只触发JQuery对象集合中第一个元素的事件处理函数</li>
+  <li>第三，这个方法的返回的是事件处理函数的返回值，而不是据有可链性的jQuery对象</li>
+</ul>
+
+<p><strong>type:</strong>要触发的事件类型</p>
+
+<p><strong>data:</strong>传递给事件处理函数的附加参数</p>
+
+<h2 id="jquery效果">JQuery效果</h2>
+
+<h3 id="showspeedeasingfn">show([speed,[easing],[fn]])</h3>
+
+<p><strong>显示隐藏的匹配元素。</strong></p>
+
+<p>speed: 三种预定速度(slow, normal, fast)或者表示动画时长的毫秒数值(如：1000)</p>
+
+<p>easing:(Optional)用来指定切换效果，默认是”swing”可用参数”linear”</p>
+
+<p>fn:在动画完成时执行的函数，每个元素执行一次。</p>
+
+<h3 id="hidespeedeasingfn">hide([speed,[easing],[fn]])</h3>
+
+<p><strong>隐藏显示的元素</strong></p>
+
+<p>speed: 三种预定速度(slow, normal, fast)或者表示动画时长的毫秒数值(如：1000)</p>
+
+<p>easing:(Optional)用来指定切换效果，默认是”swing”可用参数”linear”</p>
+
+<p>fn:在动画完成时执行的函数，每个元素执行一次</p>
+
+<h3 id="togglespeedeasingfn">toggle([speed],[easing],[fn])</h3>
+
+<p>用于绑定两个或多个事件处理器，以响应被选元素的轮流的click事件。</p>
+
+<p>如果元素是可见的，切换为隐藏的；如果是隐藏的，切换为可见的。</p>
+
+<p>speed: 默认是0; 三种预定速度(slow, normal, fast)或者表示动画时长的毫秒数值(如：1000)</p>
+
+<p>easing:(Optional)用来指定切换效果，默认是”swing”可用参数”linear”</p>
+
+<p>fn:在动画完成时执行的函数，每个元素执行一次</p>
+
+<h3 id="slidedownspeed-easing-fn">slideDown([speed], [easing], [fn]);</h3>
+
+<p>通过高度变化(向下增大)来动态地显示所有匹配的元素，在显示完成后可选地触发一个回调函数。</p>
+
+<p>这个动画效果只调整元素的高度</p>
+
+<p>speed: 三种预定速度效果(“slow”, “normal”, “fast”)或表示动画时长的毫秒数值(如：1000)</p>
+
+<p>easing:(Optional)用来指定切换效果，默认是”swing”, 可用参数”linear”</p>
+
+<p>fn:在动画完成时执行的函数，每个元素执行一次。</p>
+
+<h3 id="slideupspeed-easing-fn">slideUp([speed, [easing], [fn]]);</h3>
+
+<p>通过高度变化(向上减少)来动态地隐藏所有匹配的元素，在隐藏完成后可选地触发一个回调函数。</p>
+
+<p>speed: 三种预定速度效果(“slow”, “normal”, “fast”)或表示动画时长的毫秒数值(如：1000)</p>
+
+<p>easing:(Optional)用来指定切换效果，默认是”swing”, 可用参数”linear”</p>
+
+<p>fn:在动画完成时执行的函数，每个元素执行一次。</p>
+
+<h3 id="slidetogglespeed-easing-fn">slideToggle([speed], [easing], [fn])</h3>
+
+<p>通过高度变化来切换所有匹配的可见性，并在切换完成后可选地触发一个回调函数。</p>
+
+<p>这个动画效果只调整元素的高度，可以使匹配的元素以“滑动”的方式隐藏或显示。</p>
+
+<p>speed: 三种预定速度效果(“slow”, “normal”, “fast”)或表示动画时长的毫秒数值(如：1000)</p>
+
+<p>easing:(Optional)用来指定切换效果，默认是”swing”, 可用参数”linear”</p>
+
+<p>fn:在动画完成时执行的函数，每个元素执行一次。</p>
+
+<h3 id="fadeinspeed-easing-fn">fadeIn([speed], [easing], [fn]);</h3>
+
+<p>通过不透明度的变化实现所有匹配元素的淡入效果，并在完成后可选地触发一个回调函数。</p>
+
+<p>speed: 三种预定速度效果(“slow”, “normal”, “fast”)或表示动画时长的毫秒数值(如：1000)</p>
+
+<p>easing:(Optional)用来指定切换效果，默认是”swing”, 可用参数”linear”</p>
+
+<p>fn:在动画完成时执行的函数，每个元素执行一次。</p>
+
+<h3 id="fadeoutspeed-easing-fn">fadeOut([speed], [easing], [fn])</h3>
+
+<p>通过不透明度的变化来实现所有匹配元素的淡出效果，并在动画完成后可选地触发一个回调函数。</p>
+
+<p>speed: 三种预定速度效果(“slow”, “normal”, “fast”)或表示动画时长的毫秒数值(如：1000)</p>
+
+<p>easing:(Optional)用来指定切换效果，默认是”swing”, 可用参数”linear”</p>
+
+<p>fn:在动画完成时执行的函数，每个元素执行一次。</p>
+
+<h3 id="fadetospeed-opacity-easing-fn">fadeTo([speed], opacity, [easing], [fn]);</h3>
+
+<p>把所有匹配元素的不透明度以渐进的方式调整到指定的不透明度。并在动画完成后可选地触发一个回调函数。</p>
+
+<p><strong>可自定义淡入淡出程度</strong></p>
+
+<p>speed: 三种预定速度效果(“slow”, “normal”, “fast”)或表示动画时长的毫秒数值(如：1000)</p>
+
+<p>easing:(Optional)用来指定切换效果，默认是”swing”, 可用参数”linear”</p>
+
+<p>fn:在动画完成时执行的函数，每个元素执行一次。</p>
+
+<h3 id="fadetogglespeedeasing-fn">fadeToggle([speed,[easing], [fn]]);</h3>
+
+<p>​	通过不透明度的变化来开关所有匹配元素的淡入和淡出效果，并在动画完成后可选地触发一个回调函数。</p>
+
+<p>speed: 三种预定速度效果(“slow”, “normal”, “fast”)或表示动画时长的毫秒数值(如：1000)</p>
+
+<p>easing:(Optional)用来指定切换效果，默认是”swing”, 可用参数”linear”</p>
+
+<p>fn:在动画完成时执行的函数，每个元素执行一次。</p>
+
+<h3 id="animateparams-speed-easing-fn">animate(params, [speed], [easing], [fn]);</h3>
+
+<p>用于创建自定义动画的函数。</p>
+
+<p>参数：</p>
+
+<p>params : 一组包含作为动画属性和终值的样式属性和及其值的集合</p>
+
+<p>speed: 三种预定速度效果(“slow”, “normal”, “fast”)或表示动画时长的毫秒数值(如：1000)</p>
+
+<p>easing:(Optional)用来指定切换效果，默认是”swing”, 可用参数”linear”</p>
+
+<p>fn:在动画完成时执行的函数，每个元素执行一次。</p>
+
+<h3 id="stopclearqueue-jumptoend">stop([clearQueue], [jumpToEnd])</h3>
+
+<p>停止所有在指定元素上正在运行的动画</p>
+
+<p><strong>queue</strong>:用来停止动画的队列名称</p>
+
+<p><strong>clearQueue</strong>:如果设置成true，则清空队列。可以立即结束动画。</p>
+
+<p><strong>jumpToEnd</strong>:如果设置成true，则完成队列。可以立即完成动画。</p>
+
+<h3 id="delayduration-queuename">delay(duration, [queueName])</h3>
+
+<p>设置一个延时来推迟执行队列中之后的项目。</p>
+
+<p><strong>duration</strong>:延时时间，单位：毫秒</p>
+
+<p><strong>queueName</strong>:队列名词，默认是Fx，动画队列。</p>
+
+<h3 id="finishqueue">finish([queue])</h3>
+
+<p>停止当前正在运行的动画，删除所有排队的动画，并完成匹配元素所有的动画。</p>
+
+<h3 id="jqueryfxoff--true----传入布尔值">jQuery.fx.off = true    (传入布尔值)</h3>
+
+<p>关闭页面上所有的动画</p>
+
+<h2 id="jquery-工具">JQuery 工具</h2>
+
+<h3 id="browserversion">$.browser.version</h3>
+
+<p>浏览器渲染引擎版本号</p>
+
+<h3 id="jqueryeachobject-callback">JQuery.each(object, [callback])</h3>
+
+<p>通用便利方法，可用于遍历对象和数组。</p>
+
+<p>不同于遍历JQuery对象的$().each()方法，此方法可用于遍历任何对象。</p>
+
+<p>回调函数拥有两个参数: 第一个为对象的成员或数组的索引，第二个为对应遍历或内容。</p>
+
+<p>如果需要退出each循环可使回调函数返回false,其它返回值将被忽略。</p>
+
+<p><strong>遍历数组，同时使用元素索引和内容</strong></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Item #"</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s2">": "</span> <span class="o">+</span> <span class="nx">n</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p><strong>遍历对象，同时使用成员名称和变量内容</strong></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="s2">"John"</span><span class="p">,</span> <span class="na">lang</span><span class="p">:</span><span class="s2">"JS"</span><span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Name:"</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s2">", Value:"</span> <span class="o">+</span> <span class="nx">n</span><span class="p">);</span>
+<span class="p">}</span> <span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="jqueryextenddeep-target-object1-objectn">JQuery.extend([deep], target, object1, [objectN])</h3>
+
+<p>用一个或对各其它对象来扩展一个对象，返回被扩展的对象。</p>
+
+<p>如果不指定target,则给jQuery命名空间本身进行扩展。</p>
+
+<p><strong>deep</strong>:如果设为true，则递归合并。</p>
+
+<p><strong>target</strong>:待修改对象。</p>
+
+<p><strong>object1</strong>:待合并到第一个对象的对象。</p>
+
+<p><strong>objectN</strong>:待合并到第一个对象的对象。</p>
+
+<h3 id="jquerygreparray-callback-invert">JQuery.grep(array, callback, [invert]);</h3>
+
+<p>使用过滤函数过滤数组元素。</p>
+
+<p>此函数至少传递两个参数:待过滤数组和过滤函数。</p>
+
+<p>过滤函数必须返回true以保留元素或false以删除元素。</p>
+
+<p>array: 待过滤数组。</p>
+
+<p>callback: 此函数将处理数组每个元素。第一个参数为当前元素，第二个参数为元素索引值。此函数需要返回一个布尔值</p>
+
+<p>invert: 如果为false,则返回数组中函数返回true的元素，否则反之；</p>
+
+<p><strong>过滤数组中小于0的元素</strong></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">.</span><span class="nx">grep</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="jquerywhendeferreds">JQuery.when(deferreds)</h3>
+
+<p>提供一种方法来执行一个或多个对象的回调函数，延迟对象通常表示异步事件。</p>
+
+<p>当延迟得到解决或者拒绝，通常的代码创建了原来的延迟，适当的回调将被调用。</p>
+
+<p>🌰</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">.</span><span class="nx">when</span><span class="p">(</span> <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="s2">"test.aspx"</span><span class="p">)</span> <span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">ajaxArgs</span><span class="p">)</span> <span class="p">{</span>
+  <span class="cm">/* ajaxArgs is [ "success", statusText, jqXHR ] */</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>如果一个参数被传递给JQuery.when, 这不是延迟，这将被视为延迟解决，并立即执行附加任何doneCallbacks。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">.</span><span class="nx">when</span><span class="p">(</span> <span class="p">{</span><span class="na">testing</span><span class="p">:</span><span class="mi">123</span><span class="p">}</span> <span class="p">).</span><span class="nx">done</span><span class="p">(</span>
+	<span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="nx">x</span><span class="p">.</span><span class="nx">testing</span><span class="p">);</span> <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<p><strong>执行函数myfunc当两个Ajax请求是成功的，如果有其它错误则执行myFailure</strong></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">.</span><span class="nx">when</span><span class="p">(</span><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="s2">"/page1.php"</span><span class="p">),</span> <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="s2">"/page2.php"</span><span class="p">))</span>
+	<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">myFunc</span><span class="p">,</span> <span class="nx">myFailure</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="jquerymakearrayobj">JQuery.makeArray(obj)</h3>
+
+<p>将类数组对象转换为数组对象</p>
+
+<h3 id="jquerymaparrobj-callback">JQuery.map(arr|obj, callback);</h3>
+
+<p>将一个数组中的元素转换到另一个数组中。</p>
+
+<p>array: 待转换数组。</p>
+
+<p><strong>callback</strong>Array:为每个数组元素调用，而且会给这个转换函数传递一个表示被转换的元素作为参数。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">.</span><span class="nx">map</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">n</span> <span class="o">+</span> <span class="mi">4</span><span class="p">;</span> 
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p><strong>原数组中大于0的元素加1，否则删除</strong></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">.</span><span class="nx">map</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">?</span> <span class="nx">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span> <span class="kc">null</span><span class="p">;</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<h3 id="jqueryinarrayvalue-array-fromindex-">JQuery.inArray(value, array, [fromIndex]) ;</h3>
+
+<p>确定第一个参数在数组中的位置，从0开始计数(如果没有找到则返回-1)。</p>
+
+<p>value: 用于在数组中查找是否存在</p>
+
+<p>array: 待处理数组</p>
+
+<p>fromIndex: 用来搜索数组队列，默认值为0</p>
+
+<p><strong>查看对应元素的位置</strong></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="s2">"Pete"</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">"John"</span><span class="p">];</span>
+<span class="nx">jQuery</span><span class="p">.</span><span class="nx">inArray</span><span class="p">(</span><span class="s2">"John"</span><span class="p">,</span> <span class="nx">arr</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="jquerytoarray">jQuery.toArray()</h3>
+
+<p>把jQuery 集合中所有DOM元素恢复成一个数组。</p>
+
+<p><strong>得到所有li的元素数组</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$('li').toArray();
+</code></pre></div></div>
+
+<h3 id="jquerymergefirst-second">jQuery.merge(first, second)</h3>
+
+<p>合并两个数组</p>
+
+<p><strong>first</strong>:第一个待处理数组，会改变其中的元素。</p>
+
+<p><strong>second</strong>:第二个待处理数组，不会改变其中的元素。</p>
+
+<p><strong>合并两个数组到第一个数组上</strong></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">.</span><span class="nx">merge</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="c1">//结果</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h3 id="jqueryuniquesortarray">jQuery.uniqueSort(array)</h3>
+
+<p>$.uniqueSort()函数通过搜索的数组对象，排序数组，并排除任何重复的节点。</p>
+
+<h3 id="jqueryparsexmldata">jQuery.parseXML(data)</h3>
+
+<p>解析一个字符串到一个XML文件。</p>
+
+<p><strong>创建一个jQuery对象使用一个XML字符串并得到标题节点的值。</strong></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">xml</span> <span class="o">=</span> <span class="s1">'&lt;rss version="2.0"&gt;&lt;channel&gt;&lt;title&gt;RSS Title&lt;/title&gt;&lt;/channel&gt;&lt;/rss&gt;'</span><span class="p">,</span> <span class="nx">xmlDoc</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">parseXML</span><span class="p">(</span><span class="nx">xml</span><span class="p">),</span> <span class="nx">$xml</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">xmlDoc</span><span class="p">),</span> <span class="nx">$title</span> <span class="o">=</span> <span class="nx">$xml</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">'title'</span><span class="p">);</span>
+<span class="nx">$</span><span class="p">(</span> <span class="s1">'$someElement'</span> <span class="p">).</span><span class="nx">append</span><span class="p">(</span> <span class="nx">$title</span><span class="p">.</span><span class="nx">text</span><span class="p">()</span> <span class="p">);</span>
+<span class="nx">$title</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span> <span class="s1">'XML Title'</span> <span class="p">);</span>
+<span class="nx">$</span><span class="p">(</span> <span class="s1">'#anotherElement'</span> <span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">$title</span><span class="p">.</span><span class="nx">text</span><span class="p">())</span>
+</code></pre></div></div>
+
+<h3 id="jquerynoop">Jquery.noop</h3>
+
+<p>一个空函数</p>
+
+<p>当你仅仅想要传递一个空函数的时候，就用他吧。这对一些插件作者很有用，当插件提供了一个可选的回调函数接口，那么如果调用的时候没有传递这个回调函数，就用jQuery.noop来代替执行。</p>
+
+<h3 id="jqueryproxycontext-name">jQuery.proxy(context, name)</h3>
+
+<p>返回一个新函数，并且这个函数始终保持了特定的作用域。</p>
+
+<h3 id="jquerycontainscontainer-contained">jQuery.contains(container, contained)</h3>
+
+<p>一个DOM节点是否包含另一个DOM节点。</p>
+
+<p>container: DOM元素作为容器，可以包含其它元素</p>
+
+<p>contained: DOM节点，可能被其它元素所包含</p>
+
+<h3 id="jquerytypeobj">jQuery.type(obj)</h3>
+
+<p>检测obj的数据类型。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jQuery.type(true) === "boolean";
+</code></pre></div></div>
+
+<p>jQuery.isEmptyObject(obj)</p>
+
+<p>用于测试是否为空对象(不包含任何属性)</p>
+
+<h3 id="jqueryisnumericvalue">jQuery.isNumeric(value)</h3>
+
+<p>确定它的参数是否是一个数字</p>
+
+<h3 id="jquerytrimstr">jQuery.trim(str)</h3>
+
+<p>去掉字符串起始和结尾的空格。</p>
+
+<h3 id="jqueryparamobj-traditional">jQuery.param(obj, [traditional]);</h3>
+
+<p>将表单元素数组或者对象序列化，是.serialize()的核心方法。</p>
+
+<p><strong>obj</strong>:数组或jQuery对象会按照name/value对进行序列化，普通对象按照key/value对进行序列化。</p>
+
+<p><strong>traditional</strong>:是否使用传统的方式浅层序列化。</p>
+
+<h3 id="jqueryerrormessage">jQuery.error(message)</h3>
+
+<p>接受一个字符串，并且直接抛出一个包含这个字符串的异常</p>
+
+<h2 id="事件对象">事件对象</h2>
+
+<h3 id="eventdata">event.data</h3>
+
+<p>当前执行的处理器被绑定的时候，包含可选的数据传递给jQuery.fn.bind</p>
+
+<p>🌰</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="s1">'a'</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="p">{</span><span class="na">index</span><span class="p">:</span><span class="nx">i</span><span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">index</span><span class="p">);</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<h3 id="eventisdefaultprevented">event.isDefaultPrevented()</h3>
+
+<p>根据事件对象中是否调用过event.preventDefault()方法来返回一个布尔值</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="s1">'a'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">isDefaultPrevented</span><span class="p">());</span>
+  <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">isDefaultPrevented</span><span class="p">());</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<h3 id="eventnamespace">event.namespace</h3>
+
+<p>当事件被触发时此属性包含指定的命名空间。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+  <span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"http://code.jquery.com/jquery-latest.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+      <span class="nt">&lt;button&gt;</span>display event.namespace<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;p&gt;&lt;/p&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s2">"p"</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s2">"test.something"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span> <span class="nx">event</span><span class="p">.</span><span class="nx">namespace</span> <span class="p">);</span>  <span class="p">});</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s2">"button"</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">"p"</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s2">"test.something"</span><span class="p">);</span>
+  <span class="p">});</span>
+    <span class="nt">&lt;/script&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+  <span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<h3 id="eventpreventdefault">event.preventDefault();</h3>
+
+<p>阻止默认事件行为的触发(阻止默认行为) 与return false同理</p>
+
+<h3 id="eventrelatedtarget">event.relatedTarget</h3>
+
+<p>在事件中涉及的其它任何DOM元素。</p>
+
+<p>指向的是除触发事件的元素外的其它元素。</p>
+
+<p>对于 mouseout 事件，它指向被进入的元素；对于 mousein 事件，它指向被离开的元素。</p>
+
+<h3 id="eventstopimmediatepropagation">event.stopImmediatePropagation()</h3>
+
+<p>阻止剩余的事件处理函数执行并且防止事件冒泡到DOM树上。</p>
+
+<p>调用函数前的所有事件都可以触发，之后的就不能触发</p>
+
+<h3 id="eventstopprogapation">event.stopProgapation()</h3>
+
+<p>防止事件冒泡到DOM树上，也就是不触发的任何前辈元素上的事件处理函数</p>
+
+<p>可用return false  效果等同</p>
+
+<h3 id="️eventtarget">▶️event.target</h3>
+
+<p>最初触发事件的DOM元素.</p>
+
+<p>通常用于比较 event.target 和 this 来确定事件是不是由于冒泡而触发的。经常用于事件冒泡时处理事件委托。</p>
+
+<h3 id="eventtimestamp">event.timeStamp</h3>
+
+<p>这个属性返回事件触发时距离1970年1月1日的毫秒数</p>
+
+<p>用于检测某个jQuery函数的性能</p>
+
+<h3 id="eventtype">event.type</h3>
+
+<p>返回事件类型</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="s1">'a'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">type</span><span class="p">);</span><span class="c1">//click</span>
+  
+<span class="p">})</span>
+</code></pre></div></div>
+
+<h3 id="eventwhich">event.which</h3>
+
+<p>针对键盘和鼠标事件，这个属性能确定你到底按的是哪个键或按钮。</p>
+
+<p>event.which 将event.keyCode 和 event.charCode 标准化了。推荐使用event.which来监视键盘输入</p>
+
+<h2 id="jquery-延迟对象">jQuery 延迟对象</h2>
+
+<h3 id="deferreddonedonecallbacks">deferred.done(doneCallbacks)</h3>
+
+<p>当延迟成功时调用一个函数或者数组函数</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">"test.php"</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span> 
+  <span class="nx">alert</span><span class="p">(</span><span class="s2">"$.get succeeded"</span><span class="p">);</span> 
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="deferredfailfailcallbacksfailcallbacks">deferred.fail(failCallbacks[,failCallbacks])</h3>
+
+<p>当延迟失败时调用一个函数或者数组函数。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">"test.php"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"$.get succeeded"</span><span class="p">);</span> <span class="p">})</span><span class="c1">//延迟成功</span>
+  <span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"$.get failed!"</span><span class="p">);</span> <span class="p">});</span><span class="c1">//延迟失败</span>
+</code></pre></div></div>
+
+<h3 id="deferredthendonefilterfailfilterprogressfilter">deferred.then(doneFilter[,failFilter][,progressFilter])</h3>
+
+<p>添加处理程序被调用时，递延对象得到解决或拒绝。</p>
+
+<p><strong>doneCallbacks</strong>: 一个函数或函数数组，当延迟成功时调用。</p>
+
+<p><strong>failCallbacks</strong>: 一个函数或函数数组，当延迟失败时调用。</p>
+
+<p><strong>一旦jQuery.get方法返回一个来自延迟的对象的jqXHR对象，我们可以附加一个成功回调使用.then方法。</strong></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">"test.php"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span>
+    <span class="kd">function</span><span class="p">(){</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"$.get succeeded"</span><span class="p">);</span> <span class="p">},</span>
+    <span class="kd">function</span><span class="p">(){</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"$.get failed!"</span><span class="p">);</span> <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="deferredpromisetypetarget">deferred.promise([type],[target])</h3>
+
+<p>返回一个Promise对象用来观察当某种类型的所有行动绑定到集合，排队与否还是已经完成</p>
+
+<h3 id="deferredalwaysalwayscallbacksalwayscallbacks">deferred.always(alwaysCallbacks,[alwaysCallbacks]);</h3>
+
+<p>当递延对象是解决或拒绝时被调用添加处理程序</p>
+
+<p><strong>不管成功与否，都会执行函数</strong></p>
+
+
+  <!-- 引入share模块 -->
+  
+  <div class="social-share-wrapper">
+    <div class="social-share"></div>
+  </div>
+
+
+<!-- share.js -->
+<script src="/assets/js/social-share.min.js"></script>
+<script>
+  socialShare('.social-share', {
+    sites: [
+      
+        'qq'
+        ,
+        
+      
+        'wechat'
+        ,
+        
+      
+        'weibo'
+        ,
+        
+      
+        'twitter'
+        ,
+        
+      
+        'facebook'
+        
+      
+    ],
+    wechatQrcodeTitle: "分享到微信朋友圈",
+    wechatQrcodeHelper: '期待在朋友圈见到这篇文章'
+  });
+</script>
+
+</div>
+
+<!-- 底部锚点 -->
+<a id="htmldown" name="htmldown"></a>
+<!-- 引入评论模块 -->
+
+
+
+    <section class="post-footer-item comment">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDI2OS8xMDgwNg=="></div>
+    </section>
+
+    <!-- 来必力City版安装代码 -->
+    <script type="text/javascript">
+       (function(d, s) {
+           var j, e = d.getElementsByTagName(s)[0];
+
+           if (typeof LivereTower === 'function') { return; }
+
+           j = d.createElement(s);
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    <!-- City版安装代码已完成 -->
+
+
+
+
+
+<!-- 引入goto模块 -->
+<div class="bounceInRight animated go">
+  <a title="顶部切换页面" class="gototop" href="#htmlup" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Top
+    </div>
+  </a>
+  <a title="底部有livere评论哦" class="gotobottom" href="#htmldown" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Foot
+    </div>
+  </a>
+</div>
+
+<!-- 引入页面底部模块 -->
+<footer id="bottom">
+  <br>
+  <span>Elin159 ©
+  
+  
+    2018
+    -
+  
+  2020
+  <br>
+  Powered by <a href="https://www.jekyll.com.cn/">Jekyll</a> | <a href="https://github.com/Elin159/HardCandy-Jekyll">Elin159</a>
+  <br>
+  粤ICP备19068010号-1
+  </span>
+</footer>
+
+
+<!-- 引用wow.js的动画效果 -->
+<script src="/assets/js/wow.js"></script>
+<script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        // offset: 600,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+</script>
+<!-- 页面刷新回到顶部 -->
+<script>
+    window.onbeforeunload = function(){
+        //刷新后页面自动回到顶部
+        document.documentElement.scrollTop = 0;  //ie下
+        document.body.scrollTop = 0;  //非ie
+    }
+</script>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

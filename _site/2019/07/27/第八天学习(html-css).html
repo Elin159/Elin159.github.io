@@ -1,0 +1,815 @@
+<!-- 博文的布局-Layout -->
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 引入head标签 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-sclable=0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="description" content="华南仔的学习笔记" />
+<meta name="keywords" content="your web keywords, another keywords" />
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/media.css">
+<link rel="stylesheet" href="/assets/css/animate.min.css">
+<link rel="stylesheet" href="/assets/css/pygments/pygments_default.css">
+<link rel="stylesheet" href="/assets/css/github-markdown.css">
+<!-- SNS-icon -->
+<script src="//at.alicdn.com/t/font_856428_y9z6nq7zf5.js"></script>
+<!-- share.css -->
+<link rel="stylesheet" href="/assets/css/share.min.css">
+<!-- font -->
+<link rel="stylesheet" href="/assets/css/font.css">
+<!-- <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico|Ubuntu|Roboto+Mono|Source+Sans+Pro" rel="stylesheet"> -->
+
+<!-- Favicon -->
+<!-- <link href="/assets/profile.jpeg" rel="shortcut icon" />
+<link href="/assets/profile.jpeg" rel="apple-touch-icon-precomposed" /> -->
+<link href="/assets/author.jpeg" rel="shortcut icon" />
+<link href="/assets/author.jpeg" rel="apple-touch-icon-precomposed" />
+<!-- Android Lolipop Theme Color -->
+<!-- <meta name="theme-color" content="#1464FB"> -->
+<title>html-css学习</title>
+<!-- 百度统计 -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- 谷歌分析 -->
+
+
+<!-- Android Lolipop Theme Color -->
+<meta name="theme-color" content=" rgb(105,33,32) ">
+</head>
+<body>
+
+<!-- 顶部锚点 -->
+<a id="htmlup" name="htmlup"></a>
+<!-- 引入博文顶部选项 -->
+
+<header id="post-header" style="background-color:rgb(105,33,32);">
+  <div class="top-center">
+      <div class="logo">
+          <a href="/" title="my awesome webtitle" style="color: white;">林校长</a>
+      </div>
+      <nav class="top-nav">
+          <ul>
+              
+                <li><a href="/" style="color: white;">首页</a></li>
+              
+                <li><a href="/tags.html" style="color: white;">标签</a></li>
+              
+                <li><a href="/timeline.html" style="color: white;">时间线</a></li>
+              
+                <li><a href="/about.html" style="color: white;">关于博主</a></li>
+              
+                <li><a href="/friendLink.html" style="color: white;">友情链接</a></li>
+              
+          </ul>
+      </nav>
+      <div id="top-boot">
+        <a href="javascript:;" id="boot1" style="display:block;" onclick="document.getElementById('boot-area').style.display='block';document.getElementById('boot1').style.display='none';document.getElementById('boot2').style.display='block';"><img src="/assets/boot_white.png" alt=""></a>
+        <a href="javascript:;" id="boot2" style="display: none;" onclick="document.getElementById('boot-area').style.display='none';document.getElementById('boot1').style.display='block';document.getElementById('boot2').style.display='none';"><img src="/assets/boot_white.png" alt=""></a>
+      </div>
+  </div>
+
+</header>
+
+
+<!-- 引入移动下拉选项 -->
+<div id="boot-area">
+    <ul>
+        
+          <a href="/"><li>首页</li></a>
+        
+          <a href="/tags.html"><li>标签</li></a>
+        
+          <a href="/timeline.html"><li>时间线</li></a>
+        
+          <a href="/about.html"><li>关于博主</li></a>
+        
+          <a href="/friendLink.html"><li>友情链接</li></a>
+        
+    </ul>
+</div>
+
+<!-- 引入博文顶部样式 -->
+<!-- 版本一 垃圾 -->
+<!-- <div class="wow fadeIn top" data-wow-duration="3.5s" >
+    <span class="wow fadeInUp" data-wow-delay="0.2s">html-css学习</span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s"></span>
+    <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;Elin159</span>
+</div> -->
+
+<!-- 版本二 可切换页面 -->
+
+<div class="post-top" style="background-color:rgb(105,33,32);">
+  <!-- 页面宽度大于800px -->
+  <div class="left-area">
+    
+      <a href="/2019/07/29/%E7%AC%AC%E4%B9%9D%E5%A4%A9%E5%AD%A6%E4%B9%A0(bootstrap%E6%A0%85%E6%A0%BC-%E8%AF%AD%E6%B3%95%E7%89%B9%E8%89%B2).html" class="btn bounceInLeft animated" onmouseover="showLeft();this.style.color='rgb(105,33,32)';" onmouseout="goneLeft();this.style.color='rgba(0,0,0,.2)';"><</a>
+      <div id="left-tab" style="display:none;"><span class="left-san"></span><span class="left-main" style="color:rgb(105,33,32);"><sapn class="main">Bootstrap</sapn></span></div>
+    
+  </div>
+  <div class="post-titlearea">
+    <span class="wow fadeInUp" data-wow-delay="0.2s">html-css学习</span>
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.4s"></span> -->
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.6s">作者&nbsp;&nbsp;|&nbsp;&nbsp;Elin159</span> -->
+  </div>
+  <div class="right-area">
+    
+      <a href="/2019/07/25/%E7%AC%AC%E4%B8%83%E5%A4%A9%E5%AD%A6%E4%B9%A0(NodeJs%E6%89%A9%E5%B1%95%E5%8A%9F%E8%83%BD).html" class="btn bounceInRight self-animated" onmouseover="showRight();this.style.color='rgb(105,33,32)';" onmouseout="goneRight();this.style.color='rgba(0,0,0,.2)';">></a>
+      <div id="right-tab" style="display:none;"><span class="right-san"></span><span class="right-main" style="color:rgb(105,33,32);"><sapn class="main">NodeJs 扩展功能</sapn></span></div>
+    
+  </div>
+
+  <!-- 页面宽度小于800px -->
+  <div class="post-changearea">
+    
+      <a href="/2019/07/29/%E7%AC%AC%E4%B9%9D%E5%A4%A9%E5%AD%A6%E4%B9%A0(bootstrap%E6%A0%85%E6%A0%BC-%E8%AF%AD%E6%B3%95%E7%89%B9%E8%89%B2).html" class="leftchange" style="border-right: 1px solid rgb(105,33,32);border-bottom: 2px solid rgb(105,33,32);"><span>上一篇<br><br>Bootstrap</span></a>
+    
+    
+      <a href="/2019/07/25/%E7%AC%AC%E4%B8%83%E5%A4%A9%E5%AD%A6%E4%B9%A0(NodeJs%E6%89%A9%E5%B1%95%E5%8A%9F%E8%83%BD).html" class="rightchange" style="border-left: 1px solid rgb(105,33,32);border-bottom: 2px solid rgb(105,33,32);"><span>下一篇<br><br>NodeJs 扩展功能</span></a>
+    
+  </div>
+</div>
+
+
+<div class="markdown-body fadeInUp animated">
+
+  
+
+  <!-- 文章内容 -->
+  <h1 id="第八天学习">第八天学习</h1>
+
+<ol>
+  <li>CSS伪类</li>
+  <li>选择器</li>
+  <li>伪元素</li>
+  <li>CSS概念</li>
+</ol>
+
+<h2 id="css伪类">CSS伪类</h2>
+
+<p>CSS伪类是添加到指定所选元素(多个) 的一个特殊的状态选择其的关键字。例如:hover 当用户的指针悬停在按钮上时，可用于更改按钮的颜色</p>
+
+<p>句法</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">selector</span><span class="o">:</span> <span class="err">伪类</span> <span class="p">{</span>
+	<span class="err">适当的值;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="active">:active</h3>
+
+<p>常用在<a> 和 <button>元件。用户按下鼠标按钮时启动</button></a></p>
+
+<h3 id="hover">:hover</h3>
+
+<p>当用户使用光标(鼠标指针)悬停在元素上时，通常会触发:hover</p>
+
+<h3 id="visited">:visited</h3>
+
+<p>表示用户已经访问过的链接。</p>
+
+<h3 id="focus">:focus</h3>
+
+<p>表示获得焦点的元素(如表单输入)。当用户点击或触摸元素或通过键盘的”tab”键选择它时会被触发</p>
+
+<h3 id="focus-within">:focus-within</h3>
+
+<p>表示一个元素获得焦点，或该元素的后代元素获得焦点,即元素自身或它的某个后代匹配:focus伪类</p>
+
+<h3 id="any-link">:any-link</h3>
+
+<p>它会匹配每一个有href属性的<code class="highlighter-rouge">&lt;a&gt;</code> <code class="highlighter-rouge">&lt;area&gt;</code>或<code class="highlighter-rouge">&lt;link&gt;</code>元素. 因此它会匹配到所有的<code class="highlighter-rouge">:link</code>或 <code class="highlighter-rouge">:visited</code></p>
+
+<h3 id="link">:link</h3>
+
+<p>用来选中元素中的链接。它将会选中所有尚未访问的链接，包括那些已经给定了其它伪类选择器的链接(:hover, :active, :visited)。为了可以正确地渲染链接元素的样式， :link伪类选择器应当放在其它伪类选择器的前面，并且遵循LVHA的先后循序，即 <code class="highlighter-rouge">:link</code> - <code class="highlighter-rouge">:visited</code> - <code class="highlighter-rouge">:hover</code> - <code class="highlighter-rouge">:active</code> 。 <code class="highlighter-rouge">:focus</code> 伪类选择器常伴随在 <code class="highlighter-rouge">:hover	</code> 伪类选择器左右，需要根据你想要实现的效果确定它们的顺序</p>
+
+<h3 id="checked">:checked</h3>
+
+<p>表示任何处于选中状态中的radio(<code class="highlighter-rouge">&lt;input type="radio"&gt;</code>,<strong>checkbox</strong>(<code class="highlighter-rouge">&lt;input type="checkbox"&gt;</code>) 或(“select”)元素中<strong>option</strong> HTML元素(“option”)</p>
+
+<h3 id="default">:default</h3>
+
+<p>表示元素中的默认表单元素。该选择器可以在<code class="highlighter-rouge">&lt;button&gt;</code>,<code class="highlighter-rouge">&lt;intpu type="checkbox"&gt;</code>,<code class="highlighter-rouge">&lt;input type="radio"&gt;</code>,以及<code class="highlighter-rouge">&lt;option&gt;</code>上使用</p>
+
+<h3 id="defined">:defined</h3>
+
+<p>表示任何已定义的元素。包括任何浏览器内置的标准元素以及已成功定义的自定义元素</p>
+
+<h3 id="disabled">:disabled</h3>
+
+<p>表示任何被禁用的元素。如果一个元素不能被激活(选择、点击或接受文本输入)或获取焦点，则该元素处于被禁用的状态。</p>
+
+<h3 id="enable">:enable</h3>
+
+<p>表示任何启用的(enabled)元素。如果一个元素能够被激活(如选择、点击或接受文本输入)或获取焦点，则该元素是启动的。</p>
+
+<h3 id="empty">:empty</h3>
+
+<p>代表没有子元素的元素。子元素之可以是元素节点或文本(包括空格)</p>
+
+<h3 id="first-child">:first-child</h3>
+
+<p>表示在一组兄弟元素中的第一个元素 (不匹配标签，面向所有标签群体)</p>
+
+<h3 id="last-child">:last-child</h3>
+
+<p>代表父元素的最后一个子元素(不匹配标签，面向所有标签群体)</p>
+
+<h3 id="first-of-type">:first-of-type</h3>
+
+<p>表示一组兄弟元素中其类型的第一个元素 (匹配标签，面向每种标签)</p>
+
+<h3 id="last-of-type">:last-of-type</h3>
+
+<p>表示了在(它父元素的)子元素列表中，最后一个给定类型的元素。(匹配标签，面向每种标签)</p>
+
+<h3 id="indeterminate">:indeterminate</h3>
+
+<p>表示状态不确定的表单元素</p>
+
+<h3 id="in-range">:in-range</h3>
+
+<p>代表一个<code class="highlighter-rouge">&lt;intpu&gt;</code>元素，其当前值处于属性min和max限定的范围之内.</p>
+
+<p>但只有在该元素指定了取值范围，并且元素处于指定范围时才有效。</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">input</span><span class="nd">:in-range</span> <span class="p">{</span>
+  <span class="nl">background-color</span><span class="p">:</span><span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.25</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"value1"</span> <span class="na">name=</span><span class="s">"value1"</span> <span class="na">type=</span><span class="s">"number"</span> <span class="na">plackholder=</span><span class="s">"1 to 10"</span> <span class="na">min=</span><span class="s">"1"</span> <span class="na">max=</span><span class="s">"10"</span> <span class="na">value=</span><span class="s">"12"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<h3 id="out-of-range">:out-of-range</h3>
+
+<p>表示一个<code class="highlighter-rouge">&lt;input&gt;</code>元素，其当前值处于属性min和max限定的范围外。</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">input</span><span class="nd">:out-of-range</span> <span class="p">{</span>
+	<span class="nl">background-color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">255</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.25</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="invalid">:invalid</h3>
+
+<p>表示任意内容未通过验证的<code class="highlighter-rouge">&lt;input&gt;</code> 或其它<code class="highlighter-rouge">&lt;form&gt;</code>元素</p>
+
+<p><strong>主要用于突出显示用户的字段错误非常有用</strong></p>
+
+<h3 id="valid">:valid</h3>
+
+<p>表示内容严重正确的<code class="highlighter-rouge">&lt;input&gt;</code>或其他<code class="highlighter-rouge">&lt;form&gt;</code>元素。这能简单地将校验字段展示为一种能让用户辨别出其输入数据的正确性的形式</p>
+
+<p><strong>对于高亮正确字段是很有用的</strong></p>
+
+<h3 id="lang">:lang()</h3>
+
+<p>基于元素语言来匹配页面元素</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;&lt;q&gt;</span>This English quote has a <span class="nt">&lt;q&gt;</span>nested<span class="nt">&lt;/q&gt;</span> quote inside.<span class="nt">&lt;/q&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">lang=</span><span class="s">"fr"</span><span class="nt">&gt;&lt;q&gt;</span>This English quote has a <span class="nt">&lt;q&gt;</span>nested<span class="nt">&lt;/q&gt;</span> quote inside.<span class="nt">&lt;/q&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">lang=</span><span class="s">"de"</span><span class="nt">&gt;&lt;q&gt;</span>This English quote has a <span class="nt">&lt;q&gt;</span>nested<span class="nt">&lt;/q&gt;</span> quote inside.<span class="nt">&lt;/q&gt;&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">:lang</span><span class="o">(</span><span class="nt">en</span><span class="o">)</span> <span class="o">&gt;</span> <span class="nt">q</span> <span class="p">{</span> <span class="nl">quotes</span><span class="p">:</span> <span class="s2">'\201C'</span> <span class="s2">'\201D'</span> <span class="s2">'\2018'</span> <span class="s2">'\2019'</span><span class="p">;</span> <span class="p">}</span>
+<span class="nd">:lang</span><span class="o">(</span><span class="nt">fr</span><span class="o">)</span> <span class="o">&gt;</span> <span class="nt">q</span> <span class="p">{</span> <span class="nl">quotes</span><span class="p">:</span> <span class="s2">'« '</span> <span class="s2">' »'</span><span class="p">;</span> <span class="p">}</span>
+<span class="nd">:lang</span><span class="o">(</span><span class="nt">de</span><span class="o">)</span> <span class="o">&gt;</span> <span class="nt">q</span> <span class="p">{</span> <span class="nl">quotes</span><span class="p">:</span> <span class="s2">'»'</span> <span class="s2">'«'</span> <span class="s2">'\2039'</span> <span class="s2">'\203A'</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>结果</p>
+
+<p><img src="/Users/elin/Library/Application Support/typora-user-images/image-20190727140222699.png" alt="image-20190727140222699" /></p>
+
+<h3 id="notx">:not(x)</h3>
+
+<p>以一个简单的以选择器X为参数的功能性标记函数。它匹配不符合参数选择器x描述的元素。X不能包含另外一个否定选择器。</p>
+
+<p>:not伪类的优先级即为它参数选择器的优先级。:not伪类不像其它伪类，它不会增加选择器的优先级</p>
+
+<h3 id="nth-childanb">:nth-child(an+b)</h3>
+
+<p>首先找到所有当前元素的兄弟元素，然后按照位置先后顺序从1开始排序，选择的结果为第(an+b)个元素的集合(n=0,1,2,3,4..)。示例</p>
+
+<ul>
+  <li>0n+3或简单的3匹配第三个元素。</li>
+  <li>1n+0或简单的n匹配每个元素。</li>
+  <li>2n+0 或简单的2n匹配位置为2，4，6，8的元素，可以使用关键字<code class="highlighter-rouge">even</code>来替换此表达式</li>
+  <li>2n+1 匹配位置为1、3、5、7…的元素。你可以使用关键字<code class="highlighter-rouge">odd</code>来替换此表达式。</li>
+  <li>3n+4 匹配位置为4、7、10、13的元素</li>
+</ul>
+
+<h3 id="nth-last-childanb">:nth-last-child(an+b)</h3>
+
+<p>从兄弟节点中从后往前匹配处于某些位置的元素</p>
+
+<h3 id="nth-last-of-typeanb">:nth-last-of-type(an+b)</h3>
+
+<p>匹配那些在它之后有<code class="highlighter-rouge">an+b-1</code>个相同类型兄弟节点的元素，其中n为正值或零值。它基本和<code class="highlighter-rouge">:nth-of-type</code>一样,只是它从结尾处反序计数</p>
+
+<h3 id="nth-of-typeanb">:nth-of-type(an+b)</h3>
+
+<p>匹配其之前具有<code class="highlighter-rouge">an+b-1</code>个相同兄弟节点的元素，其中n为正值或零值。就是这个选择器匹配那些在相同兄弟节点中的位置与模式an+b匹配的相同元素</p>
+
+<h3 id="only-child">:only-child</h3>
+
+<p>代表了属于某个父元素的唯一一个子元素。等效的选择器还可以写成<code class="highlighter-rouge">:first-child:last-child</code>或者<code class="highlighter-rouge">:nth-child(1):nth-last-child(1)</code>，前者的权重会低一点</p>
+
+<h3 id="only-of-type">:only-of-type</h3>
+
+<p>代表任意一个元素，这个元素没有其他相同类型的兄弟元素</p>
+
+<h3 id="optional">:optional</h3>
+
+<p>表示任意没有<code class="highlighter-rouge">required</code>属性的<code class="highlighter-rouge">&lt;input&gt;</code>,<code class="highlighter-rouge">&lt;select&gt;</code>或<code class="highlighter-rouge">&lt;textarea&gt;</code>元素使用它</p>
+
+<h3 id="read-only">:read-only</h3>
+
+<p>表示元素不可被用户编辑的状态</p>
+
+<h3 id="read-only-1">:read-only</h3>
+
+<p>表示元素不可被用户编辑的状态(如锁定的文本输入框)</p>
+
+<h3 id="read-write">:read-write</h3>
+
+<p>代表一个元素(例如可输入文本的input元素)可以被用户编辑。</p>
+
+<h3 id="required">:required</h3>
+
+<p>任意<code class="highlighter-rouge">&lt;input&gt;</code>元素表示任意拥有<code class="highlighter-rouge">required</code>属性的<code class="highlighter-rouge">&lt;input&gt;</code>或<code class="highlighter-rouge">&lt;textarea&gt;</code>元素使用它。它表示表单在提交之前容易的展示必填字段并且渲染其外观</p>
+
+<h3 id="root">:root</h3>
+
+<p>匹配文档树的根元素。对于HTML来说，<code class="highlighter-rouge">&lt;root&gt;</code>表示<code class="highlighter-rouge"><span class="nt">&lt;html&gt;</span></code>元素，除了优先级更高之外，与<code class="highlighter-rouge">html</code>选择器相同</p>
+
+<h2 id="选择器">选择器</h2>
+
+<h3 id="基本选择器">基本选择器</h3>
+
+<h4 id="元素选择器">元素选择器</h4>
+
+<p>元素 { 样式声明 }</p>
+
+<h4 id="类选择器">类选择器</h4>
+
+<p>.类名 { 样式声明 }</p>
+
+<p>元素[class ~= 类名] { 样式声明 }</p>
+
+<h4 id="id选择器">id选择器</h4>
+
+<p>#id属性 { 样式声明 }</p>
+
+<p>元素[id=id属性] { 样式声明 }</p>
+
+<h4 id="通配选择器">通配选择器</h4>
+
+<p><code class="highlighter-rouge">ns|*</code> - 会匹配<code class="highlighter-rouge">ns</code> 命名空间下的所有元素</p>
+
+<p><code class="highlighter-rouge">*|*</code> - 会匹配所有命名空间下的所有元素</p>
+
+<p><code class="highlighter-rouge">|*</code> - 会匹配所有没有命名空间的元素</p>
+
+<p>举个🌰</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">*[</span><span class="nt">lang</span><span class="o">^=</span><span class="nt">en</span><span class="o">]</span><span class="p">{</span> <span class="nl">color</span><span class="p">:</span><span class="no">green</span><span class="p">;</span> <span class="p">}</span>
+<span class="o">*</span><span class="nc">.warning</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span> <span class="p">}</span>
+<span class="o">*</span><span class="nf">#maincontent</span> <span class="p">{</span> <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="no">blue</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="属性选择器">属性选择器</h4>
+
+<p>通过已经存在的属性名或属性值匹配元素</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 存在title属性的&lt;a&gt; 元素 */</span>
+<span class="nt">a</span><span class="o">[</span><span class="nt">title</span><span class="o">]</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">purple</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c">/* 存在href属性并且属性值匹配 "https://example.org"的&lt;a&gt; 元素 */</span>
+<span class="nt">a</span><span class="o">[</span><span class="nt">href</span><span class="o">=</span><span class="s1">"https://example.org"</span><span class="o">]</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span><span class="no">green</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c">/* 存在href属性并且属性值包含"example"的&lt;a&gt; 元素 */</span>
+<span class="nt">a</span><span class="o">[</span><span class="nt">href</span><span class="o">*=</span><span class="s1">"example"</span><span class="o">]</span> <span class="p">{</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">2em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c">/* 存在href属性并且属性值结尾是".org"的&lt;a&gt; 元素 */</span>
+<span class="nt">a</span><span class="o">[</span><span class="nt">href</span><span class="err">$</span><span class="o">=</span><span class="s1">".org"</span><span class="o">]</span> <span class="p">{</span>
+  <span class="nl">font-style</span><span class="p">:</span> <span class="nb">italic</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">[attr]</code></p>
+
+<p>表示带有以attr命名属性的元素</p>
+
+<p><code class="highlighter-rouge">[attr=value]</code></p>
+
+<p>表示带有以attr命名的属性，且属性值为“value”的元素</p>
+
+<p><code class="highlighter-rouge">[attr~=value]</code></p>
+
+<p>表示带有以attr命名的属性的元素，并且该属性是一个以空格作为分隔的值列表，其中[至少]一个值匹配”value”。</p>
+
+<p><code class="highlighter-rouge">[attr|=value]</code></p>
+
+<p>表示带有以attr命名的属性的元素，属性值为”value”或是以”value-“为前缀开头。</p>
+
+<p><code class="highlighter-rouge">[attr^=value]</code></p>
+
+<p>表示带有以attr命名的属性的元素，属性值是以”value”开头的元素</p>
+
+<p><code class="highlighter-rouge">[attr$=value]</code></p>
+
+<p>表示带有以attr命名的属性的元素，属性值是以”value”结尾的元素</p>
+
+<p><code class="highlighter-rouge">[attr*=value]</code></p>
+
+<p>表示带有以attr命名的属性，属性值包含”value”的元素</p>
+
+<p><code class="highlighter-rouge">[attr operator value i]</code></p>
+
+<p>表示带有以attr命名的属性，且属性值匹配”value”[忽略属性值大小写]的元素。</p>
+
+<h3 id="组合选择器">组合选择器</h3>
+
+<h4 id="相邻兄弟选择器a--b">相邻兄弟选择器:<code class="highlighter-rouge">A + B</code></h4>
+
+<p>介于两个选择器之间，当第二个元素紧跟在第一个元素之后，并且两个元素都是属于同一个父元素的子元素，则第二个元素将被选中</p>
+
+<h4 id="普通兄弟选择器-a--b">普通兄弟选择器: <code class="highlighter-rouge">A ~ B</code></h4>
+
+<p>兄弟选择符，位置无须紧邻，只须同层级，<code class="highlighter-rouge">A ~ B</code>选择 <code class="highlighter-rouge">A</code> 元素之后所有同层级<code class="highlighter-rouge">B</code>元素</p>
+
+<h4 id="子选择器-a--b">子选择器: <code class="highlighter-rouge">A &gt; B</code></h4>
+
+<p>只会匹配那些作为第一个元素的直接后代(子元素)的第二元素。</p>
+
+<p>当两个元素由后代选择器相连时，它表示匹配存在的所有由A元素作为祖先元素(但不一定是父元素)的B元素，无论它(B)在DOM中跳跃多少次</p>
+
+<h4 id="后代选择器-a-b">后代选择器: <code class="highlighter-rouge">A B</code></h4>
+
+<p>只匹配那些由A作为祖先元素的所有B元素(后代元素) 后代选择器与子选择器很相似，但是后代选择器不需要匹配元素之间要有严格的父子关系</p>
+
+<h2 id="伪元素">伪元素</h2>
+
+<h3 id="after">::after</h3>
+
+<p>用来创建一个伪元素，作为已选中的最后一个子元素。通常会配合content属性来为该元素添加装饰内容。</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">a</span><span class="nd">::after</span> <span class="p">{</span>
+  <span class="nl">content</span><span class="p">:</span> <span class="s1">"⬅️"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="befor">::befor</h3>
+
+<p>创建一个伪元素，其将成为匹配选中的元素的第一个子元素。常通过<code class="highlighter-rouge">content</code>属性来为一个元素添加修饰性的内容。此元素默认为行内元素</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">a</span><span class="nd">::before</span> <span class="p">{</span>
+	<span class="nl">content</span><span class="p">:</span> <span class="s1">"💗"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="cue">::cue</h3>
+
+<p>匹配所选元素中的WebVTT提示。这可以用于VTT轨道的媒体中使用字幕和其他线索</p>
+
+<p>只有CSS一小部分属性可以与<code class="highlighter-rouge">::cue</code>伪元素一起使用</p>
+
+<h3 id="first-letter">::first-letter</h3>
+
+<p>会选中某 block-leve  element (块级元素)第一行的第一个字母，并且文字所处的行之前没有其他内容</p>
+
+<h3 id="first-line">::first-line</h3>
+
+<p>在某block-level element (块级元素)的第一行应用样式。第一行的长度取决于很多因素，包括元素宽度，文档宽度和文本的文字大小</p>
+
+<p>和其他所有的伪元素一样，::first-line 不能匹配任何真实存在的html元素</p>
+
+<h3 id="selection">::selection</h3>
+
+<p>应用于文档中用户高亮的部分(不如使用鼠标或其他选择设备选中的部分)</p>
+
+<h3 id="slotted">::slotted()</h3>
+
+<p>用于选定那些被放在HTML模版中的元素</p>
+
+<h2 id="css概念">CSS概念</h2>
+
+<h3 id="语法和语义">语法和语义</h3>
+
+<h4 id="css语法">CSS语法</h4>
+
+<p>层叠样式表 (Cascading Stylesheet 简称CSS), 其基本目标是让浏览器以指定的特性去绘制页面元素，比如颜色，定位，装饰。CSS的语法反映了这个目标，由下面两个部分构件:</p>
+
+<ul>
+  <li>属性是一个标识符，用可读的名称来表示其特性。</li>
+  <li>值则描述了浏览器引擎如何处理该特性。每个属性都包含一个有效值的集合，它有正式的语法和语义定义，被浏览器引擎实现。</li>
+</ul>
+
+<p><img src="/Users/elin/Library/Application Support/typora-user-images/image-20190727162155045.png" alt="image-20190727162155045" /></p>
+
+<h4 id="规则">@规则</h4>
+
+<p>一个at-rule 是一个CSS语句，以at符号开头，’@’,后跟一个标识符，并包括直到下一个分号的所有内容， ‘;’, 或下一个CSS块，以先到者为准</p>
+
+<p>下面是一些@规则，由它们的标识符指定，每种规则都有不同的语法:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">@charset</code> 定义样式表使用的字符集</li>
+  <li><code class="highlighter-rouge">@import</code>, 告诉CSS引擎引入一个外部样式表。</li>
+  <li><code class="highlighter-rouge">@namespace</code>, 告诉CSS引擎必须考虑XML命名空间。</li>
+  <li>嵌套@规则，是嵌套语句的子集，不仅可以作为样式表里的一个语句，也可以用在条件规则组里:
+    <ul>
+      <li><code class="highlighter-rouge">@media</code>, 如果满足媒介查询的条件则条件规则组里的规则生效</li>
+      <li><code class="highlighter-rouge">@page</code>, 描述打印文档时布局的变化</li>
+      <li><code class="highlighter-rouge">@font-face</code>, 描述将下载的外部的字体</li>
+      <li><code class="highlighter-rouge">@keyframes</code>, 描述CSS动画的中间步骤</li>
+      <li><code class="highlighter-rouge">@supports</code>, 如果满足给定条件则条件规则组里的规则生效</li>
+      <li><code class="highlighter-rouge">@document</code>, 如果文档样式表满足给定条件则条件规则组里的规则生效</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="条件规则组">条件规则组</h5>
+
+<p>一些@规则可以归为一类: <strong>条件规则组</strong>. 这些语句使用相同的语法。它们都嵌套语句或者是规则或者是@规则。</p>
+
+<p>条件规则组</p>
+
+<ul>
+  <li><code class="highlighter-rouge">@media</code>,</li>
+  <li><code class="highlighter-rouge">@supports</code>,</li>
+  <li><code class="highlighter-rouge">@document</code></li>
+</ul>
+
+<h4 id="css层叠">CSS层叠</h4>
+
+<h5 id="层叠顺序">层叠顺序</h5>
+
+<p>层叠是按 <strong><em>升序排列</em></strong> 的，这意味着来着用户自定义样式表的!important值比用户代理样式表的普通值优先级高：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>来源</th>
+      <th>重要程度</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>用户代理</td>
+      <td>普通</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>用户代理</td>
+      <td>!important</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>用户</td>
+      <td>普通</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>页面作者</td>
+      <td>普通</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>CSS动画</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>页面作者</td>
+      <td>!important</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>用户</td>
+      <td>!important</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="继承">继承</h4>
+
+<h5 id="继承属性">继承属性</h5>
+
+<p>当元素的一个<strong>继承属性</strong>没有指定值时，则取父元素的同属性的计算值。只有文档根元素取该属性的概述中给定的初始值</p>
+
+<p>举个🌰</p>
+
+<p>css</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>html：</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>This paragraph has <span class="nt">&lt;em&gt;</span>emphasized text<span class="nt">&lt;/em&gt;</span> in it.<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<p>文本“emphasized text” 就会呈现为绿色，因为em 元素继承 了p元素color 属性的值，而没有获取color属性的初始值</p>
+
+<h5 id="非继承属性">非继承属性</h5>
+
+<p>当元素的一个非继承属性没有指定时，则取属性的初始值</p>
+
+<p>非继承属性的一个典型例子就是border属性。</p>
+
+<p>又举个🌰</p>
+
+<p>css</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span> <span class="p">{</span> <span class="nl">border</span><span class="p">:</span> <span class="nb">medium</span> <span class="nb">solid</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>html</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>This paragraph has <span class="nt">&lt;em&gt;</span>emphasized text<span class="nt">&lt;/em&gt;</span> in it.<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<p>文本”emphasized text” 就没有边框，因为<code class="highlighter-rouge"> border-style</code> 属性的初始值为 <code class="highlighter-rouge">none</code></p>
+
+<p><code class="highlighter-rouge">inherit</code>关键字允许显式的声明继承性，它对继承和非继承属性都生效。</p>
+
+<p>可以使用<code class="highlighter-rouge">all</code>简写属性一次控制所有属性的继承，该属性将其值应用于所有属性</p>
+
+<h4 id="css-的简写属性">CSS 的简写属性</h4>
+
+<h5 id="定义">定义</h5>
+
+<p>简写属性是可以让你同时设置其他几个CSS属性值的CSS属性。使用简写属性，Web开发人员可以编写更简洁、更具可读性的样式表，节省时间和精力</p>
+
+<p>CSS的规范定义间歇属性的目的在于将那些关于同一主题的常见属性的定义集中在一起。比如 CSS的background 属性就是一个简写属性，它可以定义 background-color、background-image、backgrounders-repeat和 background-position 的值。类似地，最常见的字体相关的属性可以使用font的简写，盒子（box）各方向的外边距可以使用margin 这个简写。</p>
+
+<h5 id="棘手的边界情况">棘手的边界情况</h5>
+
+<ol>
+  <li>没有 指定的值会被设置为它的初始值。</li>
+  <li><strong>关键词inherit只可以应用于单独属性</strong>，如果应用于一个简写属性,则必须整体应用，而能对简写属性值的每一个部分单独应用。</li>
+  <li>简写属性不试图强制它们替代属性的值的特定顺序。但当几个属性可以设置相同值的时候，就没有那么简单了</li>
+</ol>
+
+<h4 id="优先级">优先级</h4>
+
+<ol>
+  <li>类型选择器和伪元素</li>
+  <li>类选择器，属性选择器，伪类</li>
+  <li>ID选择器</li>
+</ol>
+
+<h5 id="important-规则">!important 规则</h5>
+
+<ul>
+  <li>一定要优化考虑使用样式规则的优先级类解决问题而不是!important</li>
+  <li>只有在需要覆盖全站和外部css的特定页面中使用!important</li>
+  <li>永远不要在全站范围的css上使用!important</li>
+  <li>永远不要在你的插件中使用!important</li>
+</ul>
+
+  <!-- 引入share模块 -->
+  
+  <div class="social-share-wrapper">
+    <div class="social-share"></div>
+  </div>
+
+
+<!-- share.js -->
+<script src="/assets/js/social-share.min.js"></script>
+<script>
+  socialShare('.social-share', {
+    sites: [
+      
+        'qq'
+        ,
+        
+      
+        'wechat'
+        ,
+        
+      
+        'weibo'
+        ,
+        
+      
+        'twitter'
+        ,
+        
+      
+        'facebook'
+        
+      
+    ],
+    wechatQrcodeTitle: "分享到微信朋友圈",
+    wechatQrcodeHelper: '期待在朋友圈见到这篇文章'
+  });
+</script>
+
+</div>
+
+<!-- 底部锚点 -->
+<a id="htmldown" name="htmldown"></a>
+<!-- 引入评论模块 -->
+
+
+
+    <section class="post-footer-item comment">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDI2OS8xMDgwNg=="></div>
+    </section>
+
+    <!-- 来必力City版安装代码 -->
+    <script type="text/javascript">
+       (function(d, s) {
+           var j, e = d.getElementsByTagName(s)[0];
+
+           if (typeof LivereTower === 'function') { return; }
+
+           j = d.createElement(s);
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    <!-- City版安装代码已完成 -->
+
+
+
+
+
+<!-- 引入goto模块 -->
+<div class="bounceInRight animated go">
+  <a title="顶部切换页面" class="gototop" href="#htmlup" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Top
+    </div>
+  </a>
+  <a title="底部有livere评论哦" class="gotobottom" href="#htmldown" target="_self">
+    <div class="box" style="font-family:'ffad_matroregular';">
+        Foot
+    </div>
+  </a>
+</div>
+
+<!-- 引入页面底部模块 -->
+<footer id="bottom">
+  <br>
+  <span>Elin159 ©
+  
+  
+    2018
+    -
+  
+  2020
+  <br>
+  Powered by <a href="https://www.jekyll.com.cn/">Jekyll</a> | <a href="https://github.com/Elin159/HardCandy-Jekyll">Elin159</a>
+  <br>
+  粤ICP备19068010号-1
+  </span>
+</footer>
+
+
+<!-- 引用wow.js的动画效果 -->
+<script src="/assets/js/wow.js"></script>
+<script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        // offset: 600,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+</script>
+<!-- 页面刷新回到顶部 -->
+<script>
+    window.onbeforeunload = function(){
+        //刷新后页面自动回到顶部
+        document.documentElement.scrollTop = 0;  //ie下
+        document.body.scrollTop = 0;  //非ie
+    }
+</script>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

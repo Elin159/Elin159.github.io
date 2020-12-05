@@ -2,7 +2,7 @@
 layout: post
 title:  "javaScriptDom 学习"
 date:   2019-07-21 21:50:21 +0800
-tags: 兄弟会 javaScript
+tags: javaScript
 color: rgb(100,90,50)
 cover: 'https://images.pexels.com/photos/2194062/pexels-photo-2194062.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'
 subtitle: 'javaScriptDom linux c 学习'

@@ -5,7 +5,7 @@ date: 2019-07-29
 author: Elin159
 color: rgb(105,33,32)
 cover: 'https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260'
-tags: 兄弟会 bootstrap 前端
+tags: bootstrap 前端
 Subtitle: 'bootstrap 栅格系统 语法特色'
 ---
 

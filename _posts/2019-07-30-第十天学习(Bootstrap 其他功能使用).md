@@ -5,7 +5,7 @@ date: 2019-07-30
 author: Elin159
 color: rgb(111,99,111)
 cover: 'https://images.pexels.com/photos/2194062/pexels-photo-2194062.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260'
-tags: 兄弟会 bootstrap
+tags: bootstrap
 Subtitle: '栅格 排版 其他功能使用'
 ---
 

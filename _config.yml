@@ -14,9 +14,9 @@ nav: # 最佳体验 六个标签 且最好每个标签不超过4中文字
 
 # 博主
 author: true
-name: '兄弟会 林华南'
+name: '林校长'
 NickName: 'Elin159'
-webtitle: '兄弟会 林华南'
+webtitle: '林校长'
 bio: '小小开发攻城狮'
 about: true
 aboutyou: '默默掉头发的攻城狮'
@@ -60,9 +60,9 @@ pygmentsTheme: 'default'
 
 # 友情链接
 friends:
-  jekyll: 'https://www.jekyll.com.cn/'
-  兄弟会 赵铼: 'https://zhaolai1102.github.io/'
-  兄弟会 晋可挥: 'https://jkf1223.github.io/'
+        jekyll: 'https://www.jekyll.com.cn/'
+        #兄弟会 赵铼: 'https://zhaolai1102.github.io/'
+        #兄弟会 晋可挥: 'https://jkf1223.github.io/'
 
 # 评论 最佳体验 在disqus、livere和Gitment之间三选一
 # disqus 评论
