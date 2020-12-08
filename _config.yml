@@ -61,6 +61,7 @@ pygmentsTheme: 'default'
 # 友情链接
 friends:
         jekyll: 'https://www.jekyll.com.cn/'
+        云乐被动流量: http://yunle.net/
         #兄弟会 赵铼: 'https://zhaolai1102.github.io/'
         #兄弟会 晋可挥: 'https://jkf1223.github.io/'
 
